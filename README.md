@@ -55,15 +55,12 @@
    * id : int (primary key) tự tăng
    * productId : int (forence key) -> bảng product
    * thumbnail : string -> 500 ký tự
-6. Bảng Feedback(quản lý phản hồi) (Cho các sản phẩm)
+6. Bảng Feedback(quản lý phản hồi) (Cho các sản phẩm) (đã chỉnh lại để phải đăng nhập mới feedback đc)
    * id : int (primary key) tự tăng
    * productId : int (forence key) -> bảng product
-   * firstName : string (nvarchar) -> 30 ký tự (có thể cho thành 1 name lun cho dễ)
-   * lastName : string (nvarchar) -> 30 ký tự
-   * email : string -> 150 ký tự
-   * phone : string -> 20 ký tự
+   * userId : int (foretgn key) -> bảng User
    * note : string (nvarchar) -> độ dài tối đa 500 ký tự
-7. Quản lý đơn hàng (note cơ bản chưa hoàn chỉnh)
+7. Quản lý đơn hàng (đây chỉ là note)
    * id : int (primary key) tự tăng
    * fullname
    * email
@@ -74,9 +71,9 @@
    * Danh sách sản phẩm
      - sản phẩm 1 x số lượng x ***giá tại thời điểm mua***
      - sản phẩm 2 x số lượng x ***giá tại thời điểm mua***
-
-7a. Bảng Order
+8. Bảng Order
    * id : int (primary key) tự tăng
+   * userId : int (foretgn key) -> bảng User
    * fullname
    * email
    * phone
@@ -84,3 +81,10 @@
    * note
    * order_date: datetime -> thời điểm đặt hàng
    * status : int -> (pending, approved,...)
+   * totalMonney : float -> Tổng tiền (tuy ko cần thiết nhưng có thể thêm vào để thuận tiện truy vấn)
+9. Bảng OrderDetail (chi tiết đơn hàng)
+    * id : int (primary key) tự tăng
+    * orderId : int (foreign key) -> bảng Order
+    * productId : int (forence key) -> bảng product
+    * price : float
+    * numProductBuy : int

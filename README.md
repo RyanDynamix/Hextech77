@@ -6,6 +6,8 @@
 
 [Hướng dẫn thiết kế web](https://www.youtube.com/playlist?list=PLMPBVRu4TjAzulJw0CK1Qlxzi3cXXYEio)
 
+[Hướng dẫn sử dụng Extension Live Share (in VSCode)](https://www.youtube.com/watch?v=I7TZdfSaAhk)
+
 ## I) Phân tích dự án
 1. Frontend: (phía người dùng)
    * Trang chủ

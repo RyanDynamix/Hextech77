@@ -14,4 +14,13 @@
    * Trang thanh toán hoàn thành
    * Trang liên hệ(from điền thông tin, map,..)
 2. Admin:
-   * 
+   * Tài khoản người dùng:
+     - Quản lý role (admin, user,...)
+     - Quản lý người dùng: admin/user (phải dùng trang quản trị để tạo tk admin)
+     - Hiển thị danh sách/thêm/sửa/xóa
+     - Đăng kí tài khoản
+     - Đăng nhập(cho cả admin và user)
+   * Quản lý danh mục sản phẩm
+   * Quản lý sản phẩm
+   * Quản lý đơn hàng (Hiển thị đc danh sách đơn hàng, quản lý đc trạng thái đơn hàng)
+   * Quản lý phản hồi 

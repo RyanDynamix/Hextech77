@@ -74,6 +74,7 @@
    * Danh sách sản phẩm
      - sản phẩm 1 x số lượng x ***giá tại thời điểm mua***
      - sản phẩm 2 x số lượng x ***giá tại thời điểm mua***
+
 7a. Bảng Order
    * id : int (primary key) tự tăng
    * fullname

@@ -63,4 +63,23 @@
    * email : string -> 150 ký tự
    * phone : string -> 20 ký tự
    * note : string (nvarchar) -> độ dài tối đa 500 ký tự
-7. Quản lý đơn hàng
+7. Quản lý đơn hàng (note cơ bản chưa hoàn chỉnh)
+   * id : int (primary key) tự tăng
+   * fullname
+   * email
+   * phone
+   * address
+   * note
+   * order_date: datetime -> thời điểm đặt hàng
+   * Danh sách sản phẩm
+     - sản phẩm 1 x số lượng x ***giá tại thời điểm mua***
+     - sản phẩm 2 x số lượng x ***giá tại thời điểm mua***
+7a. Bảng Order
+   * id : int (primary key) tự tăng
+   * fullname
+   * email
+   * phone
+   * address
+   * note
+   * order_date: datetime -> thời điểm đặt hàng
+   * status : int -> (pending, approved,...)

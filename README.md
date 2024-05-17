@@ -26,7 +26,7 @@
    * Quản lý phản hồi
 
 
-## II) Phân tích database
+## II) Phân tích database (chưa đủ thuộc tính đâu, phải test để thêm)
 1. Bảng Role
    * id : int (primary key) tự tăng
    * name: string (nvarchar) _ độ dài phải lớn tầm >=50 ký tự
@@ -51,4 +51,16 @@
    * description : longtext
    * created_at : datetime -> lần đầu tạo bản ghi
    * updated_at : datetime -> lần cuối sửa bản ghi đó
-5. 
+5. Bảng quản lý galery
+   * id : int (primary key) tự tăng
+   * productId : int (forence key) -> bảng product
+   * thumbnail : string -> 500 ký tự
+6. Bảng Feedback(quản lý phản hồi) (Cho các sản phẩm)
+   * id : int (primary key) tự tăng
+   * productId : int (forence key) -> bảng product
+   * firstName : string (nvarchar) -> 30 ký tự (có thể cho thành 1 name lun cho dễ)
+   * lastName : string (nvarchar) -> 30 ký tự
+   * email : string -> 150 ký tự
+   * phone : string -> 20 ký tự
+   * note : string (nvarchar) -> độ dài tối đa 500 ký tự
+7. Quản lý đơn hàng

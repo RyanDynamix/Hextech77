@@ -47,7 +47,7 @@
    * name : string -> 100 ký tự
 4. Bảng Product(Sản phẩm)
    * id : int (primary key) tự tăng
-   * categoryId : int (forence key) tự tăng -> bảng Category
+   * categoryId : int (foreign key)  -> bảng Category
    * title : string -> 350 ký tự
    * price : float
    * discount : float
@@ -57,12 +57,12 @@
    * updated_at : datetime -> lần cuối sửa bản ghi đó
 5. Bảng quản lý galery
    * id : int (primary key) tự tăng
-   * productId : int (forence key) -> bảng product
+   * productId : int (foreign key) -> bảng product
    * thumbnail : string -> 500 ký tự
 6. Bảng Feedback(quản lý phản hồi) (Cho các sản phẩm) (đã chỉnh lại để phải đăng nhập mới feedback đc)
    * id : int (primary key) tự tăng
-   * productId : int (forence key) -> bảng product
-   * userId : int (foretgn key) -> bảng User
+   * productId : int (foreign key) -> bảng product
+   * userId : int (foreign key) -> bảng User
    * note : string (nvarchar) -> độ dài tối đa 500 ký tự
 7. Quản lý đơn hàng (đây chỉ là note)
    * id : int (primary key) tự tăng
@@ -77,7 +77,7 @@
      - sản phẩm 2 x số lượng x ***giá tại thời điểm mua***
 8. Bảng Order
    * id : int (primary key) tự tăng
-   * userId : int (foretgn key) -> bảng User
+   * userId : int (foreign key) -> bảng User
    * fullname
    * email
    * phone
@@ -89,6 +89,6 @@
 9. Bảng OrderDetail (chi tiết đơn hàng)
     * id : int (primary key) tự tăng
     * orderId : int (foreign key) -> bảng Order
-    * productId : int (forence key) -> bảng product
+    * productId : int (foreign key) -> bảng product
     * price : float
     * numProductBuy : int

@@ -17,7 +17,6 @@
     a {
         text-decoration: none;
     }
-
     .menu {
         /* background-color: #FFD400; */
         background-color: black;
@@ -71,7 +70,7 @@
     nav ul li:nth-child(3) i {
         position: absolute;
         font-size: 15px;
-        left: 430px;
+        left: 470px;
         bottom: 7px;
         color: #333;
         cursor: pointer;
@@ -85,7 +84,7 @@
         color: white;
         border: 2px solid #ddd;
         border-radius: 5px;
-        margin-left: 230px;
+        margin-left: 270px;
     }
 
     nav ul li:nth-child(4) button i {
@@ -107,7 +106,7 @@
 
     .menu-bar {
         background-color: #FFD400;
-        padding: 0 150px;
+        padding: 1px 150px;
     }
 
     .menu-bar ul {
@@ -125,8 +124,8 @@
         margin-right: 6px;
     }
 
-    .menu-bar-content>ul>li {
-        margin-bottom: -10px;
+    .menu-bar-content > ul >li {
+        margin-bottom: -17px;
         padding: 10px 17px 10px 17px;
     }
 
@@ -134,8 +133,7 @@
         background-color: rgb(206, 206, 36);
     }
 
-    .address-form,
-    .login-form {
+    .address-form, .login-form {
         position: fixed;
         width: 100vw;
         height: 100vh;
@@ -151,9 +149,14 @@
         z-index: 999;
     }
 
-    .address-form-content,
-    .login-form-content {
+    .address-form-content {
         width: 450px;
+        height: auto;
+        background-color: white;
+        border-radius: 5px;
+    }
+    .login-form-content {
+        width: 30%;
         height: auto;
         background-color: white;
         border-radius: 5px;
@@ -229,6 +232,8 @@
         top: 100%;
         padding: 12px;
         display: none;
+        z-index: 999;
+        border-radius: 10px;
     }
 
     .submenu ul {
@@ -259,23 +264,24 @@
     .login-form-content form input,
     .btn {
         width: 100%;
-        padding: 1.2rem;
-        font-size: 1.4rem;
+        font-size: 16px;
+        padding: 9px;
         border-radius: 5px;
         border: 1px solid #777;
-        margin-bottom: 1.8rem;
+        margin-bottom: 0.7rem;
     }
 
     .login-form-content form label {
         display: inline-block;
-        font-size: 1.4rem;
+        font-size: 16px;
+        font-weight: bold;
         color: #555;
         margin-bottom: 0.8rem;
     }
 
     .link {
         display: inline-block;
-        font-size: 1.4rem;
+        font-size: 16px;
         color: #256cf0;
         margin-bottom: 2rem;
         margin-left: 0.8rem;
@@ -393,19 +399,19 @@
     }
 
     .watch-all {
-        padding-top: 27px;
         color: #676767;
+        margin-left: -70px;
     }
 
     a.product-imgs img {
-        width: 80%;
+        width: 75%;
         border-radius: 5px;
         display: flex;
         margin: 0 auto;
     }
 
     .img-phone {
-        width: 22%;
+        width: 19%;
         height: auto;
         box-shadow: 0 0 5px rgb(178, 173, 173);
         margin-top: 30px;
@@ -416,12 +422,13 @@
     .img-phone h6 {
         background-color: #F1F1F1;
         color: red;
-        width: 30%;
+        width: 35%;
         padding-left: 7px;
         border-radius: 5px;
+        margin-left: -10px;
     }
 
-    .img-phone h4 {
+    .img-phone h5 {
         font-weight: bold;
         padding-left: 15px;
     }
@@ -587,7 +594,8 @@
 
     .box-quality {
         width: auto;
-        height: 210px;
+        /* height: 210px; */
+        height: auto;
         background-color: #ffffff;
         border-radius: 10px;
         box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);

@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/styleIndex.css">
+    <link rel="shortcut icon" href="./images/tao-logo-ban-hang-online.jpg">
+    <script src="https://kit.fontawesome.com/54f0cb7e4a.js" crossorigin="anonymous"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Electronic Shop</title>
+</head>
+
+<body>
+    <header>
+        <img src="./images/anh_sale.jpg" alt="ảnh đầu">
+    </header>
+
+    <div class="menu container-fluid">
+        <nav>
+            <ul>
+                <li><a href=""><img class="logo" src="./images/tao-logo-ban-hang-online.jpg" alt="logo"></a></li>
+                <li id="address-form"><a href="#">Đà Nẵng<i style="margin-left: 5px;" class="fas fa-sort-down"></i></a>
+                </li>
+                <li><input type="text" placeholder="Bạn tìm gì..."><i class="fas fa-search"></i></li>
+                <li><a href=""></a><button><i class="fas fa-shopping-cart"></i> Giỏ hàng</button></li>
+                <li><a href=""><i class="fa fa-phone" style="margin-right: -40px;"></i></a></li>
+                <li><a href="">Gọi mua hàng<br>1800 1991</a></li>
+                <li id="login-form"><a href="#"><i style="margin-right: 6px;" class="fas fa-user"></i>Tài khoản</i></a>
+                </li>
+
+                <div class="login-form">
+                    <div class="login-form-content">
+                        <h2>Đăng nhập <span id="login-close">X Đóng </span></h2>
+                        <form action="">
+                            <label for="email">Email</label><br>
+                            <input type="email" id="email" placeholder="Enter your email"> <br>
+                            <label for="password">Password</label> <br>
+                            <input type="password" id="password" placeholder="Enter your password"><br>
+                            <a href="#" class="link forgot" target="_blank">Forgot password ?</a> <br>
+                            <input type="submit" value="Login" class="btn-submit"> <br>
+                            <label for="">Don't have an account ?</label><a href="" class="link">Sign up</a> <br>
+                            <span class="line left"></span class="center"><span>Or</span><span
+                                class="line right"></span> <br>
+                            <a href="#" class="btn face">Login with Facebook</a> <br>
+                            <a href="#" class="btn google">Login with Google</a>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="address-form">
+                    <div class="address-form-content">
+                        <h2>Chọn địa chỉ nhận hàng <span id="address-close">X Đóng </span></h2>
+                        <form action="">
+                            <p>Chọn địa chỉ nhận hàng để biết chính xác thời gian giao</p>
+                            <select name="" id="">
+                                <option value="">--Chọn địa điểm--</option>
+                                <option value="DN">Đà Nẵng</option>
+                                <option value="HCM">TP.Hồ Chí Minh</option>
+                                <option value="HN">Hà Nội</option>
+                            </select>
+                            <select name="" id="">
+                                <option value="">--Chọn Quận/Huyện--</option>
+                                <option value="">Đà Nẵng</option>
+                            </select>
+                            <select name="" id="">
+                                <option value="">--Chọn phường/xã--</option>
+                                <option value="">Đà Nẵng</option>
+                            </select>
+                            <input type="text" placeholder="Số nhà, Tên đường...">
+                            <input class="sb-button" type="submit" value="XÁC NHẬN">
+                        </form>
+                    </div>
+                </div>
+            </ul>
+        </nav>
+    </div>
+
+    <section class="menu-bar">
+        <div class="container-fluid">
+            <div class="menu-bar-content">
+                <ul>
+                    <li><a href=""><i class="fas fa-mobile-alt"></i> Điện thoại</a></li>
+                    <li><a href=""><i class="fas fa-laptop"></i> Laptop</a></li>
+                    <li><a href=""><i class="fas fa-tablet"></i> Tablet</a></li>
+                    <li><a href=""><i class="fas fa-headphones-alt"></i> Phụ kiện <i style="margin-left: 5px;"
+                                class="fas fa-sort-down"></i></a>
+                        <div class="submenu">
+                            <ul>
+                                <li><a href=""> Phụ kiện A</a></li>
+                                <li><a href=""> Phụ kiện B</a></li>
+                                <li><a href=""> Phụ kiện A</a></li>
+                                <li><a href=""> Phụ kiện B</a></li>
+                                <li><a href=""> Phụ kiện A</a></li>
+                                <li><a href=""> Phụ kiện B</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href=""><i class="fas fa-stopwatch-20"></i> Smartwatch</a></li>
+                    <li><a href=""><i class="fas fa-tablet"></i> Tablet</a></li>
+                    <li><a href=""><i class="fas fa-mobile-alt"></i> Điện thoại</a></li>
+                    <li><a href="">Máy cũ giá rẻ</a></li>
+                    <li><a href="">Trả góp</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </section>
+    <div class="body1 row">
+        <div class="sale">
+            <img src="./images/sale_img.webp" alt="">
+        </div>
+        <div class="slideshow-container col-md-9">
+            <div class="mySlides1">
+                <img src="./images/638516307529322833_F-H1_800x300.webp" style="width:100%">
+            </div>
+
+            <div class="mySlides1">
+                <img src="./images/638515418005568209_H1 800X300.webp" style="width:100%">
+            </div>
+
+            <div class="mySlides1">
+                <img src="./images/638513771765602654_F-H1_800x300.webp" style="width:100%">
+            </div>
+
+            <div class="mySlides1">
+                <img src="./images/638501198735820217_F-H1_800x300.webp" style="width:100%">
+            </div>
+
+            <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
+        </div>
+        <div class="content-right col-md-3">
+            <img src="./images/right_1.webp" alt="">
+            <img src="./images/right_3.webp" alt="">
+        </div>
+
+        <!--Phone-->
+        <div class="container-fluid content">
+            <img src="./images/638502733227139543_H7- 1200x100.webp" alt="" style="margin-top: 40px; margin-bottom: 20px;">
+            <div class="row">
+                <h3 class="red-text col-md-9">ĐIỆN THOẠI NỔI BẬT NHẤT</h3>
+                <a href="#" class="col-md-3">
+                    <h4 class="watch-all">Xem tất cả <i class="fas fa-arrow-right"></i>
+                    </h4>
+                </a>
+                <div class="row">
+                    <div class="col-md-3 img-phone">
+                        <h6>Trả góp 0%</h6>
+                        <a class="product-imgs" href="#"><img src="./images/iphone-13_2_.webp" alt=""></a>
+                        <h5>iPhone 13 128GB | Chính hãng VN/A</h5>
+                        <p1>13.590.000₫</p1>
+                        <p2>18.990.000₫</p2><br>
+                        <img src="./images/Vnapy-1693370130549.webp" alt="">
+                        <img src="./images/Zalopay-1693187470025.webp" alt="">
+                        <img src="./images/Logo Muadee x Visa-1710728086318.webp" alt="">
+                        <img src="./images/Logo-1711608161110.webp" alt="">
+                        <a class="buy" href="#" style="display: flex; align-items: center;">
+                            <i class="fa fa-cart-plus"></i>
+                            <span>MUA NGAY</span>
+                        </a>
+                    </div>
+                    <div class="col-md-3 img-phone">
+                        <h6>Trả góp 0%</h6>
+                        <a class="product-imgs" href="#"><img src="./images/iphone-15-plus_1__1.webp" alt=""></a>
+                        <h5>iPhone 15 128GB | Chính hãng VN/A</h5>
+                        <p1>19.090.000₫</p1>
+                        <p2>22.990.000₫</p2><br>
+                        <img src="./images/Vnapy-1693370130549.webp" alt="">
+                        <img src="./images/Zalopay-1693187470025.webp" alt="">
+                        <img src="./images/Logo Muadee x Visa-1710728086318.webp" alt="">
+                        <img src="./images/Logo-1711608161110.webp" alt="">
+                        <a class="buy" href="#" style="display: flex; align-items: center;">
+                            <i class="fa fa-cart-plus"></i>
+                            <span>MUA NGAY</span>
+                        </a>
+                    </div>
+                    <div class="col-md-3 img-phone">
+                        <h6>Trả góp 0%</h6>
+                        <a class="product-imgs" href="#"><img src="./images/iphone-15-pro-max_3.webp" alt=""></a>
+                        <h5>iPhone 15 Pro Max 256GB | Chính hãng VN/A</h5>
+                        <p1>29.090.000₫</p1>
+                        <p2>34.990.000₫</p2><br>
+                        <img src="./images/Vnapy-1693370130549.webp" alt="">
+                        <img src="./images/Zalopay-1693187470025.webp" alt="">
+                        <img src="./images/Logo Muadee x Visa-1710728086318.webp" alt="">
+                        <img src="./images/Logo-1711608161110.webp" alt="">
+                        <a class="buy" href="#" style="display: flex; align-items: center;">
+                            <i class="fa fa-cart-plus"></i>
+                            <span>MUA NGAY</span>
+                        </a>
+                    </div>
+                    <div class="col-md-3 img-phone">
+                        <h6>Trả góp 0%</h6>
+                        <a class="product-imgs" href="#"><img src="./images/samsung-s23-ulatra_2__1.webp" alt=""></a>
+                        <h5>Samsung Galaxy S23 Ultra 256GB</h5>
+                        <p1>21.990.000₫</p1>
+                        <p2>31.990.000₫</p2><br>
+                        <img src="./images/Vnapy-1693370130549.webp" alt="">
+                        <img src="./images/Zalopay-1693187470025.webp" alt="">
+                        <img src="./images/Logo Muadee x Visa-1710728086318.webp" alt="">
+                        <img src="./images/Logo-1711608161110.webp" alt="">
+                        <a class="buy" href="#" style="display: flex; align-items: center;">
+                            <i class="fa fa-cart-plus"></i>
+                            <span>MUA NGAY</span>
+                        </a>
+                    </div>
+                    <div class="col-md-3 img-phone">
+                        <h6>Trả góp 0%</h6>
+                        <a class="product-imgs" href="#"><img src="./images/ss-s24-ultra-xam-222.webp" alt=""></a>
+                        <h5>Samsung Galaxy S24 Ultra 12GB 256GB</h5>
+                        <p1>26.490.000₫</p1>
+                        <p2>33.990.000₫</p2><br>
+                        <img src="./images/Vnapy-1693370130549.webp" alt="">
+                        <img src="./images/Zalopay-1693187470025.webp" alt="">
+                        <img src="./images/Logo Muadee x Visa-1710728086318.webp" alt="">
+                        <img src="./images/Logo-1711608161110.webp" alt="">
+                        <a class="buy" href="#" style="display: flex; align-items: center;">
+                            <i class="fa fa-cart-plus"></i>
+                            <span>MUA NGAY</span>
+                        </a>
+                    </div>
+                    <div class="col-md-3 img-phone">
+                        <h6>Trả góp 0%</h6>
+                        <a class="product-imgs" href="#"><img src="./images/dien-thoai-oppo-reno-11-f-2.webp"
+                                alt=""></a>
+                        <h5>OPPO Reno11 F 5G 8GB 256GB</h5>
+                        <p1>8.490.000₫</p1>
+                        <p2>8.990.000₫</p2><br>
+                        <img src="./images/Vnapy-1693370130549.webp" alt="">
+                        <img src="./images/Zalopay-1693187470025.webp" alt="">
+                        <img src="./images/Logo Muadee x Visa-1710728086318.webp" alt="">
+                        <img src="./images/Logo-1711608161110.webp" alt="">
+                        <a class="buy" href="#" style="display: flex; align-items: center;">
+                            <i class="fa fa-cart-plus"></i>
+                            <span>MUA NGAY</span>
+                        </a>
+                    </div>
+                    <div class="col-md-3 img-phone">
+                        <h6>Trả góp 0%</h6>
+                        <a class="product-imgs" href="#"><img src="./images/iphone-15-pro-max_4.webp" alt=""></a>
+                        <h5>iPhone 15 Pro 128GB | Chính hãng VN/A</h5>
+                        <p1>24.690.000₫</p1>
+                        <p2>28.990.000₫</p2><br>
+                        <img src="./images/Vnapy-1693370130549.webp" alt="">
+                        <img src="./images/Zalopay-1693187470025.webp" alt="">
+                        <img src="./images/Logo Muadee x Visa-1710728086318.webp" alt="">
+                        <img src="./images/Logo-1711608161110.webp" alt="">
+                        <a class="buy" href="#" style="display: flex; align-items: center;">
+                            <i class="fa fa-cart-plus"></i>
+                            <span>MUA NGAY</span>
+                        </a>
+                    </div>
+                    <div class="col-md-3 img-phone">
+                        <h6>Trả góp 0%</h6>
+                        <a class="product-imgs" href="#"><img src="./images/iphone-11.webp" alt=""></a>
+                        <h5>iPhone 11 64GB | Chính hãng VN/A</h5>
+                        <p1>8.650.000₫</p1>
+                        <p2>11.990.000₫</p2><br>
+                        <img src="./images/Vnapy-1693370130549.webp" alt="">
+                        <img src="./images/Zalopay-1693187470025.webp" alt="">
+                        <img src="./images/Logo Muadee x Visa-1710728086318.webp" alt="">
+                        <img src="./images/Logo-1711608161110.webp" alt="">
+                        <a class="buy" href="#" style="display: flex; align-items: center;">
+                            <i class="fa fa-cart-plus"></i>
+                            <span>MUA NGAY</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--LAPTOP-->
+        <div class="container-fluid content">
+            <div class="row">
+                <img src="./images/638507621982261581_Frame 2085661931.webp" style="width: 80%; margin-bottom: 20px;" alt="">
+                <h2 class="red-text col-md-9">LAPTOP BÁN CHẠY</h2>
+                <a href="#" class="col-md-3">
+                    <h4 class="watch-all">Xem tất cả <i class="fas fa-arrow-right"></i>
+                    </h4>
+                </a>
+                <div class="row">
+                    <div class="col-md-3 img-phone">
+                        <h6>Trả góp 0%</h6>
+                        <a class="product-imgs" href="#"><img
+                                src="./images/637901915720184032_macbook-air-m2-2022-den-dd.webp" alt=""></a>
+                        <h5>MacBook Air M2 13 2022 8CPU 8GPU 8GB 256GB</h5> <br>
+                        <p1>24.090.000₫</p1>
+                        <p2>27.990.000₫</p2><br>
+                        <a class="mini-icon" href="">
+                            <img src="./images/graphic-card.png" alt="" style="width: 10%; margin-top: 10px">Apple M2
+                            <br>
+                            <img src="./images/screen.png" alt="" style="width: 10%;">13.6 inch
+                            <img src="./images/cpu-tower.png" alt="" style="width: 10%;">M2 <br>
+                            <img src="./images/ram.png" alt="" style="width: 10%;">8GB <br>
+                            <img src="./images/ssd.png" alt="" style="width: 10%;">SSD 256GB
+                            <img src="./images/shopping-bag.png" alt="" style="width: 10%;">1.24 kg
+                        </a>
+                        <br>
+                        <img src="./images/Vnapy-1693370130549.webp" alt="">
+                        <img src="./images/Zalopay-1693187470025.webp" alt="">
+                        <img src="./images/Logo Muadee x Visa-1710728086318.webp" alt="">
+                        <img src="./images/Logo-1711608161110.webp" alt="">
+                        <a class="buy" href="#" style="display: flex; align-items: center;">
+                            <i class="fa fa-cart-plus"></i>
+                            <span>MUA NGAY</span>
+                        </a>
+                    </div>
+                    <div class="col-md-3 img-phone">
+                        <h6>Trả góp 0%</h6>
+                        <a class="product-imgs" href="#"><img
+                                src="./images/638276090577696669_msiI-modern-14-c7m-221vn-r7-7730u-dd.webp" alt=""></a>
+                        <h5>MSI Modern 14 C7M-220VN R5 7530U</h5> <br>
+                        <p1>9.990.000₫</p1>
+                        <p2>11.990.000₫</p2><br>
+                        <a class="mini-icon" href="">
+                            <img src="./images/graphic-card.png" alt="" style="width: 10%; margin-top: 10px">AMD Radeon
+                            Graphic <br>
+                            <img src="./images/screen.png" alt="" style="width: 10%;">14.0 inch
+                            <img src="./images/cpu-tower.png" alt="" style="width: 10%;">Ryzen 5 <br>
+                            <img src="./images/ram.png" alt="" style="width: 10%;">8GB <br>
+                            <img src="./images/ssd.png" alt="" style="width: 10%;">SSD 512GB
+                            <img src="./images/shopping-bag.png" alt="" style="width: 10%;">1.4 kg
+                        </a>
+                        <br>
+                        <img src="./images/Vnapy-1693370130549.webp" alt="">
+                        <img src="./images/Zalopay-1693187470025.webp" alt="">
+                        <img src="./images/Logo Muadee x Visa-1710728086318.webp" alt="">
+                        <img src="./images/Logo-1711608161110.webp" alt="">
+                        <a class="buy" href="#" style="display: flex; align-items: center;">
+                            <i class="fa fa-cart-plus"></i>
+                            <span>MUA NGAY</span>
+                        </a>
+                    </div>
+                    <div class="col-md-3 img-phone">
+                        <h6>Trả góp 0%</h6>
+                        <a class="product-imgs" href="#"><img src="./images/638283012469903137_hp-245-g10-bac-dd.webp"
+                                alt=""></a>
+                        <h5>HP 245 G10 R5-7520U (9H8X8PT)</h5> <br>
+                        <p1>10.790.000₫</p1>
+                        <p2>13.290.000₫</p2><br>
+                        <a class="mini-icon" href="">
+                            <img src="./images/graphic-card.png" alt="" style="width: 10%; margin-top: 10px">AMD Radeon
+                            Graphics <br>
+                            <img src="./images/screen.png" alt="" style="width: 10%;">14.0 inch
+                            <img src="./images/cpu-tower.png" alt="" style="width: 10%;">Ryzen 5 <br>
+                            <img src="./images/ram.png" alt="" style="width: 10%;">8GB (1 thanh 8GB)<br>
+                            <img src="./images/ssd.png" alt="" style="width: 10%;">SSD 256GB
+                            <img src="./images/shopping-bag.png" alt="" style="width: 10%;">1.36 kg
+                        </a>
+                        <img src="./images/Vnapy-1693370130549.webp" alt="">
+                        <img src="./images/Zalopay-1693187470025.webp" alt="">
+                        <img src="./images/Logo Muadee x Visa-1710728086318.webp" alt="">
+                        <img src="./images/Logo-1711608161110.webp" alt="">
+                        <a class="buy" href="#" style="display: flex; align-items: center;">
+                            <i class="fa fa-cart-plus"></i>
+                            <span>MUA NGAY</span>
+                        </a>
+                    </div>
+                    <div class="col-md-3 img-phone">
+                        <h6>Trả góp 0%</h6>
+                        <a class="product-imgs" href="#"><img
+                                src="./images/638175171985162982_asus-vivobook-e1404fa-nk186w-r5-7520u-den-dd-moi.webp"
+                                alt=""></a>
+                        <h5>Asus Vivobook E1404FA-NK186W R5 7520U</h5> <br>
+                        <p1>12.490.000₫</p1>
+                        <p2>14.990.000₫</p2><br>
+                        <a class="mini-icon" href="">
+                            <img src="./images/graphic-card.png" alt="" style="width: 10%; margin-top: 10px">AMD Radeon
+                            Graphics <br>
+                            <img src="./images/screen.png" alt="" style="width: 10%;">14.0 inch
+                            <img src="./images/cpu-tower.png" alt="" style="width: 10%;">Ryzen 5 <br>
+                            <img src="./images/ram.png" alt="" style="width: 10%;">16GB <br>
+                            <img src="./images/ssd.png" alt="" style="width: 10%;">SSD 512GB
+                            <img src="./images/shopping-bag.png" alt="" style="width: 10%;">1.3 kg
+                        </a>
+                        <br>
+                        <img src="./images/Vnapy-1693370130549.webp" alt="">
+                        <img src="./images/Zalopay-1693187470025.webp" alt="">
+                        <img src="./images/Logo Muadee x Visa-1710728086318.webp" alt="">
+                        <img src="./images/Logo-1711608161110.webp" alt="">
+                        <a class="buy" href="#" style="display: flex; align-items: center;">
+                            <i class="fa fa-cart-plus"></i>
+                            <span>MUA NGAY</span>
+                        </a>
+                    </div>
+                    <div class="col-md-3 img-phone">
+                        <h6>Trả góp 0%</h6>
+                        <a class="product-imgs" href="#"><img
+                                src="./images/638010984081026772_dell-inspiron-15-n3520-den-dd.webp" alt=""></a>
+                        <h5>Dell Inspiron 15 N3520 i5 1235U_N5I5011W1</h5> <br>
+                        <p1>16.490.000₫</p1>
+                        <p2>16.990.000₫</p2><br>
+                        <a class="mini-icon" href="">
+                            <img src="./images/graphic-card.png" alt="" style="width: 10%; margin-top: 10px">Intel Iris
+                            Xe Graphics <br>
+                            <img src="./images/screen.png" alt="" style="width: 10%;">15.6 inch
+                            <img src="./images/cpu-tower.png" alt="" style="width: 10%;">Core i5 <br>
+                            <img src="./images/ram.png" alt="" style="width: 10%;">16GB <br>
+                            <img src="./images/ssd.png" alt="" style="width: 10%;">SSD 512GB
+                            <img src="./images/shopping-bag.png" alt="" style="width: 10%;">1.9 kg
+                        </a>
+                        <br>
+                        <img src="./images/Vnapy-1693370130549.webp" alt="">
+                        <img src="./images/Zalopay-1693187470025.webp" alt="">
+                        <img src="./images/Logo Muadee x Visa-1710728086318.webp" alt="">
+                        <img src="./images/Logo-1711608161110.webp" alt="">
+                        <a class="buy" href="#" style="display: flex; align-items: center;">
+                            <i class="fa fa-cart-plus"></i>
+                            <span>MUA NGAY</span>
+                        </a>
+                    </div>
+                    <div class="col-md-3 img-phone">
+                        <h6>Trả góp 0%</h6>
+                        <a class="product-imgs" href="#"><img
+                                src="./images/638240754748140607_asus-tuf-gaming-fx507-xam-dd.webp" alt=""></a>
+                        <h5>Asus TUF Gaming FX507ZC4-HN095W i5 12500H</h5>
+                        <p1>22.990.000₫</p1>
+                        <p2>24.990.000₫</p2><br>
+                        <a class="mini-icon" href="">
+                            <img src="./images/graphic-card.png" alt="" style="width: 10%; margin-top: 10px">NVIDIA
+                            GeForce RTX 3050
+                            <br>
+                            <img src="./images/screen.png" alt="" style="width: 10%;">15.6 inch
+                            <img src="./images/cpu-tower.png" alt="" style="width: 10%;">Core i5 <br>
+                            <img src="./images/ram.png" alt="" style="width: 10%;">16GB (2 thanh 8GB) <br>
+                            <img src="./images/ssd.png" alt="" style="width: 10%;">SSD 512GB
+                            <img src="./images/shopping-bag.png" alt="" style="width: 10%;">2.2 kg
+                        </a>
+                        <br>
+                        <img src="./images/Vnapy-1693370130549.webp" alt="">
+                        <img src="./images/Zalopay-1693187470025.webp" alt="">
+                        <img src="./images/Logo Muadee x Visa-1710728086318.webp" alt="">
+                        <img src="./images/Logo-1711608161110.webp" alt="">
+                        <a class="buy" href="#" style="display: flex; align-items: center;">
+                            <i class="fa fa-cart-plus"></i>
+                            <span>MUA NGAY</span>
+                        </a>
+                    </div>
+                    <div class="col-md-3 img-phone">
+                        <h6>Trả góp 0%</h6>
+                        <a class="product-imgs" href="#"><img
+                                src="./images/638435905526202438_lenovo-gaming-loq-15iax-9-i5-12450hx-led-trang-dd.webp"
+                                alt=""></a>
+                        <h5>Lenovo Gaming LOQ - 15IAX9 i5 12450HX (83GS000GVN)</h5>
+                        <p1>19.490.000₫</p1>
+                        <p2>21.490.000₫</p2><br>
+                        <a class="mini-icon" href="">
+                            <img src="./images/graphic-card.png" alt="" style="width: 10%; margin-top: 10px">NVIDIA
+                            GeForce RTX 2050
+                            <br>
+                            <img src="./images/screen.png" alt="" style="width: 10%;">15.6 inch
+                            <img src="./images/cpu-tower.png" alt="" style="width: 10%;">Core i5 <br>
+                            <img src="./images/ram.png" alt="" style="width: 10%;">16GB (2 thanh 8GB) <br>
+                            <img src="./images/ssd.png" alt="" style="width: 10%;">SSD 512GB
+                            <img src="./images/shopping-bag.png" alt="" style="width: 10%;">2.38 kg
+                        </a>
+                        <br>
+                        <img src="./images/Vnapy-1693370130549.webp" alt="">
+                        <img src="./images/Zalopay-1693187470025.webp" alt="">
+                        <img src="./images/Logo Muadee x Visa-1710728086318.webp" alt="">
+                        <img src="./images/Logo-1711608161110.webp" alt="">
+                        <a class="buy" href="#" style="display: flex; align-items: center;">
+                            <i class="fa fa-cart-plus"></i>
+                            <span>MUA NGAY</span>
+                        </a>
+                    </div>
+                    <div class="col-md-3 img-phone">
+                        <h6>Trả góp 0%</h6>
+                        <a class="product-imgs" href="#"><img
+                                src="./images/638140612136202106_acer-nitro-gaming-an515-58-dd.webp" alt=""></a>
+                        <h5>Acer Nitro 5 Tiger Gaming AN515-58-52SP i5 12500H (NH.QFHSV.001)</h5>
+                        <p1>20.990.000₫</p1>
+                        <p2>29.490.000₫</p2><br>
+                        <a class="mini-icon" href="">
+                            <img src="./images/graphic-card.png" alt="" style="width: 10%; margin-top: 10px">NVIDIA
+                            GeForce RTX 3050
+                            <img src="./images/screen.png" alt="" style="width: 10%;">15.6 inch
+                            <img src="./images/cpu-tower.png" alt="" style="width: 10%;">Core i5 <br>
+                            <img src="./images/ram.png" alt="" style="width: 10%;">8GB (1 thanh 8GB)<br>
+                            <img src="./images/ssd.png" alt="" style="width: 10%;">SSD 512GB
+                            <img src="./images/shopping-bag.png" alt="" style="width: 10%;">2.5 kg
+                        </a>
+                        <br>
+                        <img src="./images/Vnapy-1693370130549.webp" alt="">
+                        <img src="./images/Zalopay-1693187470025.webp" alt="">
+                        <img src="./images/Logo Muadee x Visa-1710728086318.webp" alt="">
+                        <img src="./images/Logo-1711608161110.webp" alt="">
+                        <a class="buy" href="#" style="display: flex; align-items: center;">
+                            <i class="fa fa-cart-plus"></i>
+                            <span>MUA NGAY</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--tablet-->
+        <div class="container-fluid content">
+            <div class="row">
+                <img src="./images/638515392261073531_H5.webp" style="width: 80%; margin-bottom: 20px;" alt="">
+                <h2 class="red-text col-md-9">TABLET BÁN CHẠY</h2>
+                <a href="#" class="col-md-3">
+                    <h4 class="watch-all">Xem tất cả <i class="fas fa-arrow-right"></i>
+                    </h4>
+                </a>
+                <div class="row">
+                    <div class="col-md-3 img-phone">
+                        <h6>Trả góp 0%</h6>
+                        <a class="product-imgs" href="#"><img
+                                src="./images/638017388619197196_ipad-pro-11-m2-2022-wifi-dd.webp" alt=""></a>
+                        <h5>iPad Pro 11 2022 M2 WiFi 128GB</h5> <br>
+                        <p1>20.990.000₫</p1>
+                        <p2>23.990.000₫</p2><br>
+                        <a class="mini-icon" href="">
+                            <img src="./images/cpu-tower.png" alt="" style="width: 10%; margin-top: 10px;">Apple M2
+                            <img src="./images/screen.png" alt="" style="width: 10%;">11.0 inch <br>
+                            <img src="./images/ram.png" alt="" style="width: 10%;">8GB
+                            <img src="./images/ssd.png" alt="" style="width: 10%;">128GB
+                        </a>
+                        <br>
+                        <img src="./images/Vnapy-1693370130549.webp" alt="">
+                        <img src="./images/Zalopay-1693187470025.webp" alt="">
+                        <img src="./images/Logo Muadee x Visa-1710728086318.webp" alt="">
+                        <img src="./images/Logo-1711608161110.webp" alt="">
+                        <a class="buy" href="#" style="display: flex; align-items: center;">
+                            <i class="fa fa-cart-plus"></i>
+                            <span>MUA NGAY</span>
+                        </a>
+                    </div>
+                    <div class="col-md-3 img-phone">
+                        <h6>Trả góp 0%</h6>
+                        <a class="product-imgs" href="#"><img
+                                src="./images/638496356440408094_samsung-galaxy-tab-a9-wifi-dd-doimoi.webp" alt=""></a>
+                        <h5>Samsung Galaxy Tab A9 Wifi 128GB</h5> <br>
+                        <p1>3.790.000₫</p1>
+                        <p2>4.990.000₫</p2><br>
+                        <a class="mini-icon" href="">
+                            <img src="./images/cpu-tower.png" alt="" style="width: 10%; margin-top: 10px">Helio
+                            G99
+                            <img src="./images/screen.png" alt="" style="width: 10%;">8.7 inch <br>
+                            <img src="./images/ram.png" alt="" style="width: 10%;">8GB 
+                            <img src="./images/ssd.png" alt="" style="width: 10%;">128GB
+                        </a>
+                        <br>
+                        <img src="./images/Vnapy-1693370130549.webp" alt="">
+                        <img src="./images/Zalopay-1693187470025.webp" alt="">
+                        <img src="./images/Logo Muadee x Visa-1710728086318.webp" alt="">
+                        <img src="./images/Logo-1711608161110.webp" alt="">
+                        <a class="buy" href="#" style="display: flex; align-items: center;">
+                            <i class="fa fa-cart-plus"></i>
+                            <span>MUA NGAY</span>
+                        </a>
+                    </div>
+                    <div class="col-md-3 img-phone">
+                        <h6>Trả góp 0%</h6>
+                        <a class="product-imgs" href="#"><img
+                                src="./images/638417708263366921_masstel-tab-10-1-pro-kidzone-dd-docquyen.webp"
+                                alt=""></a>
+                        <h5>Masstel Tab 10.1 Pro Kidzone</h5> <br>
+                        <p1>2.990.000₫</p1>
+                        <p2>3.990.000₫</p2><br>
+                        <a class="mini-icon" href="">
+                            <img src="./images/cpu-tower.png" alt="" style="width: 10%; margin-top: 10px">SCT310
+                            <img src="./images/screen.png" alt="" style="width: 10%;">10.1 inch <br>
+                            <img src="./images/ram.png" alt="" style="width: 10%;">4GB
+                            <img src="./images/ssd.png" alt="" style="width: 10%;">64GB
+                        </a> <br>
+                        <img src="./images/Vnapy-1693370130549.webp" alt="">
+                        <img src="./images/Zalopay-1693187470025.webp" alt="">
+                        <img src="./images/Logo Muadee x Visa-1710728086318.webp" alt="">
+                        <img src="./images/Logo-1711608161110.webp" alt="">
+                        <a class="buy" href="#" style="display: flex; align-items: center;">
+                            <i class="fa fa-cart-plus"></i>
+                            <span>MUA NGAY</span>
+                        </a>
+                    </div>
+                    <div class="col-md-3 img-phone">
+                        <h6>Trả góp 0%</h6>
+                        <a class="product-imgs" href="#"><img
+                                src="./images/638006461102508767_may-tinh-bang-masstel-tab-10m-4g-docquyen-100ngay.webp"
+                                alt=""></a>
+                        <h5>Masstel Tab 10M 4G</h5> <br> <br>
+                        <p1>2.290.000₫</p1>
+                        <p2>3.490.000₫</p2><br>
+                        <a class="mini-icon" href="">
+                            <img src="./images/cpu-tower.png" alt="" style="width: 10%; margin-top: 10px">SCT310
+                            <img src="./images/screen.png" alt="" style="width: 10%;">10.1 inch <br>
+                            <img src="./images/ram.png" alt="" style="width: 10%;">3GB
+                            <img src="./images/ssd.png" alt="" style="width: 10%;">32GB
+                        </a>
+                        <br>
+                        <img src="./images/Vnapy-1693370130549.webp" alt="">
+                        <img src="./images/Zalopay-1693187470025.webp" alt="">
+                        <img src="./images/Logo Muadee x Visa-1710728086318.webp" alt="">
+                        <img src="./images/Logo-1711608161110.webp" alt="">
+                        <a class="buy" href="#" style="display: flex; align-items: center;">
+                            <i class="fa fa-cart-plus"></i>
+                            <span>MUA NGAY</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <div>
+            <div class="content new" style="margin-bottom: 60px;">
+                <div class="row">
+                    <div>
+                        <div class="red-text">
+                            <h1>Tin tức</h1>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="new-left">
+                            <a href="https://www.google.com.vn/">
+                                <img src="images/Apple-iPad-Pro-M4.jpg" alt="">
+                                <h3>Apple ra mắt iPad Pro M4 tuyệt đẹp và Apple Pencil Pro</h3>
+                                <p>iPad Pro mới có một bước tiến nhảy vọt với thiết kế mỏng nhẹ mới, màn hình Ultra Retina
+                                    XDR đột phá và hiệu năng M4 nhanh phi thường với năng lực AI mạnh mẽ</p>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="new-right">
+                            <a href="https://www.google.com.vn/">
+                                <div class="col-md-3" style="margin-top: 10px;">
+                                    <img src="images/chip M4.jpg" alt="">
+                                </div>
+
+                                <div class="col-md-9 truncate text-news">
+                                    <h3>Apple giới thiệu chip M4</h3>
+                                    <p>Chip M4 mang lại thiết kế đột phá và màn hình tuyệt đẹp cho iPad Pro mới, đồng thời
+                                        tạo ra một bước nhảy vọt về hiệu năng</p>
+                                </div>
+                            </a>
+                        </div>
+                        <hr style="margin-top: 0; margin-bottom: 0;">
+                        <div class="new-right" >
+                            <a href="https://www.google.com.vn/">
+                                <div class="col-md-3">
+                                    <img src="images/mac-air-m3-2024.jpg" alt="">
+                                </div>
+
+                                <div class="col-md-9 truncate text-news">
+                                    <h3>Apple ra mắt MacBook Air 13 và 15 inch mới trang bị chip M3 mạnh mẽ</h3>
+                                    <p>Chiếc máy tính xách tay phổ biến nhất thế giới nay tuyệt vời hơn bao giờ hết với hiệu
+                                        năng tốt hơn, Wi-Fi nhanh hơn và hỗ trợ tối đa hai màn hình ngoài – tất cả nằm trong
+                                        một thiết kế mỏng nhẹ ấn tượng với thời lượng pin lên đến 18 giờ</p>
+                                </div>
+                            </a>
+                        </div>
+                        <hr style="margin-top: 0; margin-bottom: 0;">
+                        <div class="new-right">
+                            <a href="https://www.google.com.vn/">
+                                <div class="col-md-3">
+                                    <img src="images/mac-air-m3-2024.jpg" alt="">
+                                </div>
+
+                                <div class="col-md-9 truncate text-news">
+                                    <h3>Apple ra mắt MacBook Air 13 và 15 inch mới trang bị chip M3 mạnh mẽ</h3>
+                                    <p>Chiếc máy tính xách tay phổ biến nhất thế giới nay tuyệt vời hơn bao giờ hết với hiệu
+                                        năng tốt hơn, Wi-Fi nhanh hơn và hỗ trợ tối đa hai màn hình ngoài – tất cả nằm trong
+                                        một thiết kế mỏng nhẹ ấn tượng với thời lượng pin lên đến 18 giờ</p>
+                                </div>
+                            </a>
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content" style="margin-bottom: 60px;">
+            <div class="background">
+
+            </div>
+            <div class="text-store">
+                <h2>HỆ THỐNG CỬA HÀNG</h2>
+                <h2>APPLE STORE CÓ HỆ THỐNG CỬA HÀNG TRÊN TOÀN VIỆT NAM</h2>
+                <p>Trải dài trên khắp Việt Nam, mang đến cuộc sống hiện đại, thông minh và chất lượng hơn tới hàng triệu
+                    người tiêu dùng Việt.</p>
+                <a href="https://www.google.com.vn/"><button class="btn1">Xem Danh Sách Cửa Hàng</button></a>
+            </div>
+        </div>
+
+        <hr class="content" style="width: 82%;">
+        <div class="content quality row">
+            <div class="col-md-3 box-quality">
+                <img src="images/like.png" alt="">
+                <h3>HÀNG HOÁ CHẤT LƯỢNG</h3>
+                <p>Tận hưởng các mặt hàng chất lượng hàng đầu với giá cả hợp lý</p>
+            </div>
+
+            <div class="col-md-3 box-quality">
+                <img src="images/cskh.png" alt="">
+                <h3>HỖ TRỢ 24/7</h3>
+                <p>Nhận hỗ trợ ngay lập tức bất cứ khi nào bạn cần</p>
+            </div>
+
+            <div class="col-md-3 box-quality">
+                <img src="images/gh.png" alt="">
+                <h3>VẬN CHUYỂN NHANH CHÓNG</h3>
+                <p>Tùy chọn giao hàng nhanh chóng và đáng tin cậy</p>
+            </div>
+
+            <div class="col-md-3 box-quality">
+                <img src="images/money.png" alt="">
+                <h3>THANH TOÁN AN TOÀN</h3>
+                <p>Nhiều phương thức thanh toán an toàn</p>
+            </div>
+        </div>
+
+        <div class="description">
+            <div>
+
+            </div>
+
+            <div class="content text-desription">
+                <h2>Chào mừng đến với Thế Giới Electronic Shop - Nơi bạn khám phá và sở hữu những sản phẩm công nghệ đỉnh cao!</h2>
+                <br>
+                <p>Bước vào Thế Giới Công Nghệ Tên Shop, bạn sẽ choáng ngợp trước thiên đường sản phẩm đa dạng và phong phú từ các thương hiệu hàng đầu thế giới. Nơi đây hội tụ đầy đủ các sản phẩm đáp ứng mọi nhu cầu của bạn, từ điện thoại thông minh, máy tính bảng, laptop đến phụ kiện công nghệ hiện đại nhất.Với niềm đam mê công nghệ và mong muốn mang đến cho khách hàng những trải nghiệm mua sắm tuyệt vời nhất, Thế Giới Công Nghệ Tên Shop không ngừng nâng cao chất lượng dịch vụ và hoàn thiện chính sách bán hàng. Chúng tôi cam kết mang đến cho bạn sự hài lòng tuyệt đối với mỗi sản phẩm và dịch vụ tại đây.
+                </p>
+                <br>
+                <p style="font-size:large;">
+                    Hãy đến với Thế Giới Công Nghệ Tên Shop và khám phá thế giới công nghệ đầy mê hoặc!
+                </p>
+            </div>
+        </div>
+
+        <div class="content contact">
+            <div class="row">
+                <div class="col-md-2">
+                    <h3>THÔNG TIN STORE</h3>
+                    <a href="https://www.google.com.vn/"></a>
+                    <a href="https://www.google.com.vn/">
+                        <p>Chúng tôi là ai</p>
+                    </a>
+                    <a href="https://www.google.com.vn/">
+                        <p>Cam kết của chúng tôi</p>
+                    </a>
+                    <a href="https://www.google.com.vn/">
+                        <p>Tin tuyển dụng</p>
+                    </a>
+                    <a href="https://www.google.com.vn/">
+                        <p>Hệ thống cửa hàng</p>
+                    </a>
+                </div>
+
+                <div class="col-sm-2">
+                    <h3>HỖ TRỢ KHÁCH HÀNG</h3>
+                    <a href="https://www.google.com.vn/">
+                        <p>Hướng dẫn đặt hàng</p>
+                    </a>
+                    <a href="https://www.google.com.vn/">
+                        <p>Phương thức thanh toán</p>
+                    </a>
+                    <a href="https://www.google.com.vn/">
+                        <p>Chính sách thành viên</p>
+                    </a>
+                    <a href="https://www.google.com.vn/">
+                        <p>Chính sách tích - tiêu điểm</p>
+                    </a>
+                </div>
+
+                <div class="col-md-2">
+                    <h3>CHÍNH SÁCH</h3>
+                    <a href="https://www.google.com.vn/">
+                        <p>Chính sách vận chuyển</p>
+                    </a>
+                    <a href="https://www.google.com.vn/">
+                        <p>Chính sách đổi trả</p>
+                    </a>
+                    <a href="https://www.google.com.vn/">
+                        <p>Điều kiện & Điều khoản</p>
+                    </a>
+                    <a href="https://www.google.com.vn/">
+                        <p>Chính sách bảo mật</p>
+                    </a>
+                </div>
+
+                <div class="col-md-2">
+                    <h3>LIÊN HỆ</h3>
+                    <p style="font-weight: bold;">Hỗ trợ tư vấn mua online:</p>
+                    <p>Hotline: 0247 308 2882</p>
+                    <p>Email: contact@gmail.com</p>
+                    <p>Giờ làm việc: 8:30 - 22:00 hằng ngày.</p>
+                    <p style="font-weight: bold;">Hỗ trợ khiếu nại và bảo hành sản phẩm:</p>
+                    <p>Hotline: 024 7300 6999</p>
+                    <p>Email: cskh@gmail.com</p>
+                    <p>Giờ làm việc: 8:30 - 22:00 hằng ngày.</p>
+
+                </div>
+
+                <div class="col-md-3">
+                    <div class="footer-section social">
+                        <h3>PHƯƠNG TIỆN TRUYỀN THÔNG</h3>
+                        <a href="https://www.google.com.vn/" target="_blank" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.google.com.vn/" target="_blank" class="social-icon">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://www.google.com.vn/" target="_blank" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.google.com.vn/" target="_blank" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.google.com.vn/" target="_blank" class="social-icon">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr style="width: 82%;">
+            <div>
+                <p>Địa chỉ: Tầng 6, số 96 Thái Hà Phường Trung Liệt, Quận Đống Đa, Thành phố Hà Nội, Việt Nam.</p>
+                <p>Người đại diện: Hoàng Thị Vân Anh</p>
+                <p>Mã số thuế: 0109749326, ngày cấp ĐKKD 29/04/2021.</p>
+                <p>Điện thoại: 024.7300.6999</p>
+                <p>Email: cskh@gmail.com</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Copyright © 2014-2024 | All Rights Reserved.</p>
+        </div>
+        <!-- </div> -->
+    </div>
+    <script src="./javascript/js/script.js"></script>
+</body>
+
+</html>

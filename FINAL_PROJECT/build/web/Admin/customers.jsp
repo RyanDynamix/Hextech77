@@ -406,14 +406,6 @@
                                         <a href="index.jsp">Trang chủ</a>
                                     </li>
                                     <li>
-                                        <a href="analytics.jsp">Phân tích</a>
-                                    </li>
-                                    
-                                    <li>
-                                        <a href="projects.jsp">Projects</a>
-                                    </li>
-                                    
-                                    <li>
                                         <a href="wallet.jsp">Ví</a>
                                     </li>
                                 </ul>
@@ -425,15 +417,8 @@
                         <li class="side-nav-item">
                             <a href="calendar.jsp" class="side-nav-link">
                                 <i class="uil-calender"></i>
-                                <span> Lịch trình </span>
-                            </a>
-                        </li>
-
-                        <li class="side-nav-item">
-                            <a href="chat.jsp" class="side-nav-link">
-                                <i class="uil-comments-alt"></i>
                                 <span class="badge bg-danger text-white float-end">Mới!</span>
-                                <span> Chat </span>
+                                <span> Lịch trình </span>
                             </a>
                         </li>
 
@@ -449,9 +434,6 @@
                                         <a href="products.jsp">Sản phẩm</a>
                                     </li>
                                     <li>
-                                        <a href="products-details.jsp">Chi tiết sản phẩm</a>
-                                    </li>
-                                    <li>
                                         <a href="orders.jsp">Đơn đặt hàng</a>
                                     </li>
                                     <li>
@@ -459,15 +441,6 @@
                                     </li>
                                     <li>
                                         <a href="customers.jsp">Khách hàng</a>
-                                    </li>
-                                    <li>
-                                        <a href="hopping-cart.jsp">Giỏ hàng</a>
-                                    </li>
-                                    <li>
-                                        <a href="checkout.jsp">Thanh toán</a>
-                                    </li>
-                                    <li>
-                                        <a href="sellers.jsp">Người bán</a>
                                     </li>
                                 </ul>
                             </div>

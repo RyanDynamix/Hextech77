@@ -357,8 +357,6 @@
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="topnav-dashboards">
                                         <a href="layouts-horizontal.jsp" class="dropdown-item">Trang chủ</a>
-                                        <a href="analytics.jsp" class="dropdown-item">Phân tích</a>
-                                        <a href="projects.jsp" class="dropdown-item">Projects</a>
                                         <a href="wallet.jsp" class="dropdown-item">Ví</a>
                                     </div>
                                 </li>
@@ -377,13 +375,9 @@
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="topnav-layouts">
                                         <a href="products.jsp" class="dropdown-item">Products</a>
-                                        <a href="products-details.jsp" class="dropdown-item">Products Details</a>
                                         <a href="orders.jsp" class="dropdown-item">Orders</a>
                                         <a href="orders-details.jsp" class="dropdown-item">Order Details</a>
                                         <a href="customers.jsp" class="dropdown-item">Customers</a>
-                                        <a href="shopping-cart.jsp" class="dropdown-item">Shopping Cart</a>
-                                        <a href="checkout.jsp" class="dropdown-item">Checkout</a>
-                                        <a href="sellers.jsp" class="dropdown-item">Sellers</a>
                                     </div>
                                 </li>
                             </ul>

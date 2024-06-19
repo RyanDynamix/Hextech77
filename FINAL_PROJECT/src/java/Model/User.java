@@ -1,18 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Model;
 
-/**
- *
- * @author hotaru
- */
 public class User {
     private int userID;
     private String fullName;
     private String email;
-    private String phone;
+    private String phoneNumber;
     private String address;
     private int roleID;
     private String password;
@@ -20,11 +12,11 @@ public class User {
     public User() {
     }
 
-    public User(int userID, String fullName, String email, String phone, String address, int roleID, String password) {
+    public User(int userID, String fullName, String email, String phoneNumber, String address, int roleID, String password) {
         this.userID = userID;
         this.fullName = fullName;
         this.email = email;
-        this.phone = phone;
+        this.phoneNumber = phoneNumber;
         this.address = address;
         this.roleID = roleID;
         this.password = password;
@@ -54,12 +46,12 @@ public class User {
         this.email = email;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getAddress() {
@@ -88,7 +80,6 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" + "userID=" + userID + ", fullName=" + fullName + ", email=" + email + ", phone=" + phone + ", address=" + address + ", roleID=" + roleID + ", password=" + password + '}';
+        return "User{" + "userID=" + userID + ", fullName=" + fullName + ", email=" + email + ", phoneNumber=" + phoneNumber + ", address=" + address + ", roleID=" + roleID + ", password=" + password + '}';
     }
-    
 }

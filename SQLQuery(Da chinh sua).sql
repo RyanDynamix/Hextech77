@@ -1,45 +1,46 @@
-﻿create database BanHangOnline
-use BanHangOnline
+﻿CREATE DATABASE BanHangOnline;
+USE BanHangOnline;
 
-create table Role (
-    roleID int primary key,
-    name nvarchar(50) not null
-)
+CREATE TABLE Role (
+    roleID int PRIMARY KEY,
+    name nvarchar(50) NOT NULL
+);
 
-create table [User] (
-    userID int primary key,
-    fullName nvarchar(100) not null,
-    email nvarchar(100) not null,
+CREATE TABLE [User] (
+    userID int PRIMARY KEY,
+    fullName nvarchar(100) NOT NULL,
+    email nvarchar(100) NOT NULL,
     phoneNumber nvarchar(20),
     address nvarchar(255),
     roleID int,
     password nvarchar(255),
-    foreign key (roleID) references Role(roleID)
-)
-
-create table Category (
-    categoryID int primary key,
-    name nvarchar(50) not null,
-	ParentCategoryID int null,
-	foreign key (ParentCategoryID) references Category(categoryID)
+    FOREIGN KEY (roleID) REFERENCES Role(roleID)
 );
 
-create table Product (
-    productID int primary key,
-    title nvarchar(100) not null,
+CREATE TABLE Category (
+    categoryID int PRIMARY KEY,
+    name nvarchar(50) NOT NULL,
+    ParentCategoryID int NULL,
+    FOREIGN KEY (ParentCategoryID) REFERENCES Category(categoryID)
+);
+
+CREATE TABLE Product (
+    productID int PRIMARY KEY,
+    title nvarchar(100) NOT NULL,
     description nvarchar(255),
-    price decimal(10, 2) not null,
+    price decimal(10, 2) NOT NULL,
     discount decimal(10, 2),
     created_at datetime,
     updated_at datetime,
     categoryid int,
     thumbnail nvarchar(255),
-    foreign key (categoryID) references Category(categoryID)
+    quantity int, 
+    FOREIGN KEY (categoryID) REFERENCES Category(categoryID)
 );
 
-create table [Order] (
-    orderID int primary key,
-    totalMoney decimal(10, 2) not null,
+CREATE TABLE [Order] (
+    orderID int PRIMARY KEY,
+    totalMoney decimal(10, 2) NOT NULL,
     status nvarchar(50),
     order_date datetime,
     note nvarchar(255),
@@ -48,45 +49,43 @@ create table [Order] (
     email nvarchar(100),
     userid int,
     fullName nvarchar(100),
-    foreign key (userID) references [User](userID)
+    FOREIGN KEY (userID) REFERENCES [User](userID)
 );
 
-create table orderDetail (
-    orderdetailID int primary key,
+CREATE TABLE orderDetail (
+    orderdetailID int PRIMARY KEY,
     productID int,
     orderID int,
-    numProductbuy int not null,
-    price decimal(10, 2) not null,
-    foreign key (productID) references Product(productID),
-    foreign key (orderID) references [Order](orderID)
+    numProductbuy int NOT NULL,
+    price decimal(10, 2) NOT NULL,
+    FOREIGN KEY (productID) REFERENCES Product(productID),
+    FOREIGN KEY (orderID) REFERENCES [Order](orderID)
 );
 
-create table Feedback (
-    id int primary key,
+CREATE TABLE Feedback (
+    id int PRIMARY KEY,
     productID int,
     userID int,
     note nvarchar(255),
-    foreign key (productID) references Product(productID),
-    foreign key (userID) references [User](userID)
-);
-create table Galleries (
-    galleryID int primary key,
-    productID int,
-    thumbnail nvarchar(255),
-    foreign key (productID) references product(productID)
+    FOREIGN KEY (productID) REFERENCES Product(productID),
+    FOREIGN KEY (userID) REFERENCES [User](userID)
 );
 
--- Thêm dữ liệu mẫu vào bảng Role
+CREATE TABLE Galleries (
+    galleryID int PRIMARY KEY,
+    productID int,
+    thumbnail nvarchar(255),
+    FOREIGN KEY (productID) REFERENCES Product(productID)
+);
+
 INSERT INTO Role (roleID, name)
 VALUES (1, 'Admin'),
        (2, 'User');
 
--- Thêm dữ liệu mẫu vào bảng User
 INSERT INTO [User] (userID, fullName, email, phoneNumber, address, roleID, password)
-VALUES (1, 'Admin User', 'admin@example.com', '123456789', '123 Admin Street', 1, 'adminpassword'),
-       (2, 'Regular User', 'user@example.com', '987654321', '456 User Avenue', 2, 'userpassword');
+VALUES (1, 'Admin', 'admin@example.com', '123456789', '123 Admin Street', 1, 'admin123'),
+       (2, 'User', 'user@example.com', '987654321', '456 User Avenue', 2, 'user123');
 
--- Thêm dữ liệu mẫu vào bảng Category
 INSERT INTO Category (categoryID, name, ParentCategoryID)
 VALUES 
 (1, 'Điện thoại', NULL),
@@ -101,27 +100,25 @@ VALUES
 (10, 'Lenovo', 8),
 (11, 'Dell', 8);
 
--- Thêm dữ liệu mẫu vào bảng Product
-INSERT INTO Product (productID, title, description, price, discount, created_at, updated_at, categoryID, thumbnail)
+
+INSERT INTO Product (productID, title, description, price, discount, created_at, updated_at, categoryID, thumbnail, quantity)
 VALUES 
 -- Điện thoại
-(1, 'iPhone 8 Black', 'Apple iPhone 8 64GB Black', 799.99, 0, '2024-05-30', '2024-05-30', 4, 'iphone8_black.jpg'),
-(2, 'Galaxy S20 Ultra', 'Samsung Galaxy S20 Ultra 128GB', 1099.99, 0, '2024-05-30', '2024-05-30', 5, 'galaxy_s20_ultra.jpg'),
-(3, 'iPhone 13 Pro Max', 'Apple iPhone 13 Pro Max 256GB', 1199.99, 0, '2024-06-01', '2024-06-01', 6, 'iphone13_pro_max.jpg'),
-(4, 'Samsung Galaxy S21', 'Samsung Galaxy S21 128GB', 799.99, 0, '2024-06-01', '2024-06-01', 7, 'galaxy_s21.jpg'),
+(1, 'iPhone 8 Black', 'Apple iPhone 8 64GB Black', 799.99, 0, '2024-05-30', '2024-05-30', 4, 'iphone8_black.jpg', 50),
+(2, 'Galaxy S20 Ultra', 'Samsung Galaxy S20 Ultra 128GB', 1099.99, 0, '2024-05-30', '2024-05-30', 5, 'galaxy_s20_ultra.jpg', 30),
+(3, 'iPhone 13 Pro Max', 'Apple iPhone 13 Pro Max 256GB', 1199.99, 0, '2024-06-01', '2024-06-01', 6, 'iphone13_pro_max.jpg', 20),
+(4, 'Samsung Galaxy S21', 'Samsung Galaxy S21 128GB', 799.99, 0, '2024-06-01', '2024-06-01', 7, 'galaxy_s21.jpg', 25),
 -- Laptop
-(5, 'Asus ZenBook 14', 'Asus ZenBook 14 UX425 512GB SSD', 999.99, 0, '2024-06-01', '2024-06-01', 9, 'asus_zenbook_14.jpg'),
-(6, 'Asus ROG Strix G15', 'Asus ROG Strix G15 Gaming Laptop', 1499.99, 0, '2024-06-01', '2024-06-01', 9, 'asus_rog_strix_g15.jpg'),
-(7, 'Lenovo ThinkPad X1 Carbon', 'Lenovo ThinkPad X1 Carbon Gen 9', 1299.99, 0, '2024-06-01', '2024-06-01', 10, 'lenovo_thinkpad_x1_carbon.jpg'),
-(8, 'Lenovo Yoga 7i', 'Lenovo Yoga 7i 14" 2-in-1 Laptop', 899.99, 0, '2024-06-01', '2024-06-01', 10, 'lenovo_yoga_7i.jpg'),
-(9, 'Dell XPS 13', 'Dell XPS 13 9310 512GB SSD', 1399.99, 0, '2024-06-01', '2024-06-01', 11, 'dell_xps_13.jpg'),
-(10, 'Dell Inspiron 15', 'Dell Inspiron 15 5502 256GB SSD', 749.99, 0, '2024-06-01', '2024-06-01', 11, 'dell_inspiron_15.jpg');
+(5, 'Asus ZenBook 14', 'Asus ZenBook 14 UX425 512GB SSD', 999.99, 0, '2024-06-01', '2024-06-01', 9, 'asus_zenbook_14.jpg', 15),
+(6, 'Asus ROG Strix G15', 'Asus ROG Strix G15 Gaming Laptop', 1499.99, 0, '2024-06-01', '2024-06-01', 9, 'asus_rog_strix_g15.jpg', 10),
+(7, 'Lenovo ThinkPad X1 Carbon', 'Lenovo ThinkPad X1 Carbon Gen 9', 1299.99, 0, '2024-06-01', '2024-06-01', 10, 'lenovo_thinkpad_x1_carbon.jpg', 5),
+(8, 'Lenovo Yoga 7i', 'Lenovo Yoga 7i 14" 2-in-1 Laptop', 899.99, 0, '2024-06-01', '2024-06-01', 10, 'lenovo_yoga_7i.jpg', 8),
+(9, 'Dell XPS 13', 'Dell XPS 13 9310 512GB SSD', 1399.99, 0, '2024-06-01', '2024-06-01', 11, 'dell_xps_13.jpg', 12),
+(10, 'Dell Inspiron 15', 'Dell Inspiron 15 5502 256GB SSD', 749.99, 0, '2024-06-01', '2024-06-01', 11, 'dell_inspiron_15.jpg', 20);
 
--- Thêm dữ liệu mẫu vào bảng [Order]
 INSERT INTO [Order] (orderID, totalMoney, status, order_date, note, address, phone, email, userID, fullName)
 VALUES (1, 1899.98, 'Đã thanh toán', '2024-05-30', 'Giao hàng tận nhà', '123 User Street', '0987654321', 'user@example.com', 2, 'Regular User');
 
--- Thêm dữ liệu mẫu vào bảng orderDetail
 INSERT INTO orderDetail (orderdetailID, productID, orderID, numProductbuy, price)
 VALUES 
 (1, 1, 1, 1, 799.99),
@@ -135,11 +132,9 @@ VALUES
 (9, 9, 1, 1, 1399.99),
 (10, 10, 1, 1, 749.99);
 
--- Thêm dữ liệu mẫu vào bảng Feedback
 INSERT INTO Feedback (id, productID, userID, note)
 VALUES (1, 1, 2, 'Sản phẩm tuyệt vời!');
 
--- Thêm dữ liệu mẫu vào bảng Galleries
 INSERT INTO Galleries (galleryID, productID, thumbnail)
 VALUES 
 (1, 1, 'iphone8_black.jpg'),
@@ -152,8 +147,6 @@ VALUES
 (8, 8, 'lenovo_yoga_7i.jpg'),
 (9, 9, 'dell_xps_13.jpg'),
 (10, 10, 'dell_inspiron_15.jpg');
-
-
 
 /* 
 SELECT * FROM Product;
@@ -220,4 +213,55 @@ SELECT u.userID, u.fullName, u.email, u.phoneNumber, u.address, r.name AS roleNa
 FROM [User] u
 INNER JOIN Role r ON u.roleID = r.roleID;
 */
+
+--Tong doanh thu theo tung san pham
+SELECT 
+    p.productID, 
+    p.title, 
+    SUM(od.price * od.numProductbuy) AS TotalRevenue
+FROM orderDetail od
+INNER JOIN Product p ON od.productID = p.productID
+GROUP BY p.productID, p.title
+ORDER BY TotalRevenue DESC;
+
+--Don dat hang
+SELECT 
+    o.orderID AS 'Order ID', 
+    o.order_date AS 'Date',
+    o.status AS 'Payment Status',  
+    o.totalMoney as Total, 
+	o.phone as 'Số Điện Thoại',
+    o.note as 'Ghi chú' 
+    /*
+	o.address as 'Địa Chỉ', 
+    o.email as Email, 
+    u.fullName as 'Họ và tên' 
+	*/
+FROM [Order] o
+INNER JOIN [User] u ON o.userID = u.userID
+ORDER BY o.order_date DESC;
+
+---San pham
+SELECT 
+    p.productID as ProductID,
+    p.title as Product,
+	c.name AS Category,
+    p.description as Description,
+    p.price as Price,
+	p.quantity as Quantity,
+	o.status,
+    p.created_at,
+    p.updated_at,
+    p.thumbnail
+FROM Product p
+LEFT JOIN Category c ON p.categoryID = c.categoryID
+LEFT JOIN orderDetail od on p.productID = od.productID
+LEFT JOIN [Order] o on o.orderID = od.orderID
+GROUP BY p.productID, p.title, c.name, p.description, p.price,p.quantity, o.status, p.created_at, p.updated_at, p.thumbnail
+ORDER BY p.created_at DESC;
+
+---
+alter table Product
+add quantity int;
+
 

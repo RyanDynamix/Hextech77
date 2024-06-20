@@ -298,6 +298,10 @@ footer a {
         /* tắt hiển thị cho phần của laptop */
     }
 
+	.quenMK {
+		margin-top: 5px;
+	}
+
     /* CSS for the container */
     .login-mobile {
         display: flex;
@@ -316,11 +320,11 @@ footer a {
         background-color: #fff;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         border-radius: 8px;
-        text-align: center;
+        
     }
 
     button {
-       margin-top: 12px; 
+       margin-top: 12px;
     }
 
     .register-form h1, .login-form h1 {
@@ -341,8 +345,8 @@ footer a {
         line-height: 40px;
         margin: 0 5px;
         font-size: 20px;
-        color: #fff;
-        background-color: #333;
+        color: #333;
+        background-color: #fff;
         border-radius: 50%;
     }
 
@@ -352,14 +356,14 @@ footer a {
     .login-form button {
         width: calc(100% - 20px);
         padding: 10px;
-        margin-bottom: 10px;
+        margin-bottom: 0px;
         border: 1px solid #ccc;
         border-radius: 4px;
     }
 
     .register-form button,
     .login-form button {
-        background-color: #333;
+        background-color: #fd4a2b;
         color: #fff;
         border: none;
         cursor: pointer;

@@ -1250,54 +1250,38 @@
                                             <div class="tab-pane show active" id="basic-form-preview">
                                                 <form>
                                                     <div class="mb-3">
-                                                        <label class="form-label">Product name</label>
-                                                        <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Product name">
+                                                        <label class="form-label">Name</label>
+                                                        <input type="text" class="form-control" placeholder="Customer Name">
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label class="form-label">Description</label>
-                                                        <input type="text" class="form-control" placeholder="Description">
+                                                        <label class="form-label">Phone</label>
+                                                        <input type="text" class="form-control" placeholder="Phone">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Email</label>
+                                                        <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Email">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Address</label>
+                                                        <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Address">
                                                         <small id="emailHelp" class="form-text text-muted">*Optional</small>
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label class="form-label">Price</label>
-                                                        <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Price">
+                                                        <label class="form-label">Điện thoại</label>
+                                                        <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Điện thoại">
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label class="form-label">Discount</label>
-                                                        <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Discount">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label class="form-label">Category</label>
-                                                        <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Category">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label class="form-label">Image thumbnail</label>
-                                                        <form action="/" method="post" class="dropzone" id="myAwesomeDropzone" data-plugin="dropzone" data-previews-container="#file-previews"
-                                                            data-upload-preview-template="#uploadPreviewTemplate">
-                                                            
-                                                        </form>
-                                                    </div>
-                                                    <form action="/" method="post" class="dropzone" id="myAwesomeDropzone" data-plugin="dropzone" data-previews-container="#file-previews"
-                                                    data-upload-preview-template="#uploadPreviewTemplate">
-                                                        <div class="fallback">
-                                                            <input name="file" type="file" multiple />
+                                                        <label class="form-label">Tình trạng</label>
+                                                        <div class="form-floating">
+                                                            <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                                                                <option selected>Select</option>
+                                                                <option value="1"> Active</option>
+                                                                <option value="2"> Blocked</option>
+                                                            </select>
+                                                            <label for="floatingSelect">Choose status</label>
                                                         </div>
-
-                                                        <div class="dz-message needsclick">
-                                                            <i class="h1 text-muted ri-upload-cloud-2-line"></i>
-                                                            <h3>Drop files here or click to upload.</h3>
-                                                            <span class="text-muted font-13">(This is just a demo dropzone. Selected files are
-                                                                <strong>not</strong> actually uploaded.)</span>
-                                                        </div>
-                                                    </form>
-                                                    <div class="dropzone-previews mt-3" id="file-previews"></div>   
-                                                    <!-- <div class=" mb-3">
-                                                        <div class="form-check">
-                                                            <input type="checkbox" class="form-check-input" id="checkmeout0">
-                                                            <label class="form-check-label" for="checkmeout0">Check me out !</label>
-                                                        </div>
-                                                    </div> -->
-                                                    <button type="submit" class="btn btn-primary">Add product</button>
+                                                    </div>
+                                                    <button type="submit" class="btn btn-primary">Edit</button>
                                                     <br>
                                                     <br>
                                                 </form>                                      

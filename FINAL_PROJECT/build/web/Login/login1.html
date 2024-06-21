@@ -1,4 +1,3 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login page</title>
-    <link rel="stylesheet" href="./Login/css/cssLogin.css">
+    <link rel="stylesheet" href="./css/cssLogin.css">
+    <script src="https://kit.fontawesome.com/54f0cb7e4a.js" crossorigin="anonymous"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
     </style>
-    <script src="https://kit.fontawesome.com/3a767ca8aa.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -18,45 +17,46 @@
     <div class="container" id="container">
         <div class="form-container sign-up-container">
             <form action="#">
-                <h1>Create Account</h1>
+                <h1>Đăng ký</h1>
                 <div class="social-container">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
                     <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                 </div>
-                <span>or use your email for registration</span>
-                <input type="text" placeholder="Name" />
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Password" />
-                <button>Sign Up</button>
+                <span>hoặc sử dụng email của bạn để đăng ký</span>
+                <input type="text" placeholder="Tên đăng nhập" required/>
+                <input type="password" placeholder="Mật khẩu" required/>
+                <input type="tel" placeholder="Số điện thoại" pattern="[0-9]{10}" title="Số điện thoại phải có 10 chữ số" required/>
+                <input type="email" placeholder="Email">
+                <button style="cursor: pointer;">Đăng ký</button>
             </form>
         </div>
         <div class="form-container sign-in-container">
-            <form action="v2" method="post">
-                <h1>Sign in</h1>
+            <form action="#">
+                <h1>Đăng nhập</h1>
                 <div class="social-container">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
                     <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                 </div>
-                <span>or use your account</span>
-                <input type="email" placeholder="Email" name="email"/>
-                <input type="password" placeholder="Password" name="password"/>
-                <a href="#">Forgot your password?</a>
-                <button type="submit" name="action" value="login">Sign In</button>
+                <span>Sử dụng tài khoản của bạn</span>
+                <input type="text" placeholder="Tên đăng nhập" />
+                <input type="password" placeholder="Mật khẩu" />
+                <a href="#">Quên mật khẩu?</a>
+                <button style="cursor: pointer;">Đăng nhập</button>
             </form>
         </div>
         <div class="overlay-container">
             <div class="overlay">
                 <div class="overlay-panel overlay-left">
                     <h1>Welcome Back!</h1>
-                    <p>To keep connected with us please login with your personal info</p>
-                    <button class="ghost" id="signIn">Sign In</button>
+                    <p> Để nhận được những ưu đãi đặc biệt, vui lòng đăng nhập tài khoản của bạn.</p>
+                    <button class="ghost" id="signIn">Đăng nhập</button>
                 </div>
                 <div class="overlay-panel overlay-right">
                     <h1>Hello, Friend!</h1>
-                    <p>Enter your personal details and start journey with us</p>
-                    <button class="ghost" id="signUp">Sign Up</button>
+                    <p>Đăng ký tài khoản của bạn để bắt đầu hành trình cùng chúng tôi và tận hưởng những ưu đãi đặc biệt.</p>
+                    <button class="ghost" id="signUp">Đăng ký</button>
                 </div>
             </div>
         </div>
@@ -64,37 +64,40 @@
     </div>
 
     <div class="login-mobile">
-        <div>
+        <div class="btn">
             <form class="register-form" action="#">
-                <h1>Create Account</h1>
+                <h1>Tạo tài khoản</h1>
                 <div class="social-container">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
                     <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                 </div>
-                <span>or use your email for registration</span>
-                <input type="text" placeholder="Name" />
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Password" />
-                <button>Sign Up</button>
-                <p class="toggle-container"><a href="#" id="signInLink">Already have an account? Sign In</a></p>
+                <span>sử dụng email để đăng nhập</span>
+                <input type="text" placeholder="Tên đăng nhập" required/>
+                <input type="password" placeholder="Mật khẩu" required/>
+                <input type="tel" placeholder="Số điện thoại" pattern="[0-9]{10}" title="Số điện thoại phải có 10 chữ số" required/>
+                <input type="email" placeholder="Email">
+                <button>Đăng ký</button>
+                <p class="toggle-container"><a href="#" id="signInLink">Đã có tài khoản? Đăng nhập ngay</a></p>
             </form>
         </div>
     
         <div>
             <form class="login-form" action="#">
-                <h1>Sign in</h1>
+                <h1>Đăng nhập</h1>
                 <div class="social-container">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
                     <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                 </div>
-                <span>or use your account</span>
+                <span>hoặc sử dụng tài khoản của bạn</span>
                 <input type="email" placeholder="Email" />
                 <input type="password" placeholder="Password" />
-                <a href="#">Forgot your password?</a>
-                <button>Sign In</button>
-                <p class="toggle-container"><a href="#" id="signUpLink">Don't have an account? Sign Up</a></p>
+                <div class="quenMK">
+                    <a href="#">Quên mật khẩu?</a>
+                </div>
+                <button>Đăng nhập</button>
+                <p class="toggle-container"><a href="#" id="signUpLink">Chưa có tài khoản? Đăng ký ngay</a></p>
             </form>
         </div>
     </div>
@@ -103,15 +106,12 @@
     <footer>
         <p>
             Created with <i class="fa fa-heart"></i> by
-            <a target="_blank" href="https://florin-pop.com">Florin Pop & Hoang Nam</a>
-            - join the challenge with us!
+            Hoang Nam & Trung Kien & Khanh Nhan & Ngoc Trung & Huu Quang
         </p>
     </footer>
 
-    <script src="./Login/js/myCodeLogin.js"></script>
+    <script src="./js/myCodeLogin.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    
 </body>
 
 </html>

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" data-layout="topnav">
+<html lang="en">
 
     
-<!-- Mirrored from coderthemes.com/hyper/saas/layouts-horizontal.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Dec 2023 13:30:21 GMT -->
+<!-- Mirrored from coderthemes.com/hyper/saas/form-elements.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Dec 2023 13:30:46 GMT -->
 <head>
         <meta charset="utf-8" />
-        <title>Horizontal Layout | Hyper - Responsive Bootstrap 5 Admin Dashboard</title>
+        <title>Form Elements | Hyper - Responsive Bootstrap 5 Admin Dashboard</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
@@ -13,13 +13,11 @@
         <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/favicon.ico">
 
-        <!-- Plugin css -->
-        <link rel="stylesheet" href="assets/vendor/daterangepicker/daterangepicker.css">
-        <link href="assets/vendor/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
-
         <!-- Theme Config Js -->
         <script src="assets/js/hyper-config.js"></script>
-
+        <script src="assets/vendor/dropzone/min/dropzone.min.js"></script>
+        <!-- init js -->
+        <script src="assets/js/ui/component.fileupload.js"></script>
         <!-- App css -->
         <link href="assets/css/app-saas.min.css" rel="stylesheet" type="text/css" id="app-style" />
 
@@ -31,6 +29,7 @@
         <!-- Begin page -->
         <div class="wrapper">
 
+            
             <!-- ========== Topbar Start ========== -->
             <div class="navbar-custom">
                 <div class="topbar container-fluid">
@@ -344,48 +343,137 @@
             </div>
             <!-- ========== Topbar End ========== -->
 
-            <!-- ========== Horizontal Menu Start ========== -->
-            <div class="topnav">
-                <div class="container-fluid">
-                    <nav class="navbar navbar-expand-lg">
-                        <div class="collapse navbar-collapse" id="topnav-menu-content">
-                            <ul class="navbar-nav">
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-dashboards" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="uil-dashboard"></i>Bảng điều khiển <div class="arrow-down"></div>
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="topnav-dashboards">
-                                        <a href="layouts-horizontal.html" class="dropdown-item">Trang chủ</a>
-                                        <a href="dashboard-wallet.html" class="dropdown-item">Ví</a>
-                                    </div>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-apps" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="uil-apps"></i>Ứng dụng <div class="arrow-down"></div>
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="topnav-apps">
-                                        <a href="apps-calendar.html" class="dropdown-item">Lịch trình</a>
-                                    </div>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-layouts" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="uil-window"></i>Quản lý sản phẩm <div class="arrow-down"></div>
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="topnav-layouts">
-                                        <a href="apps-ecommerce-products.html" class="dropdown-item">Products</a>
-                                        <a href="apps-ecommerce-orders.html" class="dropdown-item">Orders</a>
-                                        <a href="apps-ecommerce-orders-details.html" class="dropdown-item">Order Details</a>
-                                        <a href="apps-ecommerce-customers.html" class="dropdown-item">Customers</a>
-                                    </div>
-                                </li>
-                            </ul>
+            <!-- ========== Left Sidebar Start ========== -->
+            <div class="leftside-menu">
+
+                <!-- Brand Logo Light -->
+                <a href="index.html" class="logo logo-light">
+                    <span class="logo-lg">
+                        <img src="assets/images/logo.png" alt="logo">
+                    </span>
+                    <span class="logo-sm">
+                        <img src="assets/images/logo-sm.png" alt="small logo">
+                    </span>
+                </a>
+
+                <!-- Brand Logo Dark -->
+                <a href="index.html" class="logo logo-dark">
+                    <span class="logo-lg">
+                        <img src="assets/images/logo-dark.png" alt="dark logo">
+                    </span>
+                    <span class="logo-sm">
+                        <img src="assets/images/logo-dark-sm.png" alt="small logo">
+                    </span>
+                </a>
+
+                <!-- Sidebar Hover Menu Toggle Button -->
+                <div class="button-sm-hover" data-bs-toggle="tooltip" data-bs-placement="right" title="Show Full Sidebar">
+                    <i class="ri-checkbox-blank-circle-line align-middle"></i>
+                </div>
+
+                <!-- Full Sidebar Menu Close Button -->
+                <div class="button-close-fullsidebar">
+                    <i class="ri-close-fill align-middle"></i>
+                </div>
+
+                <!-- Sidebar -left -->
+                <div class="h-100" id="leftside-menu-container" data-simplebar>
+                    <!-- Leftbar User -->
+                    <div class="leftbar-user">
+                        <a href="pages-profile.html">
+                            <img src="assets/images/users/anhcuakleqingcamcopy.png" alt="user-image" height="42" class="rounded-circle shadow-sm">
+                            <span class="leftbar-user-name mt-2">Admin</span>
+                        </a>
+                    </div>
+
+                    <!--- Sidemenu -->
+                    <ul class="side-nav">
+
+                        <li class="side-nav-title">Điều hướng</li>
+
+                        <li class="side-nav-item">
+                            <a data-bs-toggle="collapse" href="#sidebarDashboards" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
+                                <i class="uil-home-alt"></i>
+                                <span class="badge bg-success float-end">5</span>
+                                <span> Bảng điều khiển </span>
+                            </a>
+                            <div class="collapse" id="sidebarDashboards">
+                                <ul class="side-nav-second-level">
+                                    <li>
+                                        <a href="index.html">Trang chủ</a>
+                                    </li>
+                                    <li>
+                                        <a href="dashboard-wallet.html">Ví</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="side-nav-title">Ứng dụng</li>
+
+                        <li class="side-nav-item">
+                            <a href="apps-calendar.html" class="side-nav-link">
+                                <i class="uil-calender"></i>
+                                <span class="badge bg-danger text-white float-end">Mới!</span>
+                                <span> Lịch trình </span>
+                            </a>
+                        </li>
+
+                        <li class="side-nav-item">
+                            <a data-bs-toggle="collapse" href="#sidebarEcommerce" aria-expanded="false" aria-controls="sidebarEcommerce" class="side-nav-link">
+                                <i class="uil-store"></i>
+                                <span> Quản lý sản phẩm </span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <div class="collapse" id="sidebarEcommerce">
+                                <ul class="side-nav-second-level">
+                                    <li>
+                                        <a href="apps-ecommerce-products.html">Sản phẩm</a>
+                                    </li>
+                                    <li>
+                                        <a href="apps-ecommerce-orders.html">Đơn đặt hàng</a>
+                                    </li>
+                                    <li>
+                                        <a href="apps-ecommerce-customers.html">Khách hàng</a>
+                                    </li>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        
+                        <!-- Help Box -->
+                        <div class="help-box text-white text-center">
+                            <a href="javascript: void(0);" class="float-end close-btn btn">
+                            </a>
+                            <img src="assets/images/svg/help-icon.svg" height="90" alt="Helper Icon Image" />
+                            <h5 class="mt-3">Web admin</h5>
+                            <p class="mb-3">Tối ưu thời gian quản lý với UI mới.</p>
+                            <a href="javascript: void(0);"></a>
+                            <div class="text-center ">
+                                <a class="btn btn-outline-primary"
+                                    href="#"
+                                    type="button">Quyền riềng tư & Bảo mật</a>
+                                
+                                <a class="btn bg-gradient-primary w-100"
+                                    href="#"
+                                    type="button">Trách nhiệm & Pháp lý</a>
+                            </div>
                         </div>
-                    </nav>
+                        <!-- end Help Box -->
+
+
+                    </ul>
+                    <!--- End Sidemenu -->
+
+                    <div class="clearfix"></div>
                 </div>
             </div>
-            <!-- ========== Horizontal Menu End ========== -->
+            <!-- ========== Left Sidebar End ========== -->
 
-            
+            <!-- ============================================================== -->
+            <!-- Start Page Content here -->
+            <!-- ============================================================== -->
+
             <div class="content-page">
                 <div class="content">
 
@@ -399,349 +487,91 @@
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
                                             <li class="breadcrumb-item"><a href="javascript: void(0);">Hyper</a></li>
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">CRM</a></li>
-                                            <li class="breadcrumb-item active">CRM</li>
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Forms</a></li>
+                                            <li class="breadcrumb-item active">Form Elements</li>
                                         </ol>
                                     </div>
-                                    <h4 class="page-title">Dashboard</h4>
+                                    <h4 class="page-title">Form Elements</h4>
                                 </div>
                             </div>
                         </div>
 
+                        <!----Basic-->
                         <div class="row">
-                            <div class="col-md-6 col-xl-3">
-                                <div class="card">
+                            <div class="col-lg-6">
                                     <div class="card-body">
-                                        <div class="float-end">
-                                            <i class="mdi mdi-currency-usd widget-icon"></i>
-                                        </div>
-                                        <h5 class="text-muted fw-normal mt-0" title="Average Revenue">Sản Phẩm</h5>
-                                        <h3 class="mt-3 mb-3">$6,254</h3>
-                                        <p class="mb-0 text-muted">
-                                            <span class="text-danger me-2"><i class="mdi mdi-arrow-down-bold"></i> 7.00%</span>
-                                            <span class="text-nowrap">Since last month</span>
-                                        </p>
-                                    </div> <!-- end card-body -->
-                                </div> <!-- end card -->
-                            </div> <!-- end col -->
-        
-                            <div class="col-md-6 col-xl-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="float-end">
-                                            <i class="mdi mdi-pulse widget-icon"></i>
-                                        </div>
-                                        <h5 class="text-muted fw-normal mt-0" title="Growth">Báo Cáo</h5>
-                                        <h3 class="mt-3 mb-3">+ 30.56%</h3>
-                                        <p class="mb-0 text-muted">
-                                            <span class="text-success me-2"><i class="mdi mdi-arrow-up-bold"></i> 4.87%</span>
-                                            <span class="text-nowrap">Since last month</span>
-                                        </p>
-                                    </div> <!-- end card-body -->
-                                </div> <!-- end card -->
-                            </div> <!-- end col -->
+                                        <h4 class="header-title">Basic Example</h4>
+                                        <p class="text-muted font-14">Here’s a quick example to demonstrate Bootstrap’s form styles. Keep reading for documentation on required classes, form layout, and more.</p>
 
-                            <div class="col-md-6 col-xl-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="float-end">
-                                            <i class="mdi mdi-cart-plus widget-icon"></i>
-                                        </div>
-                                        <h5 class="text-muted fw-normal mt-0" title="Number of Orders">Tổng Doanh Thu</h5>
-                                        <h3 class="mt-3 mb-3">5,543</h3>
-                                        <p class="mb-0 text-muted">
-                                            <span class="text-danger me-2"><i class="mdi mdi-arrow-down-bold"></i> 1.08%</span>
-                                            <span class="text-nowrap">Since last month</span>
-                                        </p>
-                                    </div> <!-- end card-body -->
-                                </div> <!-- end card -->
-                            </div> <!-- end col -->
+                                        <ul class="nav nav-tabs nav-bordered mb-3">
+                                            <li class="nav-item">
+                                                <a href="#basic-form-preview" data-bs-toggle="tab" aria-expanded="false" class="nav-link active">
+                                                    Preview
+                                                </a>
+                                            </li>
+                                        </ul> <!-- end nav-->
+                                        <div class="tab-content">
+                                            <div class="tab-pane show active" id="basic-form-preview">
+                                                <form>
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Cutsomer</label>
+                                                        <input type="text" class="form-control" placeholder="Full name">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Phone</label>
+                                                        <input type="text" class="form-control" placeholder="Phone">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Email</label>
+                                                        <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Email">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Address</label>
+                                                        <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Address">
+                                                        <small id="emailHelp" class="form-text text-muted">*Optional</small>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Status</label>
+                                                        <div class="form-floating">
+                                                            <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                                                                <option selected>Select</option>
+                                                                <option value="1"> Active</option>
+                                                                <option value="2"> Blocked</option>
+                                                                </option>
+                                                            </select>
+                                                            <label for="floatingSelect">Choose customer status</label>
+                                                        </div>
+                                                    </div>
+                                                    <button type="submit" class="btn btn-primary">Edit</button>
+                                                    <br>
+                                                    <br>
+                                                </form>                                      
+                                            </div> <!-- end preview-->
 
-                            <div class="col-md-6 col-xl-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="float-end">
-                                            <i class="mdi mdi-account-multiple widget-icon"></i>
-                                        </div>
-                                        <h5 class="text-muted fw-normal mt-0" title="Number of Customers">Đơn Hàng</h5>
-                                        <h3 class="mt-3 mb-3">36,254</h3>
-                                        <p class="mb-0 text-muted">
-                                            <span class="text-success me-2"><i class="mdi mdi-arrow-up-bold"></i> 5.27%</span>
-                                            <span class="text-nowrap">Since last month</span>  
-                                        </p>
-                                    </div> <!-- end card-body -->
-                                </div> <!-- end card -->
-                            </div> <!-- end col -->
-                        </div>
-                        <!-- end row -->
+                                        </div> <!-- end tab-content-->
 
-                        
-
-                        <div class="row">
-                            <div class="col-xl-6 col-lg-12 order-lg-2 order-xl-1">
-                                <div class="card">
-                                    <div class="d-flex card-header justify-content-between align-items-center">
-                                        <h4 class="header-title">Top Selling Products</h4>
-                                        <a href="javascript:void(0);" class="btn btn-sm btn-light">Export <i class="mdi mdi-download ms-1"></i></a>
-                                    </div>
-
-                                    <div class="card-body pt-0">
-                                        <div class="table-responsive">
-                                            <table class="table table-centered table-nowrap table-hover mb-0">
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <h5 class="font-14 my-1 fw-normal">ASOS Ridley High Waist</h5>
-                                                            <span class="text-muted font-13">07 April 2018</span>
-                                                        </td>
-                                                        <td>
-                                                            <h5 class="font-14 my-1 fw-normal">$79.49</h5>
-                                                            <span class="text-muted font-13">Price</span>
-                                                        </td>
-                                                        <td>
-                                                            <h5 class="font-14 my-1 fw-normal">82</h5>
-                                                            <span class="text-muted font-13">Quantity</span>
-                                                        </td>
-                                                        <td>
-                                                            <h5 class="font-14 my-1 fw-normal">$6,518.18</h5>
-                                                            <span class="text-muted font-13">Amount</span>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h5 class="font-14 my-1 fw-normal">Marco Lightweight Shirt</h5>
-                                                            <span class="text-muted font-13">25 March 2018</span>
-                                                        </td>
-                                                        <td>
-                                                            <h5 class="font-14 my-1 fw-normal">$128.50</h5>
-                                                            <span class="text-muted font-13">Price</span>
-                                                        </td>
-                                                        <td>
-                                                            <h5 class="font-14 my-1 fw-normal">37</h5>
-                                                            <span class="text-muted font-13">Quantity</span>
-                                                        </td>
-                                                        <td>
-                                                            <h5 class="font-14 my-1 fw-normal">$4,754.50</h5>
-                                                            <span class="text-muted font-13">Amount</span>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h5 class="font-14 my-1 fw-normal">Half Sleeve Shirt</h5>
-                                                            <span class="text-muted font-13">17 March 2018</span>
-                                                        </td>
-                                                        <td>
-                                                            <h5 class="font-14 my-1 fw-normal">$39.99</h5>
-                                                            <span class="text-muted font-13">Price</span>
-                                                        </td>
-                                                        <td>
-                                                            <h5 class="font-14 my-1 fw-normal">64</h5>
-                                                            <span class="text-muted font-13">Quantity</span>
-                                                        </td>
-                                                        <td>
-                                                            <h5 class="font-14 my-1 fw-normal">$2,559.36</h5>
-                                                            <span class="text-muted font-13">Amount</span>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h5 class="font-14 my-1 fw-normal">Lightweight Jacket</h5>
-                                                            <span class="text-muted font-13">12 March 2018</span>
-                                                        </td>
-                                                        <td>
-                                                            <h5 class="font-14 my-1 fw-normal">$20.00</h5>
-                                                            <span class="text-muted font-13">Price</span>
-                                                        </td>
-                                                        <td>
-                                                            <h5 class="font-14 my-1 fw-normal">184</h5>
-                                                            <span class="text-muted font-13">Quantity</span>
-                                                        </td>
-                                                        <td>
-                                                            <h5 class="font-14 my-1 fw-normal">$3,680.00</h5>
-                                                            <span class="text-muted font-13">Amount</span>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h5 class="font-14 my-1 fw-normal">Marco Shoes</h5>
-                                                            <span class="text-muted font-13">05 March 2018</span>
-                                                        </td>
-                                                        <td>
-                                                            <h5 class="font-14 my-1 fw-normal">$28.49</h5>
-                                                            <span class="text-muted font-13">Price</span>
-                                                        </td>
-                                                        <td>
-                                                            <h5 class="font-14 my-1 fw-normal">69</h5>
-                                                            <span class="text-muted font-13">Quantity</span>
-                                                        </td>
-                                                        <td>
-                                                            <h5 class="font-14 my-1 fw-normal">$1,965.81</h5>
-                                                            <span class="text-muted font-13">Amount</span>
-                                                        </td>
-                                                    </tr>
-
-                                                </tbody>
-                                            </table>
-                                        </div> <!-- end table-responsive-->
                                     </div> <!-- end card-body-->
-                                </div> <!-- end card-->
-                            </div> <!-- end col-->
-
-                            <div class="col-xl-3 col-lg-6 order-lg-1">
-                                <div class="card">
-                                    <div class="d-flex card-header justify-content-between align-items-center">
-                                        <h4 class="header-title">Total Sales</h4>
-                                    </div>
-
-                                    <div class="card-body pt-0">
-                                        <div id="average-sales" class="apex-charts mb-4 mt-2"
-                                            data-colors="#727cf5,#0acf97,#fa5c7c,#ffbc00"></div>
-
-                                        <div class="chart-widget-list">
-                                            <p>
-                                                <i class="mdi mdi-square text-primary"></i> Direct
-                                                <span class="float-end">$300.56</span>
-                                            </p>
-                                            <p>
-                                                <i class="mdi mdi-square text-danger"></i> Affilliate
-                                                <span class="float-end">$135.18</span>
-                                            </p>
-                                            <p>
-                                                <i class="mdi mdi-square text-success"></i> Sponsored
-                                                <span class="float-end">$48.96</span>
-                                            </p>
-                                            <p class="mb-0">
-                                                <i class="mdi mdi-square text-warning"></i> E-mail
-                                                <span class="float-end">$154.02</span>
-                                            </p>
-                                        </div>
-                                    </div> <!-- end card-body-->
-                                </div> <!-- end card-->
-                            </div> <!-- end col-->
-
-                            <div class="col-xl-3 col-lg-6 order-lg-1">
-                                <div class="card">
-                                    <div class="d-flex card-header justify-content-between align-items-center">
-                                        <h4 class="header-title">Recent Activity</h4>
-                                    </div>
-
-                                    <div class="card-body py-0 mb-3" data-simplebar style="max-height: 403px;"> 
-                                        <div class="timeline-alt py-0">
-                                            <div class="timeline-item">
-                                                <i class="mdi mdi-upload bg-info-lighten text-info timeline-icon"></i>
-                                                <div class="timeline-item-info">
-                                                    <a href="javascript:void(0);" class="text-info fw-bold mb-1 d-block">You sold an item</a>
-                                                    <small>Paul Burgess just purchased “Hyper - Admin Dashboard”!</small>
-                                                    <p class="mb-0 pb-2">
-                                                        <small class="text-muted">5 minutes ago</small>
-                                                    </p>
-                                                </div>
-                                            </div>
-
-                                            <div class="timeline-item">
-                                                <i class="mdi mdi-airplane bg-primary-lighten text-primary timeline-icon"></i>
-                                                <div class="timeline-item-info">
-                                                    <a href="javascript:void(0);" class="text-primary fw-bold mb-1 d-block">Product on the Bootstrap Market</a>
-                                                    <small>Dave Gamache added
-                                                        <span class="fw-bold">Admin Dashboard</span>
-                                                    </small>
-                                                    <p class="mb-0 pb-2">
-                                                        <small class="text-muted">30 minutes ago</small>
-                                                    </p>
-                                                </div>
-                                            </div>
-
-                                            <div class="timeline-item">
-                                                <i class="mdi mdi-microphone bg-info-lighten text-info timeline-icon"></i>
-                                                <div class="timeline-item-info">
-                                                    <a href="javascript:void(0);" class="text-info fw-bold mb-1 d-block">Robert Delaney</a>
-                                                    <small>Send you message
-                                                        <span class="fw-bold">"Are you there?"</span>
-                                                    </small>
-                                                    <p class="mb-0 pb-2">
-                                                        <small class="text-muted">2 hours ago</small>
-                                                    </p>
-                                                </div>
-                                            </div>
-
-                                            <div class="timeline-item">
-                                                <i class="mdi mdi-upload bg-primary-lighten text-primary timeline-icon"></i>
-                                                <div class="timeline-item-info">
-                                                    <a href="javascript:void(0);" class="text-primary fw-bold mb-1 d-block">Audrey Tobey</a>
-                                                    <small>Uploaded a photo
-                                                        <span class="fw-bold">"Error.jpg"</span>
-                                                    </small>
-                                                    <p class="mb-0 pb-2">
-                                                        <small class="text-muted">14 hours ago</small>
-                                                    </p>
-                                                </div>
-                                            </div>
-
-                                            <div class="timeline-item">
-                                                <i class="mdi mdi-upload bg-info-lighten text-info timeline-icon"></i>
-                                                <div class="timeline-item-info">
-                                                    <a href="javascript:void(0);" class="text-info fw-bold mb-1 d-block">You sold an item</a>
-                                                    <small>Paul Burgess just purchased “Hyper - Admin Dashboard”!</small>
-                                                    <p class="mb-0 pb-2">
-                                                        <small class="text-muted">16 hours ago</small>
-                                                    </p>
-                                                </div>
-                                            </div>
-
-                                            <div class="timeline-item">
-                                                <i class="mdi mdi-airplane bg-primary-lighten text-primary timeline-icon"></i>
-                                                <div class="timeline-item-info">
-                                                    <a href="javascript:void(0);" class="text-primary fw-bold mb-1 d-block">Product on the Bootstrap Market</a>
-                                                    <small>Dave Gamache added
-                                                        <span class="fw-bold">Admin Dashboard</span>
-                                                    </small>
-                                                    <p class="mb-0 pb-2">
-                                                        <small class="text-muted">22 hours ago</small>
-                                                    </p>
-                                                </div>
-                                            </div>
-
-                                            <div class="timeline-item">
-                                                <i class="mdi mdi-microphone bg-info-lighten text-info timeline-icon"></i>
-                                                <div class="timeline-item-info">
-                                                    <a href="javascript:void(0);" class="text-info fw-bold mb-1 d-block">Robert Delaney</a>
-                                                    <small>Send you message
-                                                        <span class="fw-bold">"Are you there?"</span>
-                                                    </small>
-                                                    <p class="mb-0 pb-2">
-                                                        <small class="text-muted">2 days ago</small>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- end timeline -->
-                                    </div> <!-- end slimscroll -->
-                                </div>
-                                <!-- end card-->
                             </div>
                             <!-- end col -->
-
                         </div>
                         <!-- end row -->
+                        
+                    </div> <!-- container -->
 
-                    </div>
-                    <!-- container -->
-
-                </div>
-                <!-- content -->
+                </div> <!-- content -->
 
                 <!-- Footer Start -->
                 <footer class="footer">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-6">
-                                <script>document.write(new Date().getFullYear())</script> © Kleqing - kleqing.github.io
+                                <script>document.write(new Date().getFullYear())</script> © Hyper - Coderthemes.com
                             </div>
                             <div class="col-md-6">
                                 <div class="text-md-end footer-links d-none d-md-block">
-                                    <a href="javascript: void(0);">Về chúng tôi</a>
-                                    <a href="javascript: void(0);">Hỗ trợ</a>
-                                    <a href="javascript: void(0);">Liên hệ</a>
+                                    <a href="javascript: void(0);">About</a>
+                                    <a href="javascript: void(0);">Support</a>
+                                    <a href="javascript: void(0);">Contact Us</a>
                                 </div>
                             </div>
                         </div>
@@ -768,7 +598,7 @@
             <div class="offcanvas-body p-0">
                 <div data-simplebar class="h-100">
                     <div class="card mb-0 p-3">
-                        <h5 class="mt-0 font-16 fw-bold mb-3">Chọn Layout</h5>
+                        <!-- <h5 class="mt-0 font-16 fw-bold mb-3">Chọn Layout</h5>
                         <div class="row">
                             <div class="col-4">
                                 <div class="form-check card-radio">
@@ -812,9 +642,9 @@
                                 </div>
                                 <h5 class="font-14 text-center text-muted mt-2">Dọc</h5>
                             </div>
-                        </div>
+                        </div> -->
 
-                        <h5 class="my-3 font-16 fw-bold">Màu nền</h5>
+                        <h5 class="mt-0 my-3 font-16 fw-bold">Màu nền</h5>
 
                         <div class="colorscheme-cardradio">
                             <div class="row">
@@ -945,46 +775,7 @@
                                     </div>
                                     <h5 class="font-14 text-center text-muted mt-2">Gắn liền</h5>
                                 </div>
-                                <div class="col-4" id="layout-boxed">
-                                    <div class="form-check card-radio">
-                                        <input class="form-check-input" type="radio" name="data-layout-mode" id="layout-mode-boxed" value="boxed">
-                                        <label class="form-check-label p-0 avatar-md w-100 px-2" for="layout-mode-boxed">
-                                            <div id="sidebar-size" class="border-start border-end">
-                                                <span class="d-flex h-100">
-                                                    <span class="flex-shrink-0">
-                                                        <span class="bg-light d-flex h-100 border-end flex-column p-1 px-2">
-                                                            <span class="d-block p-1 bg-dark-lighten rounded mb-1"></span>
-                                                            <span class="d-block border border-3 border-secondary border-opacity-25 rounded w-100 mb-1"></span>
-                                                            <span class="d-block border border-3 border-secondary border-opacity-25 rounded w-100 mb-1"></span>
-                                                            <span class="d-block border border-3 border-secondary border-opacity-25 rounded w-100 mb-1"></span>
-                                                            <span class="d-block border border-3 border-secondary border-opacity-25 rounded w-100 mb-1"></span>
-                                                        </span>
-                                                    </span>
-                                                    <span class="flex-grow-1">
-                                                        <span class="d-flex h-100 flex-column rounded-2">
-                                                            <span class="bg-light d-block p-1"></span>
-                                                        </span>
-                                                    </span>
-                                                </span>
-                                            </div>
-
-                                            <div id="topnav-color" class="border-start border-end h-100">
-                                                <span class="d-flex h-100 flex-column">
-                                                    <span class="bg-light d-flex p-1 align-items-center border-bottom border-secondary border-opacity-25">
-                                                        <span class="d-block p-1 bg-dark-lighten rounded me-1"></span>
-                                                        <span class="d-block border border-3 border-secondary border-opacity-25 rounded ms-auto"></span>
-                                                        <span class="d-block border border-3 border-secondary border-opacity-25 rounded ms-1"></span>
-                                                        <span class="d-block border border-3 border-secondary border-opacity-25 rounded ms-1"></span>
-                                                        <span class="d-block border border-3 border-secondary border-opacity-25 rounded ms-1"></span>
-                                                    </span>
-                                                    <span class="bg-light d-block p-1"></span>
-                                                </span>
-                                            </div>
-                                        </label>
-                                    </div>
-                                    <h5 class="font-14 text-center text-muted mt-2">Hộp</h5>
-                                </div>
-
+                                
                                 <div class="col-4" id="layout-detached">
                                     <div class="form-check sidebar-setting card-radio">
                                         <input class="form-check-input" type="radio" name="data-layout-mode" id="data-layout-detached" value="detached">
@@ -1101,7 +892,7 @@
                         </div>
 
                         <div>
-                            <h5 class="my-3 font-16 fw-bold">Màu menu </h5>
+                            <h5 class="my-3 font-16 fw-bold">Màu menu</h5>
 
                             <div class="row">
                                 <div class="col-4">
@@ -1185,6 +976,109 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div id="sidebar-size">
+                            <h5 class="my-3 font-16 fw-bold">Kích thước sidebar</h5>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="form-check sidebar-setting card-radio">
+                                        <input class="form-check-input" type="radio" name="data-sidenav-size" id="leftbar-size-default" value="default">
+                                        <label class="form-check-label p-0 avatar-md w-100" for="leftbar-size-default">
+                                            <span class="d-flex h-100">
+                                                <span class="flex-shrink-0">
+                                                    <span class="bg-light d-flex h-100 border-end  flex-column p-1 px-2">
+                                                        <span class="d-block p-1 bg-dark-lighten rounded mb-1"></span>
+                                                        <span class="d-block border border-3 border-secondary border-opacity-25 rounded w-100 mb-1"></span>
+                                                        <span class="d-block border border-3 border-secondary border-opacity-25 rounded w-100 mb-1"></span>
+                                                        <span class="d-block border border-3 border-secondary border-opacity-25 rounded w-100 mb-1"></span>
+                                                        <span class="d-block border border-3 border-secondary border-opacity-25 rounded w-100 mb-1"></span>
+                                                    </span>
+                                                </span>
+                                                <span class="flex-grow-1">
+                                                    <span class="d-flex h-100 flex-column">
+                                                        <span class="bg-light d-block p-1"></span>
+                                                    </span>
+                                                </span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <h5 class="font-14 text-center text-muted mt-2">Mặc định</h5>
+                                </div>
+
+                                <div class="col-4">
+                                    <div class="form-check sidebar-setting card-radio">
+                                        <input class="form-check-input" type="radio" name="data-sidenav-size" id="leftbar-size-compact" value="compact">
+                                        <label class="form-check-label p-0 avatar-md w-100" for="leftbar-size-compact">
+                                            <span class="d-flex h-100">
+                                                <span class="flex-shrink-0">
+                                                    <span class="bg-light d-flex h-100 border-end  flex-column p-1">
+                                                        <span class="d-block p-1 bg-dark-lighten rounded mb-1"></span>
+                                                        <span class="d-block border border-3 border-secondary border-opacity-25 rounded w-100 mb-1"></span>
+                                                        <span class="d-block border border-3 border-secondary border-opacity-25 rounded w-100 mb-1"></span>
+                                                        <span class="d-block border border-3 border-secondary border-opacity-25 rounded w-100 mb-1"></span>
+                                                        <span class="d-block border border-3 border-secondary border-opacity-25 rounded w-100 mb-1"></span>
+                                                    </span>
+                                                </span>
+                                                <span class="flex-grow-1">
+                                                    <span class="d-flex h-100 flex-column">
+                                                        <span class="bg-light d-block p-1"></span>
+                                                    </span>
+                                                </span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <h5 class="font-14 text-center text-muted mt-2">Tối giản</h5>
+                                </div>
+
+                                <div class="col-4">
+                                    <div class="form-check sidebar-setting card-radio">
+                                        <input class="form-check-input" type="radio" name="data-sidenav-size" id="leftbar-size-full" value="full">
+                                        <label class="form-check-label p-0 avatar-md w-100" for="leftbar-size-full">
+                                            <span class="d-flex h-100">
+                                                <span class="flex-shrink-0">
+                                                    <span class="d-flex h-100 flex-column">
+                                                        <span class="d-block p-1 bg-dark-lighten mb-1"></span>
+                                                    </span>
+                                                </span>
+                                                <span class="flex-grow-1">
+                                                    <span class="d-flex h-100 flex-column">
+                                                        <span class="bg-light d-block p-1"></span>
+                                                    </span>
+                                                </span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <h5 class="font-14 text-center text-muted mt-2">Bố cục đầy đủ</h5>
+                                </div>
+
+                                <div class="col-4">
+                                    <div class="form-check sidebar-setting card-radio">
+                                        <input class="form-check-input" type="radio" name="data-sidenav-size" id="leftbar-size-fullscreen" value="fullscreen">
+                                        <label class="form-check-label p-0 avatar-md w-100" for="leftbar-size-fullscreen">
+                                            <span class="d-flex h-100">
+                                                <span class="flex-grow-1">
+                                                    <span class="d-flex h-100 flex-column">
+                                                        <span class="bg-light d-block p-1"></span>
+                                                    </span>
+                                                </span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <h5 class="font-14 text-center text-muted mt-2">Bố cục toàn màn hình</h5>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="sidebar-user">
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <label class="font-16 fw-bold m-0" for="sidebaruser-check">Hiện thị tên người dùng</label>
+                                <div class="form-check form-switch">
+                                    <input type="checkbox" class="form-check-input" name="sidebar-user" id="sidebaruser-check">
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
@@ -1192,29 +1086,20 @@
             <div class="offcanvas-footer border-top p-3 text-center">
                 <button type="button" class="btn btn-light w-100" id="reset-layout">Khôi phục về mặc định</button>
             </div>
-        </div>        
-        
+        </div>
+
         <!-- Vendor js -->
         <script src="assets/js/vendor.min.js"></script>
 
-        <!-- Daterangepicker js -->
-        <script src="assets/vendor/daterangepicker/moment.min.js"></script>
-        <script src="assets/vendor/daterangepicker/daterangepicker.js"></script>
+        <!-- Code Highlight js -->
+        <script src="assets/vendor/highlightjs/highlight.pack.min.js"></script>
+        <script src="assets/vendor/clipboard/clipboard.min.js"></script>
+        <script src="assets/js/hyper-syntax.js"></script>
         
-        <!-- Apex Charts js -->
-        <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
-
-        <!-- Vector Map js -->
-        <script src="assets/vendor/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
-        <script src="assets/vendor/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
-
-        <!-- Dashboard App js -->
-        <script src="assets/js/pages/demo.dashboard.js"></script>
-
         <!-- App js -->
         <script src="assets/js/app.min.js"></script>
 
     </body>
 
-<!-- Mirrored from coderthemes.com/hyper/saas/layouts-horizontal.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Dec 2023 13:30:21 GMT -->
+<!-- Mirrored from coderthemes.com/hyper/saas/form-elements.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Dec 2023 13:30:46 GMT -->
 </html>

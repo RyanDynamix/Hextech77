@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Thanh toan</title>
+        <link rel="stylesheet" href="./css/shopping_cart.css">
+        <link rel="stylesheet" href="./css/bootstrap.css">
+        <link href="./css/icons.min.css" rel="stylesheet" type="text/css" />
+        <script src="https://kit.fontawesome.com/54f0cb7e4a.js" crossorigin="anonymous"></script>
+
+    </head>
+
+    <body>
+        <header class="position-fixed w-100 bg-light hight--header d-flex flex-column">
+            <div class="bannerTopHead container-fluid d-none d-lg-block">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img class="imgTopHead"
+                             src="https://cdn2.cellphones.com.vn/x/https://dashboard.cellphones.com.vn/storage/207x30_TopBanner_Homepage_01.2024_Mb_2-01133.svg"
+                             alt="Top Banner Mobile dịch vụ bảo hành">
+                    </div>
+                    <div class="col-md-4">
+                        <img class="imgTopHead"
+                             src="https://cdn2.cellphones.com.vn/x/https://dashboard.cellphones.com.vn/storage/207x30_TopBanner_Homepage_01.2024_Mb_2-02133.svg"
+                             alt="TOP banner mobile giao nhanh miễn phí">
+                    </div>
+                    <div class="col-md-4">
+                        <img class="imgTopHead"
+                             src="https://cdn2.cellphones.com.vn/x/https://dashboard.cellphones.com.vn/storage/207x30_TopBanner_Homepage_01.2024_Mb_2-03133.svg"
+                             alt="TOP banner mobile sản phẩm chính hãng đầy đủ VAT">
+                    </div>
+                </div>
+            </div>
+
+            <div id="carouselExampleControls" class="carousel slide d-block d-lg-none" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="w-100">
+                            <img class="imgTopHead w-100"
+                                 src="https://cdn2.cellphones.com.vn/x/https://dashboard.cellphones.com.vn/storage/207x30_TopBanner_Homepage_01.2024_Mb_2-01133.svg"
+                                 alt="Top Banner Mobile dịch vụ bảo hành">
+                        </div>
+                    </div>
+                    <div class="carousel-item ">
+                        <div class="w-100">
+                            <img class="imgTopHead w-100"
+                                 src="https://cdn2.cellphones.com.vn/x/https://dashboard.cellphones.com.vn/storage/207x30_TopBanner_Homepage_01.2024_Mb_2-02133.svg"
+                                 alt="TOP banner mobile giao nhanh miễn phí">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="w-100">
+                            <img class="imgTopHead w-100"
+                                 src="https://cdn2.cellphones.com.vn/x/https://dashboard.cellphones.com.vn/storage/207x30_TopBanner_Homepage_01.2024_Mb_2-03133.svg"
+                                 alt="TOP banner mobile sản phẩm chính hãng đầy đủ VAT">
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+
+            <!-- Nav-bar -->
+            <nav class="navbar align-items-center border-bottom flex-grow-1 pb-0">
+                <div class="container-fluid">
+                    <div class="d-flex align-items-center ">
+                        <a href="#" class="navbar-brand m-0 textColor fw-bold brand pacifico-regular">HexTech</a>
+                        <div id="verticalbar" class="mx-xxl-2 mx-1 d-none d-lg-inline-block"></div>
+                        <a href="#"
+                           class="nav-link textColor fw-lighter lh-sm brandSubHeading d-none d-lg-inline-block pacifico-regular">Công
+                            Nghệ
+                            <br>
+                            <span class="fw-medium brandSubHeading d-none d-lg-inline-block pacifico-regular">Thay Đổi Cuộc
+                                Sống</span>
+                        </a>
+                        <div class="position-relative ms-4 d-none d-xl-inline-block">
+                            <input class="searchInput bg-body-tertiary iconCursor ps-md-5 p-1 p-md-2 " type="search"
+                                   placeholder="Search Rides" aria-label="Search">
+                            <img class="position-absolute searchImg iconCursor" src="./png/search.svg" alt="search">
+                        </div>
+
+                    </div>
+                    <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
+                        <div class="d-none d-lg-block">
+                            <ul class="d-flex m-0 list-unstyled ">
+                                <li class="nav-item iconChange  me-4 pt-2">
+                                    <a href="#" class="nav-link text-center  p-0">
+                                        <div class=" d-flex align-items-center overflow-hidden changeWidth mx-auto">
+                                            <img class="one iconHeight mx-2" src="./svg/telephone.png" alt="book">
+                                            <img class="two iconHeight mx-2" src="./svg/telephone-tran.png" alt="book-half">
+                                        </div>
+                                        <div class="smallFont textColor">Gọi điện</div>
+                                    </a>
+                                </li>
+                                <li class="nav-item iconChange   me-4 pt-2">
+                                    <a href="#" class="nav-link text-center p-0">
+                                        <div class=" d-flex align-items-center overflow-hidden changeWidth mx-auto">
+                                            <img class="iconHeight mx-2" src="./svg/placeholder.png" alt="dpad">
+                                            <img class=" iconHeight mx-2" src="./svg/placehoder-tran.png" alt="dpad">
+                                        </div>
+                                        <div class="smallFont textColor">Địa chỉ</div>
+                                    </a>
+                                </li>
+                                <li class="nav-item iconChange  me-4 pt-1">
+                                    <a href="#" class="nav-link text-center p-0">
+                                        <div class=" d-flex align-items-center overflow-hidden changeWidth mx-auto">
+                                            <img class="iconHeight--delivery mx-2" src="./svg/delivery-car.png"
+                                                 alt="bar-chart">
+                                            <img class=" iconHeight--delivery mx-2" src="./svg/delivery-car-tran.png"
+                                                 alt="bar-chart">
+                                        </div>
+                                        <div class="smallFont textColor">Đơn hàng</div>
+                                    </a>
+                                </li>
+                                <li class="nav-item iconChange  me-4 pt-2">
+                                    <a href="#" class="nav-link text-center p-0">
+                                        <div class=" d-flex align-items-center overflow-hidden changeWidth mx-auto">
+                                            <img class="iconHeight mx-2" src="./svg/hand-bag.png" alt="lightbulb">
+                                            <img class=" iconHeight mx-2" src="./svg/hand-bag-tran.png" alt="lightbulb">
+                                        </div>
+                                        <div class="smallFont textColor">Giỏ hàng</div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div id="iconContainer"
+                             class="d-flex flex-grow-1 justify-content-end justify-content-lg-center align-items-center rounded-5 bg-light d-xl-none">
+                            <div class="search-box">
+                                <input type="text" class="search-input" placeholder="Sản phẩm,..." />
+                                <button class="search-btn">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <a href="login.html">
+                            <button id="loginBtn"
+                                    class="btn btn-sm m-sm-2 m-1 bg-primary text-white rounded-5 px-sm-3 px-2">Login
+                                <img class="d-none d-lg-inline-block" src="./png/box-arrow-in-right.svg" alt="box-arrow">
+                            </button></a>
+                    </div>
+                </div>
+            </nav>
+            <nav id="secondNav" class="bottom-0 position-fixed end-0 start-0">
+                <div class="d-lg-none">
+                    <div class="container-fluid d-flex justify-content-between shadow pt-2">
+                        <a href="#" class="text-center text-decoration-none textColor">
+                            <img class="iconHeight mb-1" src="./svg/logo.png" alt="book">
+                            <div class="extraSmallFont active pb-1 pacifico-regular">HexTech</div>
+                        </a>
+                        <a href="#" class="text-decoration-none textColor  text-center">
+                            <img class="iconHeight mb-1" src="./svg/telephone.png" alt="book">
+                            <div class="extraSmallFont pb-1">Gọi điện</div>
+                        </a>
+                        <a href="#" class="text-decoration-none textColor  text-center">
+                            <img class="iconHeight mb-1" src="./svg/placeholder.png" alt="dpad">
+                            <div class="extraSmallFont pb-1">Địa chỉ</div>
+                        </a>
+                        <a href="#" class="text-decoration-none textColor  text-center">
+                            <img class="iconHeight mb-1" src="./svg/delivery-car.png" alt="bar-chart">
+                            <div class="extraSmallFont pb-1">Đơn hàng</div>
+                        </a>
+                        <a href="#" class="text-decoration-none textColor  text-center">
+                            <img class="iconHeight mb-1" src="./svg/hand-bag.png" alt="lightbulb">
+                            <div class="extraSmallFont pb-1">Giỏ hàng</div>
+                        </a>
+                        <a href="#" class="text-decoration-none textColor  text-center">
+                            <img class="iconHeight mb-1" src="./svg/menu.png" alt="briefcase">
+                            <div class="extraSmallFont pb-1">Danh mục</div>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+            <section class="menu-bar">
+                <div class="container-fluid">
+                    <div class="menu-bar-content">
+                        <ul>
+                            <li><a href=""><i class="fas fa-mobile-alt"></i> Điện thoại</a>
+                                <div class="submenu">
+                                    <ul style="flex-wrap: wrap;">
+                                        <li>
+                                            <h5 style="font-weight: bold;"> Hãng sản xuất</h5>
+                                        </li>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <li><a href="">Apple (iPhone)</a></li>
+                                                <li><a href="">Samsung</a></li>
+                                                <li><a href="">Oppo</a></li>
+                                                <li><a href="">Xiaomi</a></li>
+                                            </div>
+                                            <div class="col-6">
+                                                <li><a href="">Realme</a></li>
+                                                <li><a href="">Tecno</a></li>
+                                                <li><a href="">Honor</a></li>
+                                            </div>
+                                        </div>
+                                    </ul>
+                                    <ul>
+                                        <li>
+                                            <h5 style="font-weight: bold;"> Mức giá</h5>
+                                        </li>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <li><a href=""> Dưới 2 triệu</a></li>
+                                                <li><a href=""> 2-4 triệu</a></li>
+                                                <li><a href=""> 4-7 triệu</a></li>
+                                            </div>
+                                            <div class="col-6">
+                                                <li><a href=""> 7-13 triệu</a></li>
+                                                <li><a href=""> Trên 13 triệu</a></li>
+                                            </div>
+                                        </div>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li><a href=""><i class="fas fa-laptop"></i> Laptop</a>
+                                <div class="submenu">
+                                    <ul style="flex-wrap: wrap;">
+                                        <li>
+                                            <h5 style="font-weight: bold;"> Hãng sản xuất</h5>
+                                        </li>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <li><a href="">Apple(MacBook)</a></li>
+                                                <li><a href="">Asus</a></li>
+                                                <li><a href="">HP</a></li>
+                                                <li><a href="">Lenovo</a></li>
+                                            </div>
+                                            <div class="col-6">
+                                                <li><a href="">Acer</a></li>
+                                                <li><a href="">MSI</a></li>
+                                                <li><a href="">Dell</a></li>
+                                                <li><a href="">Gigabyte</a></li>
+                                            </div>
+                                        </div>
+                                    </ul>
+                                    <ul>
+                                        <li>
+                                            <h5 style="font-weight: bold;"> Mức giá</h5>
+                                        </li>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <li><a href="">Dưới 5 triệu</a></li>
+                                                <li><a href="">Từ 5 - 10 triệu</a></li>
+                                                <li><a href="">Từ 10 - 15 triệu</a></li>
+                                                <li><a href="">Từ 15 - 20 triệu</a></li>
+                                            </div>
+                                            <div class="col-6">
+                                                <li><a href="">Từ 20 - 25 triệu</a></li>
+                                                <li><a href="">Từ 25 - 30 triệu</a></li>
+                                                <li><a href="">Trên 30 triệu</a></li>
+                                            </div>
+                                        </div>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li><a href=""><i class="fas fa-tablet"></i> Tablet</a>
+                                <div class="submenu">
+                                    <ul style="flex-wrap: wrap;">
+                                        <li>
+                                            <h5 style="font-weight: bold;"> Hãng sản xuất</h5>
+                                        </li>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <li><a href="">Apple(iPad)</a></li>
+                                                <li><a href="">Samsung</a></li>
+                                                <li><a href="">Xiaomi</a></li>
+                                                <li><a href="">Masstel</a></li>
+                                            </div>
+                                            <div class="col-6">
+                                                <li><a href="">Lenovo</a></li>
+                                                <li><a href="">OPPO</a></li>
+                                                <li><a href="">Coolpad</a></li>
+                                                <li><a href="">Nexta</a></li>
+                                            </div>
+                                        </div>
+                                    </ul>
+                                    <ul>
+                                        <li>
+                                            <h5 style="font-weight: bold;"> Mức giá</h5>
+                                        </li>
+                                        <li><a href="">Dưới 2 triệu</a></li>
+                                        <li><a href="">Từ 2 - 5 triệu</a></li>
+                                        <li><a href="">Từ 5 - 8 triệu</a></li>
+                                        <li><a href="">Trên 8 triệu</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li><a href=""><i class="fas fa-headphones-alt"></i> Phụ kiện</a>
+                                <div class="submenu">
+                                    <ul style="flex-wrap: wrap;">
+                                        <li>
+                                            <h5 style="font-weight: bold;">Các sản phẩm phụ kiện</h5>
+                                        </li>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <li><a href="">Bao da ốp lưng</a></li>
+                                                <li><a href="">Sạc dự phòng</a></li>
+                                                <li><a href="">Thẻ nhớ</a></li>
+                                                <li><a href="">Phụ kiện Apple</a></li>
+                                            </div>
+                                            <div class="col-6">
+                                                <li><a href="">Miếng dán màn hình</a></li>
+                                                <li><a href="">Chuột - bàn phím</a></li>
+                                                <li><a href="">Tai nghe</a></li>
+                                                <li><a href="">Sạc cáp</a></li>
+                                            </div>
+                                        </div>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li><a href=""><i class="fa fa-rotate-right" style="padding-right: 5px;"></i>Máy cũ giá rẻ</a>
+                            </li>
+                            <li><a href="">Trả góp</a></li>
+                        </ul>
+
+                    </div>
+                </div>
+            </section>
+        </header>
+        <main class="content--padding">
+            <ul class="breadcrumb">
+                <li><a href="index.html" class="active"><i class="fas fa-home"></i>Trang chủ</a></li>
+                <li><a href="#" class="active">Giỏ hàng</a></li>
+            </ul>
+
+            <div class="content_page">
+                <div class="content">
+                    <!-- Start Content-->
+                    <div class="container-fluid">
+                        <h3 style="text-align: center; color: red;">Giỏ hàng của bạn</h3> <br>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <div class="table-responsive">
+                                                    <table class="table table-borderless table-nowrap table-centered mb-0">
+                                                        <thead class="table-light">
+                                                            <tr>
+                                                                <th>Sản phẩm</th>
+                                                                <th>Giá</th>
+                                                                <th>Số lượng</th>
+                                                                <th>Thành tiền</th>
+                                                                <th style="width: 50px;"></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <!-- <tr class="product">
+                                                            <td>
+                                                                <img src="./images/samsung-s23-ulatra_2__1.webp"
+                                                                    alt="contact-img" title="contact-img"
+                                                                    class="rounded me-3" height="64" />
+                                                                <p class="m-0 d-inline-block align-middle font-16">
+                                                                    <a href="apps-ecommerce-products-details.html"
+                                                                        class="text-body">Samsung Galaxy S23 Ultra
+                                                                        5G</a>
+                                                                    <br>
+                                                                    <small class="me-2"><b>Bộ nhớ:</b> 256GB </small>
+                                                                    <small><b>Màu:</b> Xanh lá
+                                                                    </small>
+                                                                </p>
+                                                            </td>
+                                                            <td>
+                                                                <span class="gia">21.990.000đ</span>
+                                                            </td>
+                                                            <td>
+                                                                <input type="number" class="soLuong" min="1" value="1"
+                                                                    class="form-control" placeholder="Qty"
+                                                                    style="width: 90px;">
+                                                            </td>
+                                                            <td>
+                                                                <span class="thanhTien">21.990.000đ</span>
+                                                            </td>
+                                                            <td>
+                                                                <a href="javascript:void(0);" class="action-icon"> <i
+                                                                        class="fas fa-trash"></i></a>
+                                                            </td>
+                                                        </tr> -->
+                                                            <tr class="product">
+                                                                <td>
+                                                                    <img src="./images/samsung-s23-ulatra_2__1.webp"
+                                                                         alt="contact-img" title="contact-img"
+                                                                         class="rounded me-3" height="64" />
+                                                                    <p class="m-0 d-inline-block align-middle font-16">
+                                                                        <a href="apps-ecommerce-products-details.html"
+                                                                           class="text-body">Samsung Galaxy S23 Ultra
+                                                                            5G</a>
+                                                                        <br>
+                                                                        <small class="me-2"><b>Bộ nhớ:</b> 256GB </small>
+                                                                        <small><b>Màu:</b> Xanh lá</small>
+                                                                    </p>
+                                                                </td>
+                                                                <td>
+                                                                    <span class="gia">21.990.000đ</span>
+                                                                </td>
+                                                                <td>
+                                                                    <input type="number" class="soLuong form-control"
+                                                                           min="0" value="1" placeholder="Qty"
+                                                                           style="width: 90px;">
+                                                                </td>
+                                                                <td>
+                                                                    <span class="thanhTien">21.990.000đ</span>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="javascript:void(0);" class="action-icon"><i
+                                                                            class="fas fa-trash"></i></a>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="product">
+                                                                <td>
+                                                                    <img src="./images/638454261816142342_honor-x7b-xanh-6.webp"
+                                                                         alt="contact-img" title="contact-img"
+                                                                         class="rounded me-3" height="64" />
+                                                                    <p class="m-0 d-inline-block align-middle font-16">
+                                                                        <a href="apps-ecommerce-products-details.html"
+                                                                           class="text-body">Honor X7b</a>
+                                                                        <br>
+                                                                        <small class="me-2"><b>Bộ nhớ:</b> 256GB </small>
+                                                                        <small><b>Màu:</b> Xanh </small>
+                                                                    </p>
+                                                                </td>
+                                                                <td>
+                                                                    <span class="gia">4.990.000đ</span>
+                                                                </td>
+                                                                <td>
+                                                                    <input type="number" min="0" value="1"
+                                                                           class="form-control soLuong" placeholder="Qty"
+                                                                           style="width: 90px;">
+                                                                </td>
+                                                                <td>
+                                                                    <span class="thanhTien">4.990.000đ</span>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="javascript:void(0);" class="action-icon"> <i
+                                                                            class="fas fa-trash"></i></a>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="product">
+                                                                <td>
+                                                                    <img src="./images/638435905526202438_lenovo-gaming-loq-15iax-9-i5-12450hx-led-trang-dd.webp"
+                                                                         alt="contact-img" title="contact-img"
+                                                                         class="rounded me-3" height="64" />
+                                                                    <p class="m-0 d-inline-block align-middle font-16">
+                                                                        <a href="apps-ecommerce-products-details.html"
+                                                                           class="text-body">Laptop Lenovo Gaming
+                                                                            LOQ-15IAX9</a>
+                                                                        <br>
+                                                                        <small class="me-2"><b>Bộ nhớ:</b> 512GB </small>
+                                                                    </p>
+                                                                </td>
+                                                                <td>
+                                                                    <span class="gia">19.990.000đ</span>
+                                                                </td>
+                                                                <td>
+                                                                    <input type="number" min="0" value="1"
+                                                                           class="soLuong form-control" placeholder="Qty"
+                                                                           style="width: 90px;">
+                                                                </td>
+                                                                <td>
+                                                                    <span class="thanhTien">19.990.000đ</span>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="javascript:void(0);" class="action-icon"> <i
+                                                                            class="fas fa-trash"></i></a>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="product">
+                                                                <td>
+                                                                    <img src="./images/638017355452124924_ipad-gen-10-wifi-dd.webp"
+                                                                         alt="contact-img" title="contact-img"
+                                                                         class="rounded me-3" height="64" />
+                                                                    <p class="m-0 d-inline-block align-middle font-16">
+                                                                        <a href="apps-ecommerce-products-details.html"
+                                                                           class="text-body">iPad Gen 10 2022 10.9 inch
+                                                                            WiFi</a>
+                                                                        <br>
+                                                                        <small class="me-2"><b>Size:</b> Large </small>
+                                                                        <small><b>Color:</b> Orange </small>
+                                                                    </p>
+                                                                </td>
+                                                                <td>
+                                                                    <span class="gia">9.990.000đ</span>
+                                                                </td>
+                                                                <td>
+                                                                    <input type="number" min="0" value="1"
+                                                                           class="soLuong form-control" placeholder="Qty"
+                                                                           style="width: 90px;">
+                                                                </td>
+                                                                <td>
+                                                                    <span class="thanhTien"></span>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="javascript:void(0);" class="action-icon"> <i
+                                                                            class="fas fa-trash"></i></a>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div> <!-- end table-responsive-->
+                                                <!-- action buttons-->
+                                                <div class="row mt-4">
+                                                    <div class="col-sm-6">
+                                                        <a href="apps-ecommerce-products.html"
+                                                           class="btn text-muted d-none text-decoration-none d-sm-inline-block btn-link fw-semibold">
+                                                            <i class="fas fa-arrow-left"></i> Tiếp tục mua hàng </a>
+                                                    </div> <!-- end col -->
+                                                    <div class="col-sm-6">
+                                                        <div class="text-sm-end">
+                                                            <a href="apps-ecommerce-checkout.html" class="btn btn-danger">
+                                                                <i class="fas fa-cart-plus"></i> Thanh toán </a>
+                                                        </div>
+                                                    </div> <!-- end col -->
+                                                </div> <!-- end row-->
+                                            </div>
+                                            <!-- end col -->
+
+                                            <div class="col-md-4">
+                                                <div class="border p-3 mt-4 mt-lg-0 rounded">
+                                                    <h5 class="header-title mb-3">Tóm tắt đơn hàng</h5>
+
+                                                    <div class="table-responsive">
+                                                        <table class="table mb-0">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>Tổng tiền hàng: </td>
+                                                                    <td><span id="tongTienHang">0đ</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Giảm giá: </td>
+                                                                    <td><span id="giamGia">0%</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Phí vận chuyển: </td>
+                                                                    <td><span id="phiVanChuyen">0đ</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Thuế (10%): </td>
+                                                                    <td><span id="thue">0đ</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Tổng cộng: </th>
+                                                                    <th><span id="tongCong">0đ</span></th>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <!-- end table-responsive -->
+                                                </div>
+                                                <div class="border p-3 mt-4 rounded m">
+                                                    <i class="fas fa-map-marker-alt"></i>
+                                                </div>
+                                                <div class="alert alert-warning mt-3" role="alert">
+                                                    Sử dụng mã giảm giá <strong>HYPBM</strong> và nhận giảm giá 10% !
+                                                </div>
+
+                                                <div class="input-group mt-3">
+                                                    <input type="text" class="form-control" placeholder="Coupon code"
+                                                           aria-label="Recipient's username">
+                                                    <button class="input-group-text btn-light" type="button">Áp
+                                                        dụng</button>
+                                                </div>
+
+                                            </div> <!-- end col -->
+                                        </div> <!-- end row -->
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end card-->
+                            </div>
+                        </div>
+                        <!-- end row -->
+                    </div> <!-- container -->
+                </div> <!-- content -->
+
+            </div>
+            <div class="footer">
+                <div class="container">
+                    <div class="footer-info row">
+                        <div class="col-md-4 footer-info-grid links">
+                            <h4>Thông tin và chính sách</h4>
+                            <ul>
+                                <li><a href="#">Giới thiệu về công ty</a></li>
+                                <li><a href="#">Chính sách bảo mật</a></li>
+                                <li><a href="#">Quy chế hoạt động</a></li>
+                                <li><a href="#">Kiểm tra hóa đơn điện tử</a></li>
+                                <li><a href="#">Câu hỏi thường gặp mua hàng</a></li>
+                                <li><img style="width: 15%; margin-left: -8%; margin-top: 10px;" src="./images/ft-img1.png"
+                                         alt=""></li>
+                                <li><img style="width: 40%; margin-top: 10px;" src="./images/ft-img2.png" alt=""></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 footer-info-grid address">
+                            <h4>Địa chỉ</h4>
+                            <address>
+                                <ul>
+                                    <li>Khu đô thị FPT City, Ngũ Hành Sơn, Đà Nẵng </li>
+                                    <li>Đà Nẵng, Việt Nam</li>
+                                    <li>Hotline: 1800 1918</li>
+                                    <li>Email : <a class="mail" href="#">hextechxinchao@gmail.com</a></li>
+                                </ul>
+                            </address>
+                        </div>
+                        <div class="col-md-4 footer-info-grid email">
+                            <h4>ĐĂNG KÝ NHẬN TIN KHUYẾN MÃI</h4>
+                            <p>(*) Nhận ngay voucher 10% <br>
+                                *Voucher sẽ được gửi sau 24h, chỉ áp dụng cho khách hàng mới</p>
+                            <form action="#" method="get" class="newsletter">
+                                <input class="email" type="email" placeholder="Email*" required>
+                                <input class="email" type="text" placeholder="Số điện thoại" required>
+                                <input style="color: white;" type="submit" class="submit" value="Đăng kí ngay">
+                                <label style="font-size: 13px; margin-top: 10px; color: rgb(232, 56, 56);"><input
+                                        type="checkbox" value="" checked>Tôi đồng ý với điều khoản của Hextech</label>
+                            </form>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="connect">
+                        <div class="connect-social">
+                            <h4>CONTACT US</h4>
+                            <ul>
+                                <li><a href="#" class="social-button facebook"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#" class="social-button twitter"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#" class="social-button"><i class="fa fa-google"></i></a></li>
+                                <li><a href="#" class="social-button"><i class="fab fa-github"></i></a></li>
+                                <li><a href="#" class="social-button"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="#" class="social-button"><i class="fa fa-pinterest-p"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="copyright">
+                        <p>&copy; 2007 - 2023 Công Ty Cổ Phần Bán Lẻ Kỹ Thuật Số Hextech</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script src="./javascript/js/shopping_cart.js"></script>
+        <script src="./js/vendor.min.js"></script>
+        <script src="./js/app.min.js"></script>
+
+    </body>
+
+</html>

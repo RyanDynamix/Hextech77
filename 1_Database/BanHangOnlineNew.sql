@@ -39,15 +39,20 @@ CREATE TABLE Products (
 
 CREATE TABLE Orders (
   orderID        int IDENTITY PRIMARY KEY NOT NULL, 
-  userID         int NOT NULL, 
+  userID         int NOT NULL,
+  orderConfirmed bit NOT NULL,
   orderDate      datetime NULL, 
   totalMoney     decimal(20, 2) NOT NULL, 
   phone          nvarchar(20) NOT NULL, 
   paymentStatus  nvarchar(50) NULL, 
   deliveryStatus nvarchar(50) NULL, 
-  paymentType    nvarchar(100) NULL, 
+  paymentType    nvarchar(100) NULL,
+  deliveryInfo   nvarchar(100) NULL,
   FOREIGN KEY (userID) REFERENCES Users (userID)
 );
+
+--drop table Orders;
+--drop table OrderDetails;
 
 CREATE TABLE OrderDetails (
   ID        int IDENTITY PRIMARY KEY NOT NULL, 
@@ -141,18 +146,18 @@ VALUES
 (10, '6.44 inch', 'Android', '48MP', '32MP', 'Snapdragon 765G', '8GB', '128GB', 'Nano SIM', '4115mAh', '30W');
 
 -- Insert dữ liệu vào bảng Orders
-INSERT INTO Orders (userID, orderDate, totalMoney, phone, paymentStatus, deliveryStatus, paymentType) 
+INSERT INTO Orders (userID, orderDate, orderConfirmed, totalMoney, phone, paymentStatus, deliveryStatus, paymentType, deliveryInfo) 
 VALUES 
-(2, '2024-06-30', 1049.99, '0987654321', 'Paid', 'Delivered', 'Credit Card'),
-(2, '2024-07-01', 799.99, '0987654321', 'Pending', 'Processing', 'PayPal'),
-(1, '2024-07-02', 949.99, '0123456789', 'Paid', 'Shipped', 'Credit Card'),
-(1, '2024-07-03', 199.99, '0123456789', 'Pending', 'Processing', 'Cash on Delivery'),
-(2, '2024-07-04', 849.99, '0987654321', 'Paid', 'Delivered', 'Credit Card'),
-(2, '2024-07-05', 1199.99, '0987654321', 'Pending', 'Processing', 'PayPal'),
-(1, '2024-07-06', 729.99, '0123456789', 'Paid', 'Shipped', 'Credit Card'),
-(1, '2024-07-07', 399.99, '0123456789', 'Pending', 'Processing', 'Cash on Delivery'),
-(2, '2024-07-08', 149.99, '0987654321', 'Paid', 'Delivered', 'Credit Card'),
-(2, '2024-07-09', 699.99, '0987654321', 'Pending', 'Processing', 'PayPal');
+(2, '2024-06-30', 1, 1049.99, '0987654321', 'Paid', 'Delivered', 'Credit Card', N'Giao Hàng Tiết Kiệm'),
+(2, '2024-07-01', 1, 799.99, '0987654321', 'Pending', 'Processing', 'PayPal', N'Giao Hàng Tiết Kiệm'),
+(1, '2024-07-02', 1, 949.99, '0123456789', 'Paid', 'Shipped', 'Credit Card', N'Giao Hàng Tiết Kiệm'),
+(1, '2024-07-03', 1, 199.99, '0123456789', 'Pending', 'Processing', 'Cash on Delivery', N'Giao Hàng Tiết Kiệm'),
+(2, '2024-07-04', 1, 849.99, '0987654321', 'Paid', 'Delivered', 'Credit Card', N'Giao Hàng Tiết Kiệm'),
+(2, '2024-07-05', 1, 1199.99, '0987654321', 'Pending', 'Processing', 'PayPal', N'Giao Hàng Tiết Kiệm'),
+(1, '2024-07-06', 1, 729.99, '0123456789', 'Paid', 'Shipped', 'Credit Card', N'Giao Hàng Tiết Kiệm'),
+(1, '2024-07-07', 1, 399.99, '0123456789', 'Pending', 'Processing', 'Cash on Delivery', N'Giao Hàng Tiết Kiệm'),
+(2, '2024-07-08', 1, 149.99, '0987654321', 'Paid', 'Delivered', 'Credit Card', N'Giao Hàng Tiết Kiệm'),
+(2, '2024-07-09', 1, 699.99, '0987654321', 'Pending', 'Processing', 'PayPal', N'Giao Hàng Tiết Kiệm');
 
 -- Insert dữ liệu vào bảng OrderDetails
 INSERT INTO OrderDetails (productID, orderID, quantity, price) 
@@ -192,3 +197,18 @@ VALUES
 (1, 'iphone13_1.jpg'),
 (1, 'iphone13_2.jpg'),
 (2, 'galaxys21_1.jpg');
+
+-- test////////////////
+select * from Orders
+
+--Test
+--EXEC GetProductsByCategory @targetCategoryName = 'Mobile Phones';
+--DROP PROCEDURE IF EXISTS GetCategoryDescendants;
+--DROP PROCEDURE IF EXISTS GetProductsByCategory;
+--DROP FUNCTION dbo.GetDescendantCategories;
+--////////////////////////////////////////////////
+
+SELECT *
+FROM Products
+WHERE categoryID = 2
+   OR categoryID IN (SELECT categoryID FROM Categories WHERE parentCategoryID = 2);

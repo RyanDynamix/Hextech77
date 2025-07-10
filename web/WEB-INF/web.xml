@@ -24,6 +24,11 @@
     <servlet>
         <servlet-name>adminProduct</servlet-name>
         <servlet-class>controller.adminProduct</servlet-class>
+        
+    </servlet>
+    <servlet>
+        <servlet-name>addProduct</servlet-name>
+        <servlet-class>controller.addProduct</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>customerController</servlet-name>
@@ -34,9 +39,37 @@
         <servlet-class>controller.detailController</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>adminDetailProduct</servlet-name>
+        <servlet-class>controller.adminDetailProduct</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>productController</servlet-name>
         <servlet-class>controller.productController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>adminDiscountController</servlet-name>
+        <servlet-class>controller.adminDiscountController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>editProduct</servlet-name>
+        <servlet-class>controller.editProduct</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>editProductDetail</servlet-name>
+        <servlet-class>controller.editProductDetail</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>NotificationController</servlet-name>
+        <servlet-class>controller.NotificationController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>editProduct</servlet-name>
+        <url-pattern>/editProduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>editProductDetail</servlet-name>
+        <url-pattern>/editProductDetail</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>productController</servlet-name>
         <url-pattern>/Admin/products</url-pattern>
@@ -54,6 +87,10 @@
         <url-pattern>/Admin/adminProduct</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>addProduct</servlet-name>
+        <url-pattern>/Admin/addProduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>orderController</servlet-name>
         <url-pattern>/Admin/orders</url-pattern>
     </servlet-mapping>
@@ -65,8 +102,27 @@
         <servlet-name>index</servlet-name>
         <url-pattern>/Admin/index</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>adminDiscountController</servlet-name>
+        <url-pattern>/Admin/adminDiscount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>editProduct</servlet-name>
+        <url-pattern>/Admin/editProduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>editProductDetail</servlet-name>
+        <url-pattern>/Admin/editProductDetail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NotificationController</servlet-name>
+        <url-pattern>/notifications</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NotificationController</servlet-name>
+        <url-pattern>/Admin/notifications</url-pattern>
+    </servlet-mapping>
     <!-- Admin -->
-    <!--<welcome-file-list>-->
     <welcome-file-list>
         <welcome-file>homePage</welcome-file>
     </welcome-file-list>

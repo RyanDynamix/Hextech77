@@ -824,3 +824,43 @@ select * from OrderDetails
 
 select * from Orders
 */
+
+
+
+
+ALTER TABLE Users
+ADD status BIT
+
+
+CREATE TABLE Discounts (
+    discountID INT PRIMARY KEY IDENTITY(1,1),
+    code NVARCHAR(50) UNIQUE,               -- Mã giảm giá do người dùng nhập (VD: SALE20)
+    name NVARCHAR(255),                     -- Tên hiển thị (VD: Giảm giá mùa hè)
+    type NVARCHAR(20),                      -- 'percentage', 'fixed'
+    value DECIMAL(10,2),                    -- VD: 20.00 (20%), hoặc 50000 (giảm 50k)
+    minOrderValue DECIMAL(10,2) DEFAULT 0,  -- Đơn tối thiểu để áp dụng
+    quantity INT,                           -- Số lượt còn lại
+    startDate DATETIME,
+    endDate DATETIME,
+    status BIT DEFAULT 1,                   -- 1 = Đang hoạt động, 0 = Đã tắt (do admin)
+    createdAt DATETIME DEFAULT GETDATE()
+);
+
+ALTER TABLE Orders
+ADD discountID INT;
+
+ALTER TABLE Orders
+ADD CONSTRAINT FK_Orders_Discounts
+    FOREIGN KEY (discountID) REFERENCES Discounts(discountID);
+
+CREATE TABLE dbo.Notifications
+(
+    NotificationID    INT             IDENTITY(1,1)    PRIMARY KEY,
+    RecipientType     NVARCHAR(50)    NOT NULL,               -- 'Customer', 'Employee' hoặc 'All'
+    Title             NVARCHAR(200)   NOT NULL,               -- Tiêu đề thông báo
+    Message           NVARCHAR(MAX)   NOT NULL,               -- Nội dung thông báo
+    CreatedAt         DATETIME2       NOT NULL  DEFAULT GETDATE()
+);
+
+
+

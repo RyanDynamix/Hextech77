@@ -133,10 +133,11 @@
                             <div class="dropdown-menu dropdown-menu-animated dropdown-lg p-0">
                                 <form class="p-3">
                                     <input type="search" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
-                                </form>
-                            </div>
+                                </form>                            </div>
                         </li>
                         
+                        <%@ include file="includes/notification-dropdown.jsp" %>
+
                         <li class="d-none d-sm-inline-block">
                             <a class="nav-link" data-bs-toggle="offcanvas" href="#theme-settings-offcanvas">
                                 <i class="ri-settings-3-line font-22"></i>
@@ -267,7 +268,12 @@
                                     <li>
                                         <a href="customers">Khách hàng</a>
                                     </li>
+                                    <li>
+                                        <a href="adminDiscount">Mã giảm giá</a>
                                     </li>
+                                    <li>
+                                    <a href="notifications">Thông báo</a>
+                                </li>
                                 </ul>
                             </div>
                         </li>
@@ -947,6 +953,8 @@
 
         <!-- App js -->
         <script src="assets/js/app.min.js"></script>
+        
+        <%@ include file="includes/notification-js.jsp" %>
 
     </body>
 

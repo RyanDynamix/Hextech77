@@ -116,6 +116,8 @@
                                 </form>
                             </div>
                         </li>
+                        
+                        <%@ include file="includes/notification-dropdown.jsp" %>
 
                         <li class="d-none d-sm-inline-block">
                             <a class="nav-link" data-bs-toggle="offcanvas" href="#theme-settings-offcanvas">
@@ -246,7 +248,12 @@
                                     <li>
                                         <a href="customers">Khách hàng</a>
                                     </li>
+                                    <li>
+                                        <a href="adminDiscount">Mã giảm giá</a>
                                     </li>
+                                    <li>
+                                    <a href="notifications">Thông báo</a>
+                                </li>
                                 </ul>
                             </div>
                         </li>
@@ -927,6 +934,8 @@
 
         <!-- App js -->
         <script src="assets/js/app.min.js"></script>
+        
+        <%@ include file="includes/notification-js.jsp" %>
 
     </body>
 

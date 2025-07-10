@@ -1,4 +1,3 @@
-
 package model;
 
 import java.io.Serializable;
@@ -12,7 +11,7 @@ public class ProductDetail implements Serializable {
     private String selfieCamera;
     private String chip;
     private String ram;
-    private String stogare;
+    private String storage;
     private String sim;
     private String battery;
     private String charger;
@@ -21,7 +20,7 @@ public class ProductDetail implements Serializable {
     public ProductDetail() {
     }
 
-    public ProductDetail(int ID, int productID, String screen, String os, String mainCamera, String selfieCamera, String chip, String ram, String stogare, String sim, String battery, String charger, String color) {
+    public ProductDetail(int ID, int productID, String screen, String os, String mainCamera, String selfieCamera, String chip, String ram, String storage, String sim, String battery, String charger, String color) {
         this.ID = ID;
         this.productID = productID;
         this.screen = screen;
@@ -30,7 +29,7 @@ public class ProductDetail implements Serializable {
         this.selfieCamera = selfieCamera;
         this.chip = chip;
         this.ram = ram;
-        this.stogare = stogare;
+        this.storage = storage;
         this.sim = sim;
         this.battery = battery;
         this.charger = charger;
@@ -101,12 +100,12 @@ public class ProductDetail implements Serializable {
         this.ram = ram;
     }
 
-    public String getStogare() {
-        return stogare;
+    public String getStorage() {
+        return storage;
     }
 
-    public void setStogare(String stogare) {
-        this.stogare = stogare;
+    public void setStorage(String storage) {
+        this.storage = storage;
     }
 
     public String getSim() {
@@ -143,7 +142,7 @@ public class ProductDetail implements Serializable {
 
     @Override
     public String toString() {
-        return "ProductDetail{" + "ID=" + ID + ", productID=" + productID + ", screen=" + screen + ", os=" + os + ", mainCamera=" + mainCamera + ", selfieCamera=" + selfieCamera + ", chip=" + chip + ", ram=" + ram + ", stogare=" + stogare + ", sim=" + sim + ", battery=" + battery + ", charger=" + charger + ", color=" + color + '}';
+        return "ProductDetail{" + "ID=" + ID + ", productID=" + productID + ", screen=" + screen + ", os=" + os + ", mainCamera=" + mainCamera + ", selfieCamera=" + selfieCamera + ", chip=" + chip + ", ram=" + ram + ", storage=" + storage + ", sim=" + sim + ", battery=" + battery + ", charger=" + charger + ", color=" + color + '}';
     }
 
 }

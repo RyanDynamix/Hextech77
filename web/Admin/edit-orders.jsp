@@ -246,7 +246,12 @@
                                     <li>
                                         <a href="customers.jsp">Khách hàng</a>
                                     </li>
+                                    <li>
+                                        <a href="adminDiscount">Mã giảm giá</a>
                                     </li>
+                                    <li>
+                                    <a href="notifications">Thông báo</a>
+                                </li>
                                 </ul>
                             </div>
                         </li>

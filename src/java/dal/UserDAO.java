@@ -3,8 +3,10 @@ package dal;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.Roles;
 import model.Users;
 
 public class UserDAO extends DBContext {
@@ -20,6 +22,7 @@ public class UserDAO extends DBContext {
                 + "      ,[phone]\n"
                 + "      ,[address]\n"
                 + "      ,[roleID]\n"
+                + "      ,[status]\n"
                 + "  FROM [dbo].[Users] where [email] = ? and [password] = ?";
         try {
             //- tạo đối tượng PrepareStatement
@@ -38,8 +41,9 @@ public class UserDAO extends DBContext {
                 String address_found = resultSet.getString("address").trim();
                 int userID = resultSet.getInt("userID");
                 int roleID = resultSet.getInt("roleID");
+                boolean status = resultSet.getBoolean("status");
 
-                Users user1 = new Users(userID, fullname_found, email_found, password_found, phone_found, address_found, roleID);
+                Users user1 = new Users(userID, fullname_found, email_found, password_found, phone_found, address_found, roleID, status);
                 return user1;
             }
         } catch (SQLException e) {
@@ -59,6 +63,7 @@ public class UserDAO extends DBContext {
                 + "      ,[phone]\n"
                 + "      ,[address]\n"
                 + "      ,[roleID]\n"
+                + "      ,[status]\n"
                 + "  FROM [dbo].[Users] where [email] = ?";
         try {
             //- tạo đối tượng PrepareStatement
@@ -76,8 +81,9 @@ public class UserDAO extends DBContext {
                 String address_found = resultSet.getString("address").trim();
                 int userID = resultSet.getInt("userID");
                 int roleID = resultSet.getInt("roleID");
+                boolean status = resultSet.getBoolean("status");
 
-                Users user1 = new Users(userID, fullname_found, email_found, password_found, phone_found, address_found, roleID);
+                Users user1 = new Users(userID, fullname_found, email_found, password_found, phone_found, address_found, roleID, status);
                 return user1;
             }
         } catch (SQLException e) {
@@ -122,9 +128,11 @@ public class UserDAO extends DBContext {
                                 ,[password]
                                 ,[roleID]
                                 ,[phone]
-                                ,[address])
+                                ,[address]
+                                ,[status])
                           VALUES
                                 (?
+                                ,?
                                 ,?
                                 ,?
                                 ,?
@@ -140,6 +148,7 @@ public class UserDAO extends DBContext {
             preStatement.setObject(4, user.getRoleID());
             preStatement.setObject(5, user.getPhone());
             preStatement.setObject(6, user.getAddress());
+            preStatement.setObject(7, user.isStatus());
             //- thuc thi cau lenh
             preStatement.executeUpdate();
             //- tra ve ket qua mới thêm
@@ -158,8 +167,10 @@ public class UserDAO extends DBContext {
         ArrayList<Users> list = new ArrayList<>();
         connection = getConnection();
         String sql = """
-                     select userID, fullName, phone, email, address, roleID
-                     from [dbo].[Users] """;
+                     SELECT u.userID, u.fullName, u.phone, u.email, u.address, u.roleID, u.status, r.name as roleName
+                     FROM [dbo].[Users] u
+                     JOIN [dbo].[Roles] r ON u.roleID = r.roleID
+                     """;
         try {
             preStatement = connection.prepareStatement(sql);
             resultSet = preStatement.executeQuery();
@@ -170,14 +181,14 @@ public class UserDAO extends DBContext {
                 String email = resultSet.getString("email");
                 String address = resultSet.getString("address");
                 int roleID = resultSet.getInt("roleID");
-                Users u = new Users(userID, fullName, email, phone, address, roleID);
-                //Orders or = new Orders(resultSet.getInt(1) , resultSet.getDate(2), resultSet.getNString(3), resultSet.getDouble(4), resultSet.getString(5), resultSet.getNString(6));
+                boolean status = resultSet.getBoolean("status");
+                Users u = new Users(userID, fullName, email, phone, address, roleID, status);
                 list.add(u);
             }
             connection.close();
             return list;
         } catch (SQLException ex) {
-
+            System.out.println("??listAll: " + ex.getMessage());
         }
         return null;
     }
@@ -185,8 +196,8 @@ public class UserDAO extends DBContext {
     public Users getUserById(int id) {
         connection = getConnection();
         String sql = """
-                     select *
-                     from [dbo].[Users] 
+                     SELECT *
+                     FROM [dbo].[Users] 
                      WHERE [userID] = ? 
                      """;
         try {
@@ -201,18 +212,18 @@ public class UserDAO extends DBContext {
                 String password = resultSet.getString("password");
                 String address = resultSet.getString("address");
                 int roleID = resultSet.getInt("roleID");
-                Users u = new Users(userID, fullName, email, password, phone, address, roleID);
-                //Orders or = new Orders(resultSet.getInt(1) , resultSet.getDate(2), resultSet.getNString(3), resultSet.getDouble(4), resultSet.getString(5), resultSet.getNString(6));
+                boolean status = resultSet.getBoolean("status");
+                Users u = new Users(userID, fullName, email, password, phone, address, roleID, status);
                 return u;
             }
             connection.close();
         } catch (SQLException ex) {
-
+            System.out.println("??getUserById: " + ex.getMessage());
         }
         return null;
     }
     
-    public void insertUser(String fullname, String email, String password, String phone, String address, int roleID) {
+    public void insertUser(String fullname, String email, String password, String phone, String address, int roleID, boolean status) {
         //- connect w/Database
         connection = getConnection();
         //- Chuan bi cau lenh sql
@@ -223,9 +234,11 @@ public class UserDAO extends DBContext {
                                 ,[password]
                                 ,[phone]
                                 ,[address]
-                                ,[roleID])
+                                ,[roleID]
+                                ,[status])
                           VALUES
                                 (?
+                                ,?
                                 ,?
                                 ,?
                                 ,?
@@ -241,75 +254,108 @@ public class UserDAO extends DBContext {
             preStatement.setObject(4, phone);
             preStatement.setObject(5, address);
             preStatement.setObject(6, roleID);
+            preStatement.setBoolean(7, status);
             //- thuc thi cau lenh
             preStatement.executeUpdate();
             //- tra ve ket qua mới thêm
             resultSet = preStatement.getGeneratedKeys();
         } catch (SQLException e) {
-            System.out.println("??insertUserDB: " + e.getMessage());
+            System.out.println("??insertUser: " + e.getMessage());
         }
     }
-    
-    public void updateUser(int userID, String fullname, String email, String password, String phone, String address, int roleID){
+
+    public void updateUser(int userID, String fullname, String email, String password, String phone, String address, int roleID, boolean status){
+        //- connect w/Database
         connection = getConnection();
+        //- Chuan bi cau lenh sql
         String sql = """
                      UPDATE [dbo].[Users]
-                     SET [fullName] = ?
-                           ,[email] = ?
-                           ,[password] = ?
-                           ,[phone] = ?
-                           ,[address] = ?
-                           ,[roleID] =?
-                      WHERE userID = ?
-                     """;
+                     SET [fullName] = ?, [email] = ?, [password] = ?, [phone] = ?, [address] = ?, [roleID] = ?, [status] = ?
+                     WHERE [userID] = ?""";
         try {
+            //- Tao doi tuong prepareStatement (thêm generated key vao tham so thu 2)
             preStatement = connection.prepareStatement(sql);
-            
+            //- set parameter
             preStatement.setObject(1, fullname);
             preStatement.setObject(2, email);
             preStatement.setObject(3, password);
             preStatement.setObject(4, phone);
             preStatement.setObject(5, address);
             preStatement.setObject(6, roleID);
-            preStatement.setObject(7, userID);
-            
+            preStatement.setBoolean(7, status);
+            preStatement.setObject(8, userID);
+            //- thuc thi cau lenh
             preStatement.executeUpdate();
-        } catch (SQLException ex) {
-            System.out.println("??updateUser: " + ex.getMessage());
+        } catch (SQLException e) {
+            System.out.println("??updateUser: " + e.getMessage());
         }
-        
+    }
+
+    public void blockUser(int id){
+        //- connect w/Database
+        connection = getConnection();
+        //- Chuan bi cau lenh sql
+        String sql = """
+                     UPDATE [dbo].[Users]
+                     SET [status] = 0
+                     WHERE [userID] = ?""";
+        try {
+            //- Tao doi tuong prepareStatement (thêm generated key vao tham so thu 2)
+            preStatement = connection.prepareStatement(sql);
+            //- set parameter
+            preStatement.setInt(1, id);
+            //- thuc thi cau lenh
+            preStatement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("??blockUser: " + e.getMessage());
+        }
     }
     
-    public void blockUser(int id){
-        String sql = """
-                     UPDATE [dbo].[Users] 
-                     SET [roleID] = 3
-                     WHERE userID = ? """;
-        
+    public int countTotalUsers() {
+        int count = 0;
         connection = getConnection();
+        String sql = """
+                     SELECT COUNT(*) AS total_users
+                     FROM [dbo].[Users]
+                     """;
         try {
             preStatement = connection.prepareStatement(sql);
-            preStatement.setObject(1, id);
-            preStatement.executeUpdate();
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+            resultSet = preStatement.executeQuery();
+            if (resultSet.next()) {
+                count = resultSet.getInt("total_users");
+            }
+        } catch (SQLException e) {
+            System.out.println("??countTotalUsers: " + e.getMessage());
         }
-        
-    } 
-//--------------------------------------------------------------------
-//--------------------------------------------------------------------
+        return count;
+    }
     
+    public List<Roles> getAllRoles() {
+        List<Roles> roles = new ArrayList<>();
+        connection = getConnection();
+        String sql = """
+                     SELECT [roleID], [name]
+                     FROM [dbo].[Roles]
+                     """;
+        try {
+            preStatement = connection.prepareStatement(sql);
+            resultSet = preStatement.executeQuery();
+            while (resultSet.next()) {
+                int roleID = resultSet.getInt("roleID");
+                String name = resultSet.getString("name");
+                roles.add(new Roles(roleID, name));
+            }
+        } catch (SQLException e) {
+            System.out.println("??getAllRoles: " + e.getMessage());
+        }
+        return roles;
+    }
+
     public static void main(String[] args) {
-        System.out.println(new UserDAO().findByEmailPassword("customer@gmail.com", "12345").toString());
-//        UserDAO re = new UserDAO();
-////        ArrayList<Product> list1 = re.listAllProductPhone();
-////        for (Product item : list1) {
-////            System.out.println(item.toString());
-////        }
-//        ArrayList<ProductDetail> list2 = re.listAllProductDetailTablet();
-//        for (ProductDetail item : list2) {
-//            System.out.println(item.toString());
-//        }
+        UserDAO dao = new UserDAO();
+        List<Roles> roles = dao.getAllRoles();
+        for (Roles role : roles) {
+            System.out.println(role);
+        }
     }
 }

@@ -164,7 +164,7 @@
                                 </a> -->
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">
+                                <a href="javascript:void(0);" class="dropdown-item" onclick="logout()">
                                     <i class="mdi mdi-logout me-1"></i>
                                     <span>Logout</span>
                                 </a>
@@ -251,6 +251,9 @@
                                     </li>
                                     <li>
                                     <a href="notifications">Thông báo</a>
+                                </li>
+                                <li>
+                                    <a href="feedback">Phản hồi</a>
                                 </li>
                                 </ul>
                             </div>

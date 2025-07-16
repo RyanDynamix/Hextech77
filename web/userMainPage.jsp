@@ -198,7 +198,7 @@
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated profile-dropdown">
                                             <c:if test="${account.roleID == 1}">
-                                                <a href="/HexTech77/Admin/index" class="dropdown-item">
+                                                <a href="Admin/index" class="dropdown-item">
                                                     <i class="mdi mdi-logout me-1"></i>
                                                     <span>Admin Page</span>
                                                 </a>

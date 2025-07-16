@@ -95,8 +95,8 @@
                                         <div class="d-flex">
                                             <img class="d-flex me-2 rounded-circle" src="assets/images/users/anhcuakleqingcamcopy.png" alt="Generic placeholder image" height="32">
                                             <div class="w-100">
-                                                <h5 class="m-0 font-14">Admin</h5>
-                                                <span class="font-12 mb-0">Admin</span>
+                                                <h5 class="m-0 font-14">Manager</h5>
+                                                <span class="font-12 mb-0">Manager</span>
                                             </div>
                                         </div>
                                     </a>
@@ -142,8 +142,8 @@
                                     <img src="assets/images/users/anhcuakleqingcamcopy.png" alt="user-image" width="32" class="rounded-circle">
                                 </span>
                                 <span class="d-lg-flex flex-column gap-1 d-none">
-                                    <h5 class="my-0">Admin</h5>
-                                    <h6 class="my-0 fw-normal">Admin</h6>
+                                    <h5 class="my-0">Manager</h5>
+                                    <h6 class="my-0 fw-normal">Manager</h6>
                                 </span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated profile-dropdown">
@@ -165,7 +165,7 @@
                                 </a> -->
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">
+                                <a href="javascript:void(0);" class="dropdown-item" onclick="logout()">
                                     <i class="mdi mdi-logout me-1"></i>
                                     <span>Logout</span>
                                 </a>
@@ -252,7 +252,9 @@
                                     <li>
                                         <a href="notifications">Thông báo</a>
                                     </li>
-                                    
+                                    <li>
+                                    <a href="feedback">Phản hồi</a>
+                                </li>
                                 </ul>
                             </div>
                         </li>
@@ -936,5 +938,18 @@
 
     </body>
 
+    <script>
+        // Logout function
+        function logout() {
+            // Clear session storage and local storage
+            if (typeof(Storage) !== "undefined") {
+                sessionStorage.clear();
+                localStorage.clear();
+            }
+            
+            // Redirect to auth.jsp
+            window.location.href = '../auth.jsp';
+        }
+    </script>
     <!-- Mirrored from coderthemes.com/hyper/saas/form-elements.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Dec 2023 13:30:46 GMT -->
 </html>

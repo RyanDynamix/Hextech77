@@ -137,14 +137,12 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated profile-dropdown">
                             <!-- item-->
-                            <form action="index" method="POST">
-                                <a class="dropdown-item">
-                                    <button value="submit" id="loginBtn" class="btn btn-sm m-1 bg-primary text-white rounded-5 px-sm-3 px-2">
-                                        <i class="mdi mdi-logout me-1"></i>
-                                        <span>Logout</span>
-                                    </button>
-                                </a>
-                            </form>
+                            <a class="dropdown-item" href="javascript:void(0);" onclick="logout()">
+                                <button type="button" id="loginBtn" class="btn btn-sm m-1 bg-primary text-white rounded-5 px-sm-3 px-2">
+                                    <i class="mdi mdi-logout me-1"></i>
+                                    <span>Logout</span>
+                                </button>
+                            </a>
                         </div>
                     </li>
                 </ul>
@@ -220,7 +218,7 @@
                                     <a href="orders">Đơn đặt hàng</a>
                                 </li>
                                 <li>
-                                    <a href="customers">Khách hàng</a>
+                                    <a href="customers">Tài khoản</a>
                                 </li>
                                 <li>
                                     <a href="adminDiscount">Mã giảm giá</a>
@@ -228,6 +226,7 @@
                                 <li>
                                     <a href="notifications">Thông báo</a>
                                 </li>
+                                
                             </ul>
                         </div>
                     </li>
@@ -390,7 +389,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-6">
-                            <script>document.write(new Date().getFullYear())</script> © Kleqing - kleqing.github.io
+                            <script>document.write(new Date().getFullYear())</script> 
                         </div>
                         <div class="col-md-6">
                             <div class="text-md-end footer-links d-none d-md-block">
@@ -471,6 +470,19 @@
     
     <%@ include file="includes/notification-js.jsp" %>
 
-</body>
+    <script>
+        // Logout function
+        function logout() {
+            // Clear session storage and local storage
+            if (typeof(Storage) !== "undefined") {
+                sessionStorage.clear();
+                localStorage.clear();
+            }
+            
+            // Redirect to auth.jsp
+            window.location.href = '../auth.jsp';
+        }
+    </script>
+    </body>
 
 </html> 

@@ -121,8 +121,8 @@
                                         <div class="d-flex">
                                             <img class="d-flex me-2 rounded-circle" src="assets/images/users/anhcuakleqingcamcopy.png" alt="Generic placeholder image" height="32">
                                             <div class="w-100">
-                                                <h5 class="m-0 font-14">Admin</h5>
-                                                <span class="font-12 mb-0">Admin</span>
+                                                <h5 class="m-0 font-14">Manager</h5>
+                                                <span class="font-12 mb-0">Manager</span>
                                             </div>
                                         </div>
                                     </a>
@@ -190,8 +190,8 @@
                                     <img src="assets/images/users/anhcuakleqingcamcopy.png" alt="user-image" width="32" class="rounded-circle">
                                 </span>
                                 <span class="d-lg-flex flex-column gap-1 d-none">
-                                    <h5 class="my-0">Admin</h5>
-                                    <h6 class="my-0 fw-normal">Admin</h6>
+                                    <h5 class="my-0">Manager</h5>
+                                    <h6 class="my-0 fw-normal">Manager</h6>
                                 </span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated profile-dropdown">
@@ -213,14 +213,12 @@
                                 </a> -->
 
                                 <!-- item-->
-                                <form action="index" method="POST">
-                                    <a class="dropdown-item">
-                                        <button value="submit" id="loginBtn" class="btn btn-sm m-1 bg-primary text-white rounded-5 px-sm-3 px-2">
-                                            <i class="mdi mdi-logout me-1"></i>
-                                            <span>Logout</span>
-                                        </button>
-                                    </a>
-                                </form>
+                                <a class="dropdown-item" href="javascript:void(0);" onclick="logout()">
+                                    <button type="button" id="loginBtn" class="btn btn-sm m-1 bg-primary text-white rounded-5 px-sm-3 px-2">
+                                        <i class="mdi mdi-logout me-1"></i>
+                                        <span>Logout</span>
+                                    </button>
+                                </a>
                             </div>
                         </li>
                     </ul>
@@ -297,13 +295,16 @@
                                         <a href="orders">Đơn đặt hàng</a>
                                     </li>
                                     <li>
-                                        <a href="customers">Khách hàng</a>
+                                        <a href="customers">Tài khoản</a>
                                     </li>
                                     <li>
                                         <a href="adminDiscount">Mã giảm giá</a>
                                     </li>
                                     <li>
                                     <a href="notifications">Thông báo</a>
+                                </li>
+                                <li>
+                                    <a href="feedback">Phản hồi</a>
                                 </li>
                                 </ul>
                             </div>
@@ -604,7 +605,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-6">
-                                <script>document.write(new Date().getFullYear())</script> © Kleqing - kleqing.github.io
+                                <script>document.write(new Date().getFullYear())</script>
                             </div>
                             <div class="col-md-6">
                                 <div class="text-md-end footer-links d-none d-md-block">
@@ -1461,6 +1462,19 @@
         }
     </style>
 
+    <script>
+        // Logout function
+        function logout() {
+            // Clear session storage and local storage
+            if (typeof(Storage) !== "undefined") {
+                sessionStorage.clear();
+                localStorage.clear();
+            }
+            
+            // Redirect to auth.jsp
+            window.location.href = '../auth.jsp';
+        }
+    </script>
     </body>
 
 <!-- Mirrored from coderthemes.com/hyper/saas/index by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Dec 2023 13:29:09 GMT -->

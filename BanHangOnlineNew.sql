@@ -115,43 +115,6 @@ CREATE TABLE Galleries (
 );
 --//////////////////////////////////////////////////////////////////
 --TRIGGER tự động update total money
-CREATE TRIGGER trg_UpdateTotalMoney
-ON OrderDetails
-AFTER INSERT, UPDATE, DELETE
-AS
-BEGIN
-    -- Xử lý INSERT và UPDATE
-    IF EXISTS (SELECT * FROM inserted)
-    BEGIN
-        -- Cập nhật totalMoney cho các đơn hàng bị ảnh hưởng
-        UPDATE Orders
-        SET totalMoney = (SELECT SUM(price * quantity)
-                          FROM OrderDetails
-                          WHERE OrderDetails.orderID = Orders.orderID)
-        WHERE Orders.orderID IN (SELECT DISTINCT orderID FROM inserted);
-    END
-
-    -- Xử lý DELETE
-    IF EXISTS (SELECT * FROM deleted)
-    BEGIN
-        -- Cập nhật totalMoney cho các đơn hàng bị ảnh hưởng
-        UPDATE Orders
-        SET totalMoney = (SELECT SUM(price * quantity)
-                          FROM OrderDetails
-                          WHERE OrderDetails.orderID = Orders.orderID)
-        WHERE Orders.orderID IN (SELECT DISTINCT orderID FROM deleted);
-    END
-END;
-
---//////////////////////////////////////////////////////////////////
-CREATE TRIGGER trg_UpdateQuantity
-ON OrderDetails
-AFTER UPDATE
-AS
-BEGIN
-    DELETE FROM OrderDetails
-    WHERE ID IN (SELECT ID FROM inserted WHERE quantity = 0);
-END;
 
 
 --//////////////////////////////////////////////////////////////////
@@ -162,11 +125,13 @@ END;
 -- Insert dữ liệu vào bảng Roles
 INSERT INTO Roles ([name]) VALUES ('admin');		--1
 INSERT INTO Roles ([name]) VALUES ('customer');		--2
+INSERT INTO Roles ([name]) VALUES ('staff');		--2
 
 -- Insert dữ liệu vào bảng Users
 INSERT INTO Users (fullName, email, password, phone, address, roleID)
 VALUES
   ('admin', 'admin@gmail.com', '12345', '0987654111', '123 Admin Street', 1),
+  ('staff', 'staff@gmail.com', '12345', '0987654112', '123 Staff Street', 5),
   ('customer', 'customer@gmail.com', '12345', '0987654222', '123 Customer Street', 2),
   (N'Nguyễn Văn A', 'nguyen.a@example.com', '6789', '0123456789', N'123 ABC Hà Nội', 2),  -- Vietnamese name and address
   (N'Trần Thị B', 'tran.thi.b@example.com', '6789', '0987654321', N'456 DEF Sài Gòn', 2),   -- Vietnamese name and address

@@ -221,6 +221,9 @@
                                 <li>
                                     <a href="notifications">Thông báo</a>
                                 </li>
+                                <li>
+                                    <a href="feedback">Phản hồi</a>
+                                </li>
                             </ul>
                         </div>
                     </li>
@@ -444,6 +447,19 @@
             }
         }
     </script>
-</body>
+    <script>
+        // Logout function
+        function logout() {
+            // Clear session storage and local storage
+            if (typeof(Storage) !== "undefined") {
+                sessionStorage.clear();
+                localStorage.clear();
+            }
+            
+            // Redirect to auth.jsp
+            window.location.href = '../auth.jsp';
+        }
+    </script>
+    </body>
 
 </html> 

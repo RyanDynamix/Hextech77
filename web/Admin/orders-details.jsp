@@ -162,7 +162,7 @@
                                 </a> -->
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">
+                                <a href="javascript:void(0);" class="dropdown-item" onclick="logout()">
                                     <i class="mdi mdi-logout me-1"></i>
                                     <span>Logout</span>
                                 </a>
@@ -249,6 +249,9 @@
                                     </li>
                                     <li>
                                     <a href="notifications">Thông báo</a>
+                                </li>
+                                <li>
+                                    <a href="feedback">Phản hồi</a>
                                 </li>
                                 </ul>
                             </div>
@@ -999,6 +1002,19 @@
         <!-- App js -->
         <script src="assets/js/app.min.js"></script>
 
+    <script>
+        // Logout function
+        function logout() {
+            // Clear session storage and local storage
+            if (typeof(Storage) !== "undefined") {
+                sessionStorage.clear();
+                localStorage.clear();
+            }
+            
+            // Redirect to auth.jsp
+            window.location.href = '../auth.jsp';
+        }
+    </script>
     </body>
 
     <!-- Mirrored from coderthemes.com/hyper/saas/apps-ecommerce-orders-details.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Dec 2023 13:30:02 GMT -->

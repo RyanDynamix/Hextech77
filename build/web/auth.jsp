@@ -7,16 +7,98 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Login page</title>
-        <link rel="stylesheet" href="./css/authCss/cssAuth.css">
+        <link rel="stylesheet" href="./css/authCss/cssAuth.css?v=<%= System.currentTimeMillis() %>">
         <link rel="shortcut icon" href="./img_svg/mainPage/logo-color.png">
         <script src="https://kit.fontawesome.com/54f0cb7e4a.js" crossorigin="anonymous"></script>
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+            
+            /* ✅ NOTIFICATION BANNER STYLES */
+            .notification-banner {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 9999;
+                padding: 15px 20px;
+                text-align: center;
+                font-weight: 600;
+                font-size: 16px;
+                animation: slideDown 0.5s ease-out;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+            
+            .notification-success {
+                background: linear-gradient(135deg, #4CAF50, #45a049);
+                color: white;
+                border-bottom: 3px solid #2e7d32;
+            }
+            
+            .notification-error {
+                background: linear-gradient(135deg, #f44336, #d32f2f);
+                color: white;
+                border-bottom: 3px solid #c62828;
+            }
+            
+            .notification-blocked {
+                background: linear-gradient(135deg, #ff9800, #f57c00);
+                color: white;
+                border-bottom: 3px solid #ef6c00;
+            }
+            
+            .notification-banner i {
+                margin-right: 10px;
+                font-size: 18px;
+            }
+            
+            .notification-close {
+                position: absolute;
+                right: 15px;
+                top: 50%;
+                transform: translateY(-50%);
+                background: none;
+                border: none;
+                color: inherit;
+                font-size: 20px;
+                cursor: pointer;
+                padding: 5px;
+            }
+            
+            @keyframes slideDown {
+                from {
+                    transform: translateY(-100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+            
+            .fade-out {
+                animation: fadeOut 0.5s ease-out forwards;
+            }
+            
+            @keyframes fadeOut {
+                to {
+                    opacity: 0;
+                    transform: translateY(-100%);
+                }
+            }
         </style>
         <script src="https://kit.fontawesome.com/3a767ca8aa.js" crossorigin="anonymous"></script>
     </head>
 
     <body>
+        <!-- ✅ NOTIFICATION BANNER -->
+        <div id="notificationBanner" class="notification-banner" style="display: none;">
+            <i id="notificationIcon"></i>
+            <span id="notificationMessage"></span>
+            <button class="notification-close" onclick="closeNotification()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
         <%-- Thông báo đăng nhập --%>
         <c:if test="${not empty notifyAuth}">
             <input type="hidden" id="notifyAuth" value="${notifyAuth}" />
@@ -38,7 +120,7 @@
                     <div class="social-container">
                         <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
                         <%-- Sửa lại tên HexTech77 ở đây (Đăng kí)   (Đẫ thêm uri HexTech bên gg)   --%>     
-                        <a href="https://accounts.google.com/o/oauth2/auth?scope=email%20profile%20openid&redirect_uri=http://localhost:8080/HexTech77/loginGoogle&response_type=code&client_id=217200688737-k99p0tk3hkv77vui4cf1jkkqdheorca2.apps.googleusercontent.com&approval_prompt=force" 
+                        <a href="https://accounts.google.com/o/oauth2/auth?scope=email%20profile%20openid&redirect_uri=http://localhost:8080/HexTacos/loginGoogle&response_type=code&client_id=217200688737-k99p0tk3hkv77vui4cf1jkkqdheorca2.apps.googleusercontent.com&approval_prompt=force" 
                            class="social"><i class="fab fa-google-plus-g"></i></a>
                         <%-- End sửa lại tên HexTech77 ở đây --%>
                         <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
@@ -57,7 +139,7 @@
                     <div class="social-container">
                         <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
                         <%-- Sửa lại tên HexTech77 ở đây (Đăng nhập) --%>
-                        <a href="https://accounts.google.com/o/oauth2/auth?scope=email%20profile%20openid&redirect_uri=http://localhost:8080/HexTech77/loginGoogle&response_type=code&client_id=217200688737-k99p0tk3hkv77vui4cf1jkkqdheorca2.apps.googleusercontent.com&approval_prompt=force" 
+                        <a href="https://accounts.google.com/o/oauth2/auth?scope=email%20profile%20openid&redirect_uri=http://localhost:8080/HexTacos/loginGoogle&response_type=code&client_id=217200688737-k99p0tk3hkv77vui4cf1jkkqdheorca2.apps.googleusercontent.com&approval_prompt=force" 
                            class="social"><i class="fab fa-google-plus-g"></i></a>
                         <%-- End sửa lại tên HexTech77 ở đây --%>
                         <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
@@ -93,7 +175,7 @@
                     <div class="social-container">
                         <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
                         <%-- Sửa lại tên HexTech77 ở đây (Đăng kí) --%>
-                        <a href="https://accounts.google.com/o/oauth2/auth?scope=email%20profile%20openid&redirect_uri=http://localhost:8080/HexTech77/loginGoogle&response_type=code&client_id=217200688737-k99p0tk3hkv77vui4cf1jkkqdheorca2.apps.googleusercontent.com&approval_prompt=force" 
+                        <a href="https://accounts.google.com/o/oauth2/auth?scope=email%20profile%20openid&redirect_uri=http://localhost:8080/HexTacos/loginGoogle&response_type=code&client_id=217200688737-k99p0tk3hkv77vui4cf1jkkqdheorca2.apps.googleusercontent.com&approval_prompt=force" 
                            class="social"><i class="fab fa-google-plus-g"></i></a>
                         <%-- End sửa lại tên HexTech77 ở đây --%>
                         <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
@@ -114,7 +196,7 @@
                     <div class="social-container">
                         <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
                         <%-- Sửa lại tên HexTech77 ở đây (Đăng nhập) --%>
-                        <a href="https://accounts.google.com/o/oauth2/auth?scope=email%20profile%20openid&redirect_uri=http://localhost:8080/HexTech77/loginGoogle&response_type=code&client_id=217200688737-k99p0tk3hkv77vui4cf1jkkqdheorca2.apps.googleusercontent.com&approval_prompt=force" 
+                        <a href="https://accounts.google.com/o/oauth2/auth?scope=email%20profile%20openid&redirect_uri=http://localhost:8080/HexTacos/loginGoogle&response_type=code&client_id=217200688737-k99p0tk3hkv77vui4cf1jkkqdheorca2.apps.googleusercontent.com&approval_prompt=force" 
                            class="social"><i class="fab fa-google-plus-g"></i></a>
                         <%-- End sửa lại tên HexTech77 ở đây --%>
                         <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
@@ -131,42 +213,90 @@
             </div>
         </div>
 
-
-        <footer>
-            <p>
-                Created with <i class="fa fa-heart"></i> by
-                Hoang Nam & Trung Kien & Khanh Nhan & Ngoc Trung & Huu Quang
-            </p>
-        </footer>
-
         <script>
+            // ✅ NOTIFICATION BANNER FUNCTIONS
+            function showNotification(type, message, icon) {
+                const banner = document.getElementById('notificationBanner');
+                const iconElement = document.getElementById('notificationIcon');
+                const messageElement = document.getElementById('notificationMessage');
+                
+                // Clear previous classes
+                banner.className = 'notification-banner';
+                
+                // Set content
+                iconElement.className = icon;
+                messageElement.textContent = message;
+                
+                // Add type-specific class
+                banner.classList.add('notification-' + type);
+                
+                // Show banner
+                banner.style.display = 'block';
+                
+                // Auto hide after 6 seconds
+                setTimeout(function() {
+                    closeNotification();
+                }, 6000);
+            }
+            
+            function closeNotification() {
+                const banner = document.getElementById('notificationBanner');
+                banner.classList.add('fade-out');
+                
+                setTimeout(function() {
+                    banner.style.display = 'none';
+                    banner.classList.remove('fade-out');
+                }, 500);
+            }
+
+            // ✅ BALANCED NOTIFICATION HANDLER - Protect nhưng vẫn hoạt động
             window.onload = function () {
+                console.log("🔍 [DEBUG] auth.jsp loaded - Balanced protection active...");
+                
+                // ✅ HIDE BANNER INITIALLY
+                var banner = document.getElementById('notificationBanner');
+                if (banner) {
+                    banner.style.display = 'none';
+                    banner.className = 'notification-banner';
+                }
+                
+                // ✅ PROCESS LOGIN NOTIFICATIONS
                 var notifyAuthField = document.getElementById('notifyAuth');
                 if (notifyAuthField) {
-                    var notifyAuth = notifyAuthField.value;
+                    var notifyAuth = notifyAuthField.value.trim();
+                    console.log("🔍 [DEBUG] Processing notifyAuth:", "'" + notifyAuth + "'");
+                    
                     if (notifyAuth === "success") {
-                        alert("Đăng nhập thành công!");
+                        console.log("✅ [SUCCESS] Login successful - showing green banner");
+                        showNotification('success', '🎉 Đăng nhập thành công! Chào mừng bạn quay trở lại!', 'fas fa-check-circle');
                     } else if (notifyAuth === "failed") {
-                        alert("Đăng nhập thất bại!");
+                        console.log("❌ [FAILED] Login failed - showing red banner");
+                        showNotification('error', '❌ Đăng nhập thất bại! Vui lòng kiểm tra email và mật khẩu.', 'fas fa-exclamation-triangle');
                     } else if (notifyAuth === "blocked") {
-                        alert("Tài khoản của bạn đã bị khóa. Hãy liên hệ bộ phận chăm sóc khách hàng (0582647644) để biết thêm thông tin!");
+                        console.log("🚨 [BLOCKED] Account blocked - showing orange banner");
+                        showNotification('blocked', '🚨 Tài khoản của bạn đã bị khóa! Liên hệ bộ phận chăm sóc khách hàng (0858723794) để được hỗ trợ.', 'fas fa-ban');
                     }
-                    // Remove the hidden input field after alert
                     notifyAuthField.remove();
+                } else {
+                    console.log("✅ [FRESH] No notification data - clean page load");
                 }
-            };
-            
-            window.onload = function () {
-                var notifyAuthField = document.getElementById('notifySigup');
-                if (notifyAuthField) {
-                    var notifyAuth = notifyAuthField.value;
-                    if (notifyAuth === "success") {
-                        alert("Đăng kí thành công!");
-                    } else if (notifyAuth === "failed") {
-                        alert("Đăng kí thất bại! (Email này đã được đăng kí!)");
+                
+                // ✅ PROCESS SIGNUP NOTIFICATIONS
+                var notifySignupField = document.getElementById('notifySigup');
+                if (notifySignupField) {
+                    var notifySignup = notifySignupField.value.trim();
+                    console.log("🔍 [DEBUG] Processing notifySignup:", "'" + notifySignup + "'");
+                    
+                    if (notifySignup === "success") {
+                        console.log("✅ [SUCCESS] Signup successful - showing green banner");
+                        showNotification('success', '🎉 Đăng ký thành công! Chào mừng bạn đến với HexTech!', 'fas fa-user-plus');
+                    } else if (notifySignup === "failed") {
+                        console.log("❌ [FAILED] Signup failed - showing red banner");
+                        showNotification('error', '❌ Đăng ký thất bại! Email này đã được sử dụng.', 'fas fa-user-times');
                     }
-                    // Remove the hidden input field after alert
-                    notifyAuthField.remove();
+                    notifySignupField.remove();
+                } else {
+                    console.log("✅ [FRESH] No signup notification - normal");
                 }
             };
         </script>

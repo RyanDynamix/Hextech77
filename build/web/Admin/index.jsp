@@ -121,8 +121,8 @@
                                         <div class="d-flex">
                                             <img class="d-flex me-2 rounded-circle" src="assets/images/users/anhcuakleqingcamcopy.png" alt="Generic placeholder image" height="32">
                                             <div class="w-100">
-                                                <h5 class="m-0 font-14">Admin</h5>
-                                                <span class="font-12 mb-0">Admin</span>
+                                                <h5 class="m-0 font-14">Manager</h5>
+                                                <span class="font-12 mb-0">Manager</span>
                                             </div>
                                         </div>
                                     </a>
@@ -140,6 +140,28 @@
                                 <form class="p-3">
                                     <input type="search" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
                                 </form>
+                            </div>
+                        </li>
+                        
+                        <!-- Notification Dropdown -->
+                        <li class="dropdown">
+                            <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                                <i class="ri-notification-line font-22"></i>
+                                <span class="badge bg-danger rounded-circle" id="adminNotificationCount" style="font-size: 10px; position: absolute; top: 8px; right: 8px;">0</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated dropdown-lg py-0" style="width: 350px;">
+                                <div class="dropdown-header">
+                                    <h6 class="m-0">Thông báo</h6>
+                                </div>
+                                <div style="max-height: 400px; overflow-y: auto;" id="adminNotificationList">
+                                    <div class="text-center p-3">
+                                        <small class="text-muted">Đang tải thông báo...</small>
+                                    </div>
+                                </div>
+                                <div class="dropdown-divider"></div>
+                                <a href="notifications" class="dropdown-item text-center text-primary">
+                                    Xem tất cả
+                                </a>
                             </div>
                         </li>
                         
@@ -168,8 +190,8 @@
                                     <img src="assets/images/users/anhcuakleqingcamcopy.png" alt="user-image" width="32" class="rounded-circle">
                                 </span>
                                 <span class="d-lg-flex flex-column gap-1 d-none">
-                                    <h5 class="my-0">Admin</h5>
-                                    <h6 class="my-0 fw-normal">Admin</h6>
+                                    <h5 class="my-0">Manager</h5>
+                                    <h6 class="my-0 fw-normal">Manager</h6>
                                 </span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated profile-dropdown">
@@ -191,14 +213,12 @@
                                 </a> -->
 
                                 <!-- item-->
-                                <form action="index" method="POST">
-                                    <a class="dropdown-item">
-                                        <button value="submit" id="loginBtn" class="btn btn-sm m-1 bg-primary text-white rounded-5 px-sm-3 px-2">
-                                            <i class="mdi mdi-logout me-1"></i>
-                                            <span>Logout</span>
-                                        </button>
-                                    </a>
-                                </form>
+                                <a class="dropdown-item" href="javascript:void(0);" onclick="logout()">
+                                    <button type="button" id="loginBtn" class="btn btn-sm m-1 bg-primary text-white rounded-5 px-sm-3 px-2">
+                                        <i class="mdi mdi-logout me-1"></i>
+                                        <span>Logout</span>
+                                    </button>
+                                </a>
                             </div>
                         </li>
                     </ul>
@@ -275,9 +295,15 @@
                                         <a href="orders">Đơn đặt hàng</a>
                                     </li>
                                     <li>
-                                        <a href="customers">Khách hàng</a>
+                                        <a href="customers">Tài khoản</a>
                                     </li>
+                                    <li>
+                                        <a href="adminDiscount">Mã giảm giá</a>
                                     </li>
+                                    <li>
+                                    <a href="notifications">Thông báo</a>
+                                </li>
+                               
                                 </ul>
                             </div>
                         </li>
@@ -345,7 +371,7 @@
                                         <h5 class="text-muted fw-normal mt-0" title="Product">Sản Phẩm</h5>
                                         <h3 class="mt-3 mb-3">${product}</h3>
                                         <p class="mb-0 text-muted">
-                                            <span class="text-nowrap">Since last month</span>
+                                            <span class="text-nowrap">Tổng số sản phẩm</span>
                                         </p>
                                     </div> <!-- end card-body -->
                                 </div> <!-- end card -->
@@ -355,12 +381,12 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="float-end">
-                                            <i class="mdi mdi-pulse widget-icon"></i>
+                                            <i class="mdi mdi-account-multiple widget-icon"></i>
                                         </div>
-                                        <h5 class="text-muted fw-normal mt-0" title="Report">Báo Cáo</h5>
-                                        <h3 class="mt-3 mb-3">${report}</h3>
+                                        <h5 class="text-muted fw-normal mt-0" title="Users">Người Dùng</h5>
+                                        <h3 class="mt-3 mb-3">${userCount}</h3>
                                         <p class="mb-0 text-muted">
-                                            <span class="text-nowrap">Since last month</span>
+                                            <span class="text-nowrap">Tổng số người dùng</span>
                                         </p>
                                     </div> <!-- end card-body -->
                                 </div> <!-- end card -->
@@ -372,10 +398,10 @@
                                         <div class="float-end">
                                             <i class="mdi mdi-currency-usd widget-icon"></i>
                                         </div>
-                                        <h5 class="text-muted fw-normal mt-0" title="Number of Orders">Tổng Doanh Thu</h5>
+                                        <h5 class="text-muted fw-normal mt-0" title="Revenue">Tổng Doanh Thu</h5>
                                         <h3 class="mt-3 mb-3">${price}</h3>
                                         <p class="mb-0 text-muted">
-                                            <span class="text-nowrap">Since last month</span>
+                                            <span class="text-nowrap">Tổng doanh thu</span>
                                         </p>
                                     </div> <!-- end card-body -->
                                 </div> <!-- end card -->
@@ -387,10 +413,10 @@
                                         <div class="float-end">
                                             <i class="mdi mdi-cart-plus widget-icon"></i>
                                         </div>
-                                        <h5 class="text-muted fw-normal mt-0" title="Number of Customers">Đơn Hàng</h5>
+                                        <h5 class="text-muted fw-normal mt-0" title="Orders">Đơn Hàng</h5>
                                         <h3 class="mt-3 mb-3">${order}</h3>
                                         <p class="mb-0 text-muted">
-                                            <span class="text-nowrap">Since last month</span>  
+                                            <span class="text-nowrap">Tổng số đơn hàng</span>  
                                         </p>
                                     </div> <!-- end card-body -->
                                 </div> <!-- end card -->
@@ -442,30 +468,20 @@
                             <div class="col-xl-3 col-lg-6 order-lg-1">
                                 <div class="card">
                                     <div class="d-flex card-header justify-content-between align-items-center">
-                                        <h4 class="header-title">Total Sales</h4>
+                                        <h4 class="header-title">Doanh Thu Theo Tháng</h4>
                                     </div>
 
                                     <div class="card-body pt-0">
-                                        <div id="average-sales" class="apex-charts mb-4 mt-2"
-                                            data-colors="#727cf5,#0acf97,#fa5c7c,#ffbc00"></div>
+                                        <div id="monthly-revenue-chart" class="apex-charts mb-4 mt-2"
+                                            data-colors="#727cf5"></div>
 
                                         <div class="chart-widget-list">
-                                            <p>
-                                                <i class="mdi mdi-square text-primary"></i> Direct
-                                                <span class="float-end">$300.56</span>
-                                            </p>
-                                            <p>
-                                                <i class="mdi mdi-square text-danger"></i> Affilliate
-                                                <span class="float-end">$135.18</span>
-                                            </p>
-                                            <p>
-                                                <i class="mdi mdi-square text-success"></i> Sponsored
-                                                <span class="float-end">$48.96</span>
-                                            </p>
-                                            <p class="mb-0">
-                                                <i class="mdi mdi-square text-warning"></i> E-mail
-                                                <span class="float-end">$154.02</span>
-                                            </p>
+                                            <c:forEach var="entry" items="${monthlyRevenue}">
+                                                <p>
+                                                    <i class="mdi mdi-square text-primary"></i> ${entry.key}
+                                                    <span class="float-end">${entry.value}</span>
+                                                </p>
+                                            </c:forEach>
                                         </div>
                                     </div> <!-- end card-body-->
                                 </div> <!-- end card-->
@@ -483,7 +499,7 @@
                                                 <i class="mdi mdi-upload bg-info-lighten text-info timeline-icon"></i>
                                                 <div class="timeline-item-info">
                                                     <a href="javascript:void(0);" class="text-info fw-bold mb-1 d-block">You sold an item</a>
-                                                    <small>Paul Burgess just purchased “Hyper - Admin Dashboard”!</small>
+                                                    <small>Paul Burgess just purchased "Hyper - Admin Dashboard"!</small>
                                                     <p class="mb-0 pb-2">
                                                         <small class="text-muted">5 minutes ago</small>
                                                     </p>
@@ -533,7 +549,7 @@
                                                 <i class="mdi mdi-upload bg-info-lighten text-info timeline-icon"></i>
                                                 <div class="timeline-item-info">
                                                     <a href="javascript:void(0);" class="text-info fw-bold mb-1 d-block">You sold an item</a>
-                                                    <small>Paul Burgess just purchased “Hyper - Admin Dashboard”!</small>
+                                                    <small>Paul Burgess just purchased "Hyper - Admin Dashboard"!</small>
                                                     <p class="mb-0 pb-2">
                                                         <small class="text-muted">16 hours ago</small>
                                                     </p>
@@ -587,7 +603,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-6">
-                                <script>document.write(new Date().getFullYear())</script> © Kleqing - kleqing.github.io
+                                <script>document.write(new Date().getFullYear())</script>
                             </div>
                             <div class="col-md-6">
                                 <div class="text-md-end footer-links d-none d-md-block">
@@ -1130,8 +1146,334 @@
 
         <!-- App js -->
         <script src="assets/js/app.min.js"></script>
+        
+        <!-- Revenue Chart Initialization -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                // Monthly revenue chart
+                var options = {
+                    chart: {
+                        height: 350,
+                        type: 'bar',
+                        toolbar: {
+                            show: false
+                        }
+                    },
+                    plotOptions: {
+                        bar: {
+                            horizontal: false,
+                            columnWidth: '55%',
+                        },
+                    },
+                    dataLabels: {
+                        enabled: false
+                    },
+                    stroke: {
+                        show: true,
+                        width: 2,
+                        colors: ['transparent']
+                    },
+                    colors: ['#727cf5'],
+                    series: [{
+                        name: 'Doanh thu',
+                        data: [
+                            <c:forEach var="entry" items="${monthlyRevenue}" varStatus="status">
+                                ${entry.value}<c:if test="${!status.last}">,</c:if>
+                            </c:forEach>
+                        ]
+                    }],
+                    xaxis: {
+                        categories: [
+                            <c:forEach var="entry" items="${monthlyRevenue}" varStatus="status">
+                                '${entry.key}'<c:if test="${!status.last}">,</c:if>
+                            </c:forEach>
+                        ],
+                    },
+                    yaxis: {
+                        title: {
+                            text: 'VND'
+                        }
+                    },
+                    fill: {
+                        opacity: 1
+                    },
+                    tooltip: {
+                        y: {
+                            formatter: function (val) {
+                                return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " VND";
+                            }
+                        }
+                    }
+                };
 
+                var chart = new ApexCharts(
+                    document.querySelector("#monthly-revenue-chart"),
+                    options
+                );
+
+                chart.render();
+                
+                // Load admin notifications immediately
+                loadAdminNotifications();
+            });
+            
+            // Function to load admin notifications
+            function loadAdminNotifications() {
+                console.log('=== Starting to load admin notifications ===');
+                
+                // Debug: Check if elements exist
+                const listElement = document.getElementById('adminNotificationList');
+                const countElement = document.getElementById('adminNotificationCount');
+                
+                console.log('List element:', listElement);
+                console.log('Count element:', countElement);
+                
+                if (!listElement || !countElement) {
+                    console.error('Required elements not found!');
+                    return;
+                }
+                
+                // Show loading
+                listElement.innerHTML = '<div class="text-center p-3"><small class="text-muted">Đang tải...</small></div>';
+                
+                // AJAX call with XMLHttpRequest for better debugging
+                const xhr = new XMLHttpRequest();
+                xhr.open('GET', 'notifications?action=api&recipientType=Employee', true);
+                
+                xhr.onreadystatechange = function() {
+                    console.log('XHR State:', xhr.readyState, 'Status:', xhr.status);
+                    
+                    if (xhr.readyState === 4) {
+                        if (xhr.status === 200) {
+                            console.log('Raw response:', xhr.responseText);
+                            
+                            try {
+                                const data = JSON.parse(xhr.responseText);
+                                console.log('Parsed data:', data);
+                                
+                                if (data.success && data.notifications) {
+                                    const notifications = data.notifications;
+                                    console.log('Notifications array:', notifications);
+                                    console.log('Notifications count:', notifications.length);
+                                    
+                                    // Update count
+                                    countElement.textContent = notifications.length;
+                                    console.log('Updated count to:', notifications.length);
+                                    
+                                    if (notifications.length === 0) {
+                                        listElement.innerHTML = '<div class="text-center p-3"><small class="text-muted">Không có thông báo mới</small></div>';
+                                    } else {
+                                        // Clear existing content
+                                        listElement.innerHTML = '';
+                                        
+                                        notifications.forEach((notification, index) => {
+                                            const message = notification.Message || notification.message || 'No message';
+                                            console.log(`Notification ${index}:`, notification);
+                                            console.log(`Message ${index}:`, message);
+                                            
+                                            // Create DOM element directly
+                                            const div = document.createElement('div');
+                                            div.className = 'dropdown-item';
+                                            div.style.padding = '10px 15px';
+                                            div.style.borderBottom = '1px solid #eee';
+                                            div.style.whiteSpace = 'normal';
+                                            div.style.cursor = 'pointer';
+                                            div.textContent = message;
+                                            
+                                            listElement.appendChild(div);
+                                        });
+                                        console.log('HTML inserted successfully');
+                                    }
+                                } else {
+                                    console.error('API response invalid:', data);
+                                    listElement.innerHTML = '<div class="text-center p-3"><small class="text-muted">Lỗi: Dữ liệu không hợp lệ</small></div>';
+                                    countElement.textContent = '0';
+                                }
+                            } catch (e) {
+                                console.error('JSON parse error:', e);
+                                console.error('Response text:', xhr.responseText);
+                                listElement.innerHTML = '<div class="text-center p-3"><small class="text-muted">Lỗi: Không thể parse JSON</small></div>';
+                                countElement.textContent = '0';
+                            }
+                        } else {
+                            console.error('HTTP Error:', xhr.status, xhr.statusText);
+                            listElement.innerHTML = '<div class="text-center p-3"><small class="text-muted">Lỗi: HTTP ' + xhr.status + '</small></div>';
+                            countElement.textContent = '0';
+                        }
+                    }
+                };
+                
+                xhr.onerror = function() {
+                    console.error('Network error occurred');
+                    listElement.innerHTML = '<div class="text-center p-3"><small class="text-muted">Lỗi mạng</small></div>';
+                    countElement.textContent = '0';
+                };
+                
+                console.log('Sending AJAX request...');
+                xhr.send();
+            }
+            
+            // Function to load user notifications
+            function loadUserNotifications() {
+                console.log('Loading user notifications...');
+                // Always load All + Customer notifications for user pages
+                loadNotifications('Employee', 'notificationList', 'notificationCount');
+            }
+            
+            // Function to load notifications by type
+            function loadNotifications(recipientType, listElementId, countElementId) {
+                console.log('Loading notifications for:', recipientType);
+                console.log('Target elements:', listElementId, countElementId);
+                
+                fetch('notifications?action=api&recipientType=' + recipientType)
+                .then(response => {
+                    console.log('Response status:', response.status);
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('API Response:', data);
+                    
+                    const listElement = document.getElementById(listElementId);
+                    const countElement = document.getElementById(countElementId);
+                    
+                    console.log('List element found:', listElement);
+                    console.log('Count element found:', countElement);
+                    
+                    if (data.success && data.notifications) {
+                        const notifications = data.notifications;
+                        console.log('Notifications count:', notifications.length);
+                        console.log('First notification:', notifications[0]);
+                        
+                        if (countElement) {
+                            countElement.textContent = notifications.length;
+                        }
+                        
+                        if (listElement) {
+                            if (notifications.length === 0) {
+                                listElement.innerHTML = '<div class="text-center p-3"><small class="text-muted">Không có thông báo mới</small></div>';
+                            } else {
+                                let html = '';
+                                notifications.forEach((notification, index) => {
+                                    const message = notification.message || notification.Message || 'No message';
+                                    html += '<div class="dropdown-item" style="white-space: normal; padding: 10px 15px; border-bottom: 1px solid #eee; cursor: pointer;">' + message + '</div>';
+                                });
+                                listElement.innerHTML = html;
+                                console.log('Notifications loaded successfully:', notifications.length);
+                            }
+                        }
+                    } else {
+                        console.log('API returned error or no notifications');
+                        if (listElement) {
+                            listElement.innerHTML = '<div class="text-center p-3"><small class="text-muted">Lỗi khi tải thông báo</small></div>';
+                        }
+                        if (countElement) {
+                            countElement.textContent = '0';
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading notifications:', error);
+                    const listElement = document.getElementById(listElementId);
+                    const countElement = document.getElementById(countElementId);
+                    
+                    if (listElement) {
+                        listElement.innerHTML = '<div class="text-center p-3"><small class="text-muted">Lỗi khi tải thông báo</small></div>';
+                    }
+                    if (countElement) {
+                        countElement.textContent = '0';
+                    }
+                });
+            }
+        </script>
+
+        <style>
+        .notification-item {
+            border-bottom: 1px solid #eee;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+        
+        .notification-item:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .dropdown-toggle::after {
+            display: none;
+        }
+        
+        .badge {
+            min-width: 18px;
+            height: 18px;
+            line-height: 18px;
+            border-radius: 50%;
+        }
+        
+        /* Notification icon badge */
+        .noti-icon-badge {
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            height: 8px;
+            width: 8px;
+            border-radius: 50%;
+            background-color: #ff5722;
+            display: none;
+        }
+        
+        .noti-icon-badge.show {
+            display: block;
+        }
+        
+        /* Notification styles matching template */
+        .notify-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 12px 0;
+            border-bottom: 1px solid #eef2f7;
+        }
+        
+        .notify-icon {
+            flex-shrink: 0;
+            margin-right: 15px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .notify-details {
+            flex: 1;
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.4;
+            color: #6c757d;
+        }
+        
+        .notification-list .dropdown-menu {
+            width: 380px;
+        }
+    </style>
+            line-height: 18px;
+            border-radius: 50%;
+        }
+    </style>
+
+    <script>
+        // Logout function
+        function logout() {
+            // Clear session storage and local storage
+            if (typeof(Storage) !== "undefined") {
+                sessionStorage.clear();
+                localStorage.clear();
+            }
+            
+            // Redirect to auth.jsp
+            window.location.href = '../auth.jsp';
+        }
+    </script>
     </body>
 
 <!-- Mirrored from coderthemes.com/hyper/saas/index by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Dec 2023 13:29:09 GMT -->
-</html> 
+</html>

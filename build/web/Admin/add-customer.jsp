@@ -1,9 +1,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
-    
-<head>
+
+    <head>
         <meta charset="utf-8" />
         <title>Thêm khách hàng</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,13 +28,13 @@
         <!-- Begin page -->
         <div class="wrapper">
 
-            
+
             <!-- ========== Topbar Start ========== -->
             <div class="navbar-custom">
                 <div class="topbar container-fluid">
                     <div class="d-flex align-items-center gap-lg-2 gap-1">
 
-                     
+
 
                         <!-- Sidebar Menu Toggle Button -->
                         <button class="button-toggle-menu">
@@ -94,8 +95,8 @@
                                         <div class="d-flex">
                                             <img class="d-flex me-2 rounded-circle" src="assets/images/users/anhcuakleqingcamcopy.png" alt="Generic placeholder image" height="32">
                                             <div class="w-100">
-                                                <h5 class="m-0 font-14">Admin</h5>
-                                                <span class="font-12 mb-0">Admin</span>
+                                                <h5 class="m-0 font-14">Manager</h5>
+                                                <span class="font-12 mb-0">Manager</span>
                                             </div>
                                         </div>
                                     </a>
@@ -115,7 +116,7 @@
                                 </form>
                             </div>
                         </li>
-                        
+
                         <li class="d-none d-sm-inline-block">
                             <a class="nav-link" data-bs-toggle="offcanvas" href="#theme-settings-offcanvas">
                                 <i class="ri-settings-3-line font-22"></i>
@@ -141,8 +142,8 @@
                                     <img src="assets/images/users/anhcuakleqingcamcopy.png" alt="user-image" width="32" class="rounded-circle">
                                 </span>
                                 <span class="d-lg-flex flex-column gap-1 d-none">
-                                    <h5 class="my-0">Admin</h5>
-                                    <h6 class="my-0 fw-normal">Admin</h6>
+                                    <h5 class="my-0">Manager</h5>
+                                    <h6 class="my-0 fw-normal">Manager</h6>
                                 </span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated profile-dropdown">
@@ -164,7 +165,7 @@
                                 </a> -->
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">
+                                <a href="javascript:void(0);" class="dropdown-item" onclick="logout()">
                                     <i class="mdi mdi-logout me-1"></i>
                                     <span>Logout</span>
                                 </a>
@@ -245,11 +246,16 @@
                                     <li>
                                         <a href="customers">Khách hàng</a>
                                     </li>
+                                    <li>
+                                        <a href="adminDiscount">Mã giảm giá</a>
                                     </li>
+                                    <li>
+                                        <a href="notifications">Thông báo</a>
+                                </li>
                                 </ul>
                             </div>
                         </li>
-                        
+
                         <!-- Help Box -->
                         <div class="help-box text-white text-center">
                             <a href="javascript: void(0);" class="float-end close-btn btn">
@@ -260,12 +266,12 @@
                             <a href="javascript: void(0);"></a>
                             <div class="text-center ">
                                 <a class="btn btn-outline-primary"
-                                    href="#"
-                                    type="button">Quyền riềng tư & Bảo mật</a>
-                                
+                                   href="#"
+                                   type="button">Quyền riềng tư & Bảo mật</a>
+
                                 <a class="btn bg-gradient-primary w-100"
-                                    href="#"
-                                    type="button">Trách nhiệm & Pháp lý</a>
+                                   href="#"
+                                   type="button">Trách nhiệm & Pháp lý</a>
                             </div>
                         </div>
                         <!-- end Help Box -->
@@ -308,60 +314,82 @@
                         <!----Basic-->
                         <div class="row">
                             <div class="col-lg-6">
-                                    <div class="card-body">
+                                <div class="card-body">
 
-                                        <div class="tab-content">
-                                            <div class="tab-pane show active" id="basic-form-preview">
-                                                <form action="adminCustomer" method="get">
-                                                    <input type="hidden" name="insert" value="insert">
-                                                    <div class="mb-3">
-                                                        <label class="form-label">Tên khách hàng</label>
-                                                        <input type="text" name="fullname" class="form-control" placeholder="Họ và tên">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label class="form-label">Số điện thoại</label>
-                                                        <input type="text" name="phone" class="form-control" placeholder="Số điện thoại">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label class="form-label">Email</label>
-                                                        <input type="text" name="email" class="form-control" aria-describedby="emailHelp" placeholder="Email">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label class="form-label">Mật khẩu</label>
-                                                        <input type="password" name="password" class="form-control" aria-describedby="emailHelp" placeholder="Mật khẩu">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label class="form-label">Địa chỉ</label>
-                                                        <input type="text" name="address" class="form-control" aria-describedby="emailHelp" placeholder="Địa chỉ">
-                                                        <small id="emailHelp" class="form-text text-muted">*Tuỳ chọn</small>
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label class="form-label">Quyền</label>
-                                                        <div class="form-floating">
-                                                            <select name="roleID" class="form-select" id="floatingSelect" >
-                                                                <option selected> Select role</option>
-                                                                <option value="1"> Admin</option>
-                                                                <option value="2"> Người dùng</option>
-                                                                <option value="3"> Bị chặn</option>
-                                                                </option>
-                                                            </select>
-                                                            <label for="floatingSelect">Chọn quyền cho người dùng</label>
-                                                        </div>
-                                                    </div>
-                                                    <button type="submit" class="btn btn-primary">Tạo</button>
-                                                    <br>
-                                                    <br>
-                                                </form>                                      
-                                            </div> <!-- end preview-->
+                                    <div class="tab-content">
+                                        <div class="tab-pane show active" id="basic-form-preview">
+                                            <c:if test="${not empty successMessage}">
+                                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                                    ${successMessage}
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                </div>
+                                            </c:if>
+                                            <c:if test="${not empty errorMessage}">
+                                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                                    ${errorMessage}
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                </div>
+                                            </c:if>
 
-                                        </div> <!-- end tab-content-->
+                                            <form action="adminCustomer" method="get">
+                                                <input type="hidden" name="insert" value="insert">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Tên khách hàng</label>
+                                                    <input type="text" name="fullname" class="form-control" placeholder="Họ và tên" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">Số điện thoại</label>
+                                                    <input type="text" name="phone" class="form-control" placeholder="Số điện thoại" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">Email</label>
+                                                    <input type="email" name="email" class="form-control" aria-describedby="emailHelp" placeholder="Email" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">Mật khẩu</label>
+                                                    <input type="password" name="password" class="form-control" aria-describedby="emailHelp" placeholder="Mật khẩu" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">Địa chỉ</label>
+                                                    <input type="text" name="address" class="form-control" aria-describedby="emailHelp" placeholder="Địa chỉ">
+                                                    <small id="emailHelp" class="form-text text-muted">*Tuỳ chọn</small>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">Quyền</label>
+                                                    <div class="form-floating">
+                                                        <select name="roleID" class="form-select" id="floatingSelect" required>
+                                                            <option value="" selected disabled> Chọn quyền</option>
+                                                            <c:forEach var="role" items="${roles}">
+                                                                <option value="${role.roleID}">${role.name}</option>
+                                                            </c:forEach>
+                                                        </select>
+                                                        <label for="floatingSelect">Chọn quyền cho người dùng</label>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">Trạng thái</label>
+                                                    <div class="form-floating">
+                                                        <select name="status" class="form-select" id="floatingStatusSelect" required>
+                                                            <option value="true" selected>Active</option>
+                                                            <option value="false">InActive</option>
+                                                        </select>
+                                                        <label for="floatingStatusSelect">Chọn trạng thái người dùng</label>
+                                                    </div>
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">Tạo</button>
+                                                <br>
+                                                <br>
+                                            </form>                                      
+                                        </div> <!-- end preview-->
 
-                                    </div> <!-- end card-body-->
+                                    </div> <!-- end tab-content-->
+
+                                </div> <!-- end card-body-->
                             </div>
                             <!-- end col -->
                         </div>
                         <!-- end row -->
-                        
+
                     </div> <!-- container -->
 
                 </div> <!-- content -->
@@ -581,7 +609,7 @@
                                     </div>
                                     <h5 class="font-14 text-center text-muted mt-2">Gắn liền</h5>
                                 </div>
-                                
+
                                 <div class="col-4" id="layout-detached">
                                     <div class="form-check sidebar-setting card-radio">
                                         <input class="form-check-input" type="radio" name="data-layout-mode" id="data-layout-detached" value="detached">
@@ -842,11 +870,6 @@
                                         <input class="form-check-input" type="radio" name="data-sidenav-size" id="leftbar-size-full" value="full">
                                         <label class="form-check-label p-0 avatar-md w-100" for="leftbar-size-full">
                                             <span class="d-flex h-100">
-                                                <span class="flex-shrink-0">
-                                                    <span class="d-flex h-100 flex-column">
-                                                        <span class="d-block p-1 bg-dark-lighten mb-1"></span>
-                                                    </span>
-                                                </span>
                                                 <span class="flex-grow-1">
                                                     <span class="d-flex h-100 flex-column">
                                                         <span class="bg-light d-block p-1"></span>
@@ -901,11 +924,24 @@
         <script src="assets/vendor/highlightjs/highlight.pack.min.js"></script>
         <script src="assets/vendor/clipboard/clipboard.min.js"></script>
         <script src="assets/js/hyper-syntax.js"></script>
-        
+
         <!-- App js -->
         <script src="assets/js/app.min.js"></script>
 
     </body>
 
-<!-- Mirrored from coderthemes.com/hyper/saas/form-elements.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Dec 2023 13:30:46 GMT -->
+    <script>
+        // Logout function
+        function logout() {
+            // Clear session storage and local storage
+            if (typeof(Storage) !== "undefined") {
+                sessionStorage.clear();
+                localStorage.clear();
+            }
+            
+            // Redirect to auth.jsp
+            window.location.href = '../auth.jsp';
+        }
+    </script>
+    <!-- Mirrored from coderthemes.com/hyper/saas/form-elements.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Dec 2023 13:30:46 GMT -->
 </html>

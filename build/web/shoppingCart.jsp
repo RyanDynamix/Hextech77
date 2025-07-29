@@ -140,6 +140,25 @@
                                         <div class="smallFont textColor">Giỏ hàng</div>
                                     </a>
                                 </li>
+                                <li class="nav-item iconChange dropdown me-4 pt-2">
+                                    <a href="#" class="nav-link text-center p-0" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <div class=" d-flex align-items-center overflow-hidden changeWidth mx-auto">
+                                            <i class="fas fa-bell iconHeight mx-2" style="font-size: 20px;"></i>
+                                            <span class="badge bg-danger rounded-circle" id="customerNotificationCount" style="font-size: 8px; position: absolute; top: -5px; right: 10px;">0</span>
+                                        </div>
+                                        <div class="smallFont textColor">Thông báo</div>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-end" style="width: 350px; max-height: 400px; overflow-y: auto;">
+                                        <div class="dropdown-header">
+                                            <h6 class="m-0"><i class="ri-notification-2-line me-2"></i>Thông báo</h6>
+                                        </div>
+                                        <div id="customerNotificationList">
+                                            <div class="text-center p-3">
+                                                <small class="text-muted">Đang tải thông báo...</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
 
@@ -230,22 +249,22 @@
                                             </div>
                                         </div>
                                     </ul>
-<!--                                    <ul>
-                                        <li>
-                                            <h5 style="font-weight: bold;"> Mức giá</h5>
-                                        </li>
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <li><a href=""> Dưới 2 triệu</a></li>
-                                                <li><a href=""> 2-4 triệu</a></li>
-                                                <li><a href=""> 4-7 triệu</a></li>
-                                            </div>
-                                            <div class="col-6">
-                                                <li><a href=""> 7-13 triệu</a></li>
-                                                <li><a href=""> Trên 13 triệu</a></li>
-                                            </div>
-                                        </div>
-                                    </ul>-->
+                                    <!--                                    <ul>
+                                                                            <li>
+                                                                                <h5 style="font-weight: bold;"> Mức giá</h5>
+                                                                            </li>
+                                                                            <div class="row">
+                                                                                <div class="col-6">
+                                                                                    <li><a href=""> Dưới 2 triệu</a></li>
+                                                                                    <li><a href=""> 2-4 triệu</a></li>
+                                                                                    <li><a href=""> 4-7 triệu</a></li>
+                                                                                </div>
+                                                                                <div class="col-6">
+                                                                                    <li><a href=""> 7-13 triệu</a></li>
+                                                                                    <li><a href=""> Trên 13 triệu</a></li>
+                                                                                </div>
+                                                                            </div>
+                                                                        </ul>-->
                                 </div>
                             </li>
 
@@ -262,15 +281,15 @@
                                             </div>
                                         </div>
                                     </ul>
-<!--                                    <ul>
-                                        <li>
-                                            <h5 style="font-weight: bold;"> Mức giá</h5>
-                                        </li>
-                                        <li><a href="">Dưới 2 triệu</a></li>
-                                        <li><a href="">Từ 2 - 5 triệu</a></li>
-                                        <li><a href="">Từ 5 - 8 triệu</a></li>
-                                        <li><a href="">Trên 8 triệu</a></li>
-                                    </ul>-->
+                                    <!--                                    <ul>
+                                                                            <li>
+                                                                                <h5 style="font-weight: bold;"> Mức giá</h5>
+                                                                            </li>
+                                                                            <li><a href="">Dưới 2 triệu</a></li>
+                                                                            <li><a href="">Từ 2 - 5 triệu</a></li>
+                                                                            <li><a href="">Từ 5 - 8 triệu</a></li>
+                                                                            <li><a href="">Trên 8 triệu</a></li>
+                                                                        </ul>-->
                                 </div>
                             </li>
                             <li><a href="search?brand=iPhone&price=0&storage=all&category=Smartphones"><i class="fab fa-apple" style="padding-right: 5px;"></i>iPhone</a>
@@ -307,6 +326,9 @@
                                                         <table class="table table-borderless table-nowrap table-centered mb-0">
                                                             <thead class="table-light">
                                                                 <tr>
+                                                                    <th>
+                                                                        <input type="checkbox" id="selectAll" onclick="toggleSelectAll(this)">
+                                                                    </th>
                                                                     <th>Sản phẩm</th>
                                                                     <th>Giá</th>
                                                                     <th>Số lượng</th>
@@ -320,6 +342,14 @@
                                                                     <input type="hidden" name="totalItems" value="${allProductShopping.size()}">
                                                                     <c:forEach var="cartItem" items="${allProductShopping}" varStatus="status">
                                                                         <tr class="product">
+                                                                            <td>
+                                                                                <input type="checkbox" class="checkProduct"
+                                                                                       data-productid="${cartItem.productID}"
+                                                                                       data-color="${cartItem.color}"
+                                                                                       data-quantity="${cartItem.quantity}"
+                                                                                       data-price="${cartItem.price}"
+                                                                                       onchange="updateTotal()"/>
+                                                                            </td>
                                                                             <td>
                                                                                 <img src="${cartItem.thumbnail}" alt="product-img" title="product-img" class="rounded me-3" height="64" />
                                                                                 <p class="m-0 d-inline-block align-middle font-16">
@@ -348,7 +378,7 @@
 
                                                                 </c:when>
                                                                 <c:otherwise>
-                                                                    <p>Không có sản phẩm nào trong giỏ hàng.</p>
+                                                                    <tr><td colspan="5" class="text-center">Không có sản phẩm nào trong giỏ hàng.</td></tr>
                                                                 </c:otherwise>
                                                             </c:choose>
                                                             </tbody>
@@ -373,33 +403,30 @@
                                                                     </button>
                                                                 </c:when>
                                                                 <c:otherwise>
-                                                                    <!-- Nếu allProductShopping không rỗng, hiển thị nút -->
+                                                                    <!-- Nếu allProductShopping không rỗng, hiển thị nút nhưng disable -->
                                                                     <button id="thanhToanBtn" type="button" class="btn btn-danger"
-                                                                            data-bs-toggle="modal" data-bs-target="#myModal">
+                                                                            data-bs-toggle="modal" data-bs-target="#myModal" disabled>
                                                                         <i class="fas fa-cart-plus"></i>
                                                                         Thanh toán
                                                                     </button>
                                                                 </c:otherwise>
                                                             </c:choose>
                                                         </div>
+                                                        <!-- Modal xác nhận đơn hàng -->
                                                         <div class="modal fade" id="myModal">
                                                             <div class="modal-dialog">
                                                                 <div class="modal-content">
-                                                                    <!-- Modal Header -->
                                                                     <div class="modal-header">
                                                                         <h4 class="modal-title" style="color: red;">
-                                                                            <div class="dat_hang"></div>
                                                                             <i class="fas fa-map-marker-alt"></i>
                                                                             Xác nhận thông tin đơn hàng
                                                                         </h4>
-                                                                        <button type="button" class="btn-close"
-                                                                                data-bs-dismiss="modal"></button>
+                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                                                     </div>
-                                                                    <!-- Modal body -->
-                                                                    <div class="row ms-4 ps-5">
                                                                         <div class="modal-body align-items-center">
-                                                                            <form action="shopping?action=orderSubmit" method="POST">
-                                                                                <input hidden type="text" name="orderID" value="${allProductShopping[0].orderID}">
+                                                                        <form id="orderForm" action="shopping?action=orderSubmit" method="POST">
+                                                                            <input hidden type="text" name="orderID" value="${not empty allProductShopping ? allProductShopping[0].orderID : ''}">
+                                                                            <div id="selectedProductsContainer"></div>
                                                                                 <table>
                                                                                     <tr>
                                                                                         <td class="fw-bold">Tên người nhận</td>
@@ -427,10 +454,14 @@
                                                                                     </tr>
                                                                                     <tr>
                                                                                         <td class="pb-2 user-info">
-                                                                                            <select id="tour" style="width: 100%">
-                                                                                                <option>Thanh toán khi nhận hàng</option>
-
-                                                                                            </select>
+                                                                                            <label>
+                                                                                                <input type="radio" name="paymentMethod" value="COD" checked>
+                                                                                                Thanh toán khi nhận hàng (COD)
+                                                                                        </label><br>
+                                                                                            <label>
+                                                                                                <input type="radio" name="paymentMethod" value="PAYOS">
+                                                                                                Thanh toán qua PayOS
+                                                                                            </label>
                                                                                         </td>
                                                                                     </tr>
                                                                                     <tr>
@@ -441,20 +472,18 @@
                                                                                             <textarea name="deliveryLocation" id="address" placeholder="Địa Chỉ Nhận Hàng" cols="40">${account.address}</textarea>
                                                                                         </td>
                                                                                     </tr>
-
                                                                                     <tr>
-                                                                                        <td><input class="submit-btn btn btn-primary"
-                                                                                                   type="submit"
-                                                                                                   value="Xác Nhận"></td>
+                                                                                    <td><input class="submit-btn btn btn-primary"
+                                                                                               type="submit"
+                                                                                               value="Xác Nhận"></td>
                                                                                     </tr>
-
                                                                                 </table>
                                                                             </form>
-                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        <!-- End Modal -->
                                                     </div> <!-- end col -->
                                                 </div> <!-- end row-->
                                             </div>
@@ -476,11 +505,11 @@
                                                                     <td>
                                                                         <span id="giamGia">
                                                                             <c:choose>
-                                                                                <c:when test="${empty allProductShopping}">
-                                                                                    0đ
+                                                                                <c:when test="${not empty discountAmount}">
+                                                                                    -${discountAmountFormatted}
                                                                                 </c:when>
                                                                                 <c:otherwise>
-                                                                                    50.000đ
+                                                                                    0đ
                                                                                 </c:otherwise>
                                                                             </c:choose>
                                                                         </span>
@@ -501,6 +530,21 @@
                                                                         </span>
                                                                     </td>
                                                                 </tr>
+                                                                <tr>
+                                                                    <td>Giảm phí ship: </td>
+                                                                    <td>
+                                                                        <span id="giamPhiShip">
+                                                                            <c:choose>
+                                                                                <c:when test="${empty allProductShopping}">
+                                                                                    0đ
+                                                                                </c:when>
+                                                                                <c:otherwise>
+                                                                                    -50.000đ
+                                                                                </c:otherwise>
+                                                                            </c:choose>
+                                                                        </span>
+                                                                    </td>
+                                                                </tr>
 
                                                                 <!--                                                                <tr>
                                                                                                                                     <td>Thuế (10%): </td>
@@ -516,16 +560,41 @@
                                                     <!-- end table-responsive -->
                                                 </div>
                                                 <div class="alert alert-warning mt-3" role="alert">
-                                                    <!--Sử dụng mã giảm giá <strong>HYPBM</strong> và nhận giảm giá 10% !-->
-                                                    Hiện tại đang có chương trình <strong>FreeShip</strong> cho toàn bộ sản phẩm
+                                                    Hiện tại đang có chương trình <strong>FreeShip</strong> cho toàn bộ sản phẩm<br>
+                                                    <small class="text-muted">*Phí vận chuyển vẫn được tính trong tổng đơn hàng</small>
                                                 </div>
 
                                                 <div class="input-group mt-3">
-                                                    <input type="text" class="form-control" placeholder="Coupon code"
-                                                           aria-label="Recipient's username">
-                                                    <button class="input-group-text btn-light" type="button">Áp
-                                                        dụng</button>
+                                                    <form id="discountForm" class="d-flex w-100">
+                                                        <input type="text" id="discountCode" class="form-control" placeholder="Nhập mã giảm giá"
+                                                               aria-label="Coupon code" value="${param.discountCode}">
+                                                        <button class="input-group-text btn-light" type="submit">Áp dụng</button>
+                                                        <button class="btn btn-outline-secondary ms-1" type="button" onclick="clearDiscount()" title="Xóa mã giảm giá">
+                                                            <i class="fas fa-times"></i>
+                                                        </button>
+                                                    </form>
                                                 </div>
+
+                                                <div id="discountFeedback">
+                                                    <c:if test="${not empty discountError}">
+                                                        <div class="alert alert-danger mt-2" role="alert">
+                                                            ${discountError}
+                                                        </div>
+                                                    </c:if>
+
+                                                    <c:if test="${not empty appliedDiscount}">
+                                                        <div class="alert alert-success mt-2" role="alert">
+                                                            <strong>Mã giảm giá: </strong>${appliedDiscount.code}<br>
+                                                            <strong>Tên chương trình: </strong>${appliedDiscount.name}<br>
+                                                            <strong>Loại giảm giá: </strong>${appliedDiscount.type == 'percentage' ? 'Phần trăm' : 'Giá trị cố định'}<br>
+                                                            <strong>Giá trị: </strong>${appliedDiscount.valueString}<br>
+                                                            <strong>Điều kiện: </strong>Áp dụng cho đơn hàng từ ${appliedDiscount.minOrderValueString}<br>
+                                                            <strong>Hiệu lực: </strong>Từ ${appliedDiscount.startDateString} đến ${appliedDiscount.endDateString}
+                                                        </div>
+                                                    </c:if>
+                                                </div>
+
+                                                <!-- Add this script at the end of the page, before the closing body tag -->
 
 
                                             </div> <!-- end col -->
@@ -594,6 +663,28 @@
             </div>
         </main>
 
+        <c:if test="${not empty sessionScope.orderError}">
+            <div id="orderErrorPopup" class="modal fade" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" style="color: red;">Lỗi Thanh Toán</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Đã có lỗi xảy ra trong quá trình xử lý thanh toán PayOS.</p>
+                            <p><strong>Chi tiết lỗi:</strong></p>
+                            <p class="text-muted" style="font-size: 0.9em;"><i>${sessionScope.orderError}</i></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% session.removeAttribute("orderError"); %>
+        </c:if>
+
         <c:if test="${not empty requestScope.notifyOrder}">
             <input type="hidden" id="notifyOrder" value="${requestScope.notifyOrder}" />
             <c:remove var="notifyOrder" scope="request" />
@@ -602,18 +693,56 @@
         <script>
             //Hiển thị thông cáo khi xác nhận Order
             window.onload = function () {
-                var notifyOrderField = document.getElementById('notifyOrder');
-                if (notifyOrderField) {
-                    var notifyOrder = notifyOrderField.value;
+                const urlParams = new URLSearchParams(window.location.search);
+                const notifyOrder = urlParams.get('notifyOrder');
                     if (notifyOrder === "success") {
-                        alert("Đặt hàng thành công!");
+                    alert("Thanh toán thành công!");
                     } else if (notifyOrder === "failed") {
-                        alert("Đặt hàng thất bại!");
-                    }
-                    // Remove the hidden input field after alert
-                    notifyOrderField.remove();
+                    alert("Thanh toán thất bại!");
                 }
+                
+                // Reset checkboxes and update total on page load
+                document.querySelectorAll('.checkProduct').forEach(item => item.checked = false);
+                updateTotal();
             };
+
+            function updateTotal() {
+                let checkboxes = document.querySelectorAll('.checkProduct:checked');
+                let total = 0;
+                checkboxes.forEach(cb => {
+                    let price = Number(cb.getAttribute('data-price'));
+                    let quantity = Number(cb.getAttribute('data-quantity'));
+                    total += price * quantity;
+                });
+
+                // Apply discount if exists and total > 0
+                let discountAmount = 0;
+                if (total > 0 && window.discountInfo && window.discountInfo.isApplied) {
+                    discountAmount = window.discountInfo.discountAmount;
+                }
+
+                // Shipping fee and shipping discount
+                let shippingFee = (total > 0) ? 50000 : 0;
+                let shippingDiscount = (total > 0) ? 50000 : 0; // Free shipping discount
+                let finalTotal = total - discountAmount + shippingFee - shippingDiscount;
+
+                document.getElementById("tongTienHang").innerText = total.toLocaleString('vi-VN') + "đ";
+                document.getElementById("giamGia").innerText = discountAmount > 0 ? "-" + discountAmount.toLocaleString('vi-VN') + "đ" : "0đ";
+                document.getElementById("phiVanChuyen").innerText = shippingFee.toLocaleString('vi-VN') + "đ";
+                document.getElementById("giamPhiShip").innerText = (total > 0) ? "-" + shippingDiscount.toLocaleString('vi-VN') + "đ" : "0đ";
+                document.getElementById("tongCong").innerText = finalTotal.toLocaleString('vi-VN') + "đ";
+
+                // Bật/tắt nút thanh toán
+                document.getElementById("thanhToanBtn").disabled = checkboxes.length === 0;
+            }
+
+            // "Chọn tất cả"
+            function toggleSelectAll(cb) {
+                document.querySelectorAll('.checkProduct').forEach(item => {
+                    item.checked = cb.checked;
+                });
+                updateTotal();
+            }
 
             // Hiển thị dấu tích khi thay đổi số lượng
             function displayOk(event) {
@@ -629,9 +758,30 @@
                     thanhToanBtn.style.display = 'none';
                 }
             }
+
+            // Trước khi mở modal, sinh ra hidden input cho sản phẩm đã tick
+            document.addEventListener('DOMContentLoaded', function() {
+                document.getElementById('thanhToanBtn').addEventListener('click', function () {
+                    let checkboxes = document.querySelectorAll('.checkProduct:checked');
+                    let container = document.getElementById('selectedProductsContainer');
+                    container.innerHTML = ''; // Xóa hết cũ
+                    checkboxes.forEach(cb => {
+                        let pid = cb.getAttribute('data-productid');
+                        let color = cb.getAttribute('data-color');
+                        // Gửi dạng mảng về controller (ví dụ: selectedProducts[0], selectedProducts[1], ...)
+                        let input = document.createElement('input');
+                        input.type = 'hidden';
+                        input.name = 'selectedProducts';
+                        input.value = pid + "___" + color;
+                        container.appendChild(input);
+                    });
+                });
+            });
         </script>
         <script src="./myJs/userJs/shopping_cart.js"></script>
+        <script src="./myJs/userJs/shopping_cart_discount.js"></script>
         <script src="./myJs/userJs/vendor.min.js"></script>
         <script src="./myJs/userJs/app.min.js"></script>
+        <%@include file="includes/notification-js.jsp" %>
     </body>
 </html>

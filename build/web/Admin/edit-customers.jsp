@@ -164,7 +164,7 @@
                                 </a> -->
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">
+                                <a href="javascript:void(0);" class="dropdown-item" onclick="logout()">
                                     <i class="mdi mdi-logout me-1"></i>
                                     <span>Logout</span>
                                 </a>
@@ -246,6 +246,11 @@
                                     <li>
                                         <a href="customers">Khách hàng</a>
                                     </li>
+                                    <li>
+                                        <a href="adminDiscount">Mã giảm giá</a>
+                                    </li>
+                                    <li>
+                                        <a href="notifications">Thông báo</a>
                                     </li>
                                 </ul>
                             </div>
@@ -312,24 +317,36 @@
                                 <div class="card-body">
                                     <div class="tab-content">
                                         <div class="tab-pane show active" id="basic-form-preview">
+                                            <c:if test="${not empty successMessage}">
+                                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                                    ${successMessage}
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                </div>
+                                            </c:if>
+                                            <c:if test="${not empty errorMessage}">
+                                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                                    ${errorMessage}
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                </div>
+                                            </c:if>
+
                                             <form action="adminCustomer" method="POST">
-                                                
                                                 <input type="hidden" name="userID" value="${user.userID}">
                                                 <div class="mb-3">
                                                     <label class="form-label">Tên khách hàng</label>
-                                                    <input type="text" name="fullName" class="form-control" value="${user.fullName}" placeholder="Họ và tên">
+                                                    <input type="text" name="fullName" class="form-control" value="${user.fullName}" placeholder="Họ và tên" required>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label">Số điện thoại</label>
-                                                    <input type="text" name="phone" class="form-control" value="${user.phone}" placeholder="Số điện thoại">
+                                                    <input type="text" name="phone" class="form-control" value="${user.phone}" placeholder="Số điện thoại" required>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label">Email</label>
-                                                    <input type="text" name="email" class="form-control" value="${user.email}" aria-describedby="emailHelp" placeholder="Email">
+                                                    <input type="email" name="email" class="form-control" value="${user.email}" aria-describedby="emailHelp" placeholder="Email" required>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label">Mật khẩu</label>
-                                                    <input type="text" name="password" class="form-control" value="${user.password}" aria-describedby="emailHelp" placeholder="Mật khẩu">
+                                                    <input type="text" name="password" class="form-control" value="${user.password}" aria-describedby="emailHelp" placeholder="Mật khẩu" required>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label">Địa chỉ</label>
@@ -339,13 +356,22 @@
                                                 <div class="mb-3">
                                                     <label class="form-label">Quyền</label>
                                                     <div class="form-floating">
-                                                        <select class="form-select" name="roleID" id="floatingSelect">
-                                                            <option disabled> </option>
-                                                            <option value="1" ${user.roleID == 1 ? 'selected' : ''}> Admin</option>
-                                                            <option value="2" ${user.roleID == 2 ? 'selected' : ''}> Người dùng</option>
-                                                            <option value="3" ${user.roleID == 3 ? 'selected' : ''}> Bị chặn</option>
+                                                        <select class="form-select" name="roleID" id="floatingSelect" required>
+                                                            <c:forEach var="role" items="${roles}">
+                                                                <option value="${role.roleID}" ${user.roleID == role.roleID ? 'selected' : ''}>${role.name}</option>
+                                                            </c:forEach>
                                                         </select>
                                                         <label for="floatingSelect">Chọn quyền cho người dùng</label>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">Trạng thái</label>
+                                                    <div class="form-floating">
+                                                        <select class="form-select" name="status" id="floatingStatusSelect" required>
+                                                            <option value="true" ${user.status ? 'selected' : ''}>Active</option>
+                                                            <option value="false" ${!user.status ? 'selected' : ''}>InActive</option>
+                                                        </select>
+                                                        <label for="floatingStatusSelect">Chọn trạng thái người dùng</label>
                                                     </div>
                                                 </div>
                                                 <button type="submit" class="btn btn-primary">Sửa</button>
@@ -860,6 +886,19 @@
         <!-- App js -->
         <script src="assets/js/app.min.js"></script>
 
+    <script>
+        // Logout function
+        function logout() {
+            // Clear session storage and local storage
+            if (typeof(Storage) !== "undefined") {
+                sessionStorage.clear();
+                localStorage.clear();
+            }
+            
+            // Redirect to auth.jsp
+            window.location.href = '../auth.jsp';
+        }
+    </script>
     </body>
 
     <!-- Mirrored from coderthemes.com/hyper/saas/form-elements.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Dec 2023 13:30:46 GMT -->

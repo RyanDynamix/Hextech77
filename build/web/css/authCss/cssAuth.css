@@ -1,12 +1,76 @@
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-/* back-btn */
+/* ✨ MODERN BACK BUTTON - Match với theme tổng thể */
 .back-btn {
-    position: relative;
-    right: 21%;
-    top: 50px;
-    z-index: 999;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    
+    /* 🎨 Visual Design - Match với theme */
+    background: linear-gradient(135deg, #FF4B2B, #fd4a2b);
+    color: white;
+    text-decoration: none;
+    
+    /* 📐 Layout & Spacing */
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    
+    /* ✨ Effects & Animations */
+    box-shadow: 0 4px 15px rgba(255, 75, 43, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* 📱 Responsive */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.back-btn:hover {
+    /* 🔥 Hover Effects */
+    background: linear-gradient(135deg, #fd4a2b, #e63946);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(255, 75, 43, 0.4);
+    color: white;
+    text-decoration: none;
+}
+
+.back-btn:active {
+    /* 👆 Click Effect */
+    transform: translateY(0) scale(0.98);
+    transition: transform 0.1s ease;
+}
+
+.back-btn i {
+    /* 🎯 Icon Styling */
+    font-size: 16px;
+    transition: transform 0.3s ease;
+}
+
+.back-btn:hover i {
+    /* 🏃‍♂️ Icon Animation */
+    transform: translateX(-3px);
+}
+
+/* 📱 Mobile Responsive */
+@media (max-width: 768px) {
+    .back-btn {
+        top: 15px;
+        left: 15px;
+        padding: 10px 16px;
+        font-size: 13px;
+    }
+    
+    .back-btn i {
+        font-size: 14px;
+    }
 }
 .pacifico-regular {
     font-family: "Pacifico", cursive;

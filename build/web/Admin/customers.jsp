@@ -4,8 +4,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    
-<head>
+
+    <head>
         <meta charset="utf-8" />
         <title>Khách hàng</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,7 +31,7 @@
         <!-- Begin page -->
         <div class="wrapper">
 
-            
+
             <!-- ========== Topbar Start ========== -->
             <div class="navbar-custom">
                 <div class="topbar container-fluid">
@@ -115,10 +115,11 @@
                             <div class="dropdown-menu dropdown-menu-animated dropdown-lg p-0">
                                 <form class="p-3">
                                     <input type="search" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
-                                </form>
-                            </div>
+                                </form>                            </div>
                         </li>
-                        
+
+                        <%@ include file="includes/notification-dropdown.jsp" %>
+
                         <li class="d-none d-sm-inline-block">
                             <a class="nav-link" data-bs-toggle="offcanvas" href="#theme-settings-offcanvas">
                                 <i class="ri-settings-3-line font-22"></i>
@@ -167,7 +168,7 @@
                                 </a> -->
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">
+                                <a href="javascript:void(0);" class="dropdown-item" onclick="logout()">
                                     <i class="mdi mdi-logout me-1"></i>
                                     <span>Logout</span>
                                 </a>
@@ -247,13 +248,19 @@
                                         <a href="orders">Đơn đặt hàng</a>
                                     </li>
                                     <li>
-                                        <a href="customers">Khách hàng</a>
+                                        <a href="customers">Tài khoản</a>
                                     </li>
+                                    <li>
+                                        <a href="adminDiscount">Mã giảm giá</a>
                                     </li>
+                                    <li>
+                                        <a href="notifications">Thông báo</a>
+                                    </li>
+                                   
                                 </ul>
                             </div>
                         </li>
-                        
+
                         <!-- Help Box -->
                         <div class="help-box text-white text-center">
                             <a href="javascript: void(0);" class="float-end close-btn btn">
@@ -264,12 +271,12 @@
                             <a href="javascript: void(0);"></a>
                             <div class="text-center ">
                                 <a class="btn btn-outline-primary"
-                                    href="#"
-                                    type="button">Quyền riềng tư & Bảo mật</a>
-                                
+                                   href="#"
+                                   type="button">Quyền riềng tư & Bảo mật</a>
+
                                 <a class="btn bg-gradient-primary w-100"
-                                    href="#"
-                                    type="button">Trách nhiệm & Pháp lý</a>
+                                   href="#"
+                                   type="button">Trách nhiệm & Pháp lý</a>
                             </div>
                         </div>
                         <!-- end Help Box -->
@@ -316,11 +323,11 @@
                                         <div class="row mb-2">
                                             <div class="col-sm-12">
                                                 <div class="text-sm-end">
-                                                    <a href="add-customer.jsp" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle me-2"></i> Thêm khách hàng</a>
+                                                    <a href="adminCustomer?action=add" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle me-2"></i> Thêm khách hàng</a>
                                                 </div>
                                             </div>
                                         </div>
-                
+
                                         <div class="table-responsive">
                                             <table class="table table-centered table-striped dt-responsive nowrap w-100" id="products-datatable">
                                                 <thead>
@@ -336,56 +343,66 @@
                                                         <th>Email</th>
                                                         <th>Điện thoại</th>
                                                         <th>Địa chỉ</th>
+                                                        <th>Quyền</th>
                                                         <th>Trạng thái</th>
                                                         <th style="width: 75px;">Hành động</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <c:forEach items="${users}" var="user">
-                                                    <tr>
-                                                        <td>
-                                                            <div class="form-check">
-                                                                <input type="checkbox" class="form-check-input" id="customCheck2">
-                                                                <label class="form-check-label" for="customCheck2">&nbsp;</label>
-                                                            </div>
-                                                        </td>
-                                                        <td>${user.userID}</td>
-                                                        <td class="table-user">
-                                                            <img src="assets/images/users/avatar-4.jpg" alt="table-user" class="me-2 rounded-circle">
-                                                            ${user.fullName}
-                                                        </td>
-                                                        <td>
-                                                            ${user.email}
-                                                        </td>
-                                                        <td>
-                                                            ${user.phone}
-                                                        </td>
-                                                        <td>
-                                                            ${user.address}
-                                                        </td>
-                                                        <td>
-                                                            <c:choose>
-                                                                <c:when test="${user.roleID eq '1'}">
-                                                                    <h5><span class="badge badge-danger-lighten">Admin</span></h5>
-                                                                        </c:when>
-                                                                        <c:when test="${user.roleID eq '2'}">
-                                                                    <h5><span class="badge badge-primary-lighten">Người dùng</span></h5>
-                                                                        </c:when>
-                                                                    <c:when test="${user.roleID eq '3'}">
-                                                                    <h5><span class="badge badge-primary-lighten">Bị chặn</span></h5>
-                                                                        </c:when>
-                                                                        <c:otherwise>
-                                                                    <!-- Handle default case if needed -->
-                                                                    <h5><span class="badge">${order.paymentStatus}</span></h5>
-                                                                </c:otherwise>
-                                                            </c:choose>
-                                                        </td>
-                    
-                                                        <td>
-                                                            <a href="adminCustomer?action=edit&userID=${user.userID}" class="action-icon"> <i class="mdi mdi-square-edit-outline"></i></a>
-                                                            <a href="javascript:void(0);" onclick="doUpdate(${user.userID})" class="action-icon"> <i class="mdi mdi-delete"></i></a>
-                                                        </td>
-                                                    </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="form-check">
+                                                                    <input type="checkbox" class="form-check-input" id="customCheck2">
+                                                                    <label class="form-check-label" for="customCheck2">&nbsp;</label>
+                                                                </div>
+                                                            </td>
+                                                            <td>${user.userID}</td>
+                                                            <td class="table-user">
+                                                                <img src="assets/images/users/avatar-4.jpg" alt="table-user" class="me-2 rounded-circle">
+                                                                ${user.fullName}
+                                                            </td>
+                                                            <td>
+                                                                ${user.email}
+                                                            </td>
+                                                            <td>
+                                                                ${user.phone}
+                                                            </td>
+                                                            <td>
+                                                                ${user.address}
+                                                            </td>
+                                                            <td>
+                                                                <c:choose>
+                                                                    <c:when test="${user.roleID eq 1}">
+                                                                        <h5><span class="badge badge-danger-lighten">Admin</span></h5>
+                                                                    </c:when>
+                                                                    <c:when test="${user.roleID eq 2}">
+                                                                        <h5><span class="badge badge-primary-lighten">Customer</span></h5>
+                                                                    </c:when>
+                                                                    <c:when test="${user.roleID eq 3}">
+                                                                        <h5><span class="badge badge-warning-lighten">Staff</span></h5>
+                                                                    </c:when>
+                                                                    <c:otherwise>
+                                                                        <h5><span class="badge badge-info-lighten">Không xác định</span></h5>
+                                                                    </c:otherwise>
+                                                                </c:choose>
+                                                            </td>
+                                                            <td>
+                                                                <c:choose>
+                                                                    <c:when test="${user.status}">
+                                                                        <h5><span class="badge badge-success-lighten">Active</span></h5>
+                                                                    </c:when>
+                                                                    <c:otherwise>
+                                                                        <h5><span class="badge badge-danger-lighten">InActive</span></h5>
+                                                                    </c:otherwise>
+                                                                </c:choose>
+                                                            </td>
+
+                                                            <td>
+                                                                <a href="adminCustomer?action=edit&userID=${user.userID}" class="action-icon"> <i class="mdi mdi-square-edit-outline"></i></a>
+                                                                <a href="javascript:void(0);" onclick="doUpdate(${user.userID})" class="action-icon"> <i class="mdi mdi-delete"></i></a>
+                                                            </td>
+                                                        </tr>
                                                     </c:forEach>
                                                 </tbody>
                                             </table>
@@ -395,7 +412,7 @@
                             </div> <!-- end col -->
                         </div>
                         <!-- end row -->
-                        
+
                     </div> <!-- container -->
 
                 </div> <!-- content -->
@@ -405,7 +422,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-6">
-                                <script>document.write(new Date().getFullYear())</script> © Kleqing - kleqing.github.io
+                                <script>document.write(new Date().getFullYear())</script> 
                             </div>
                             <div class="col-md-6">
                                 <div class="text-md-end footer-links d-none d-md-block">
@@ -569,7 +586,7 @@
                                     </div>
                                     <h5 class="font-14 text-center text-muted mt-2">Gắn liền</h5>
                                 </div>
-                                
+
                                 <div class="col-4" id="layout-detached">
                                     <div class="form-check sidebar-setting card-radio">
                                         <input class="form-check-input" type="radio" name="data-layout-mode" id="data-layout-detached" value="detached">
@@ -898,13 +915,32 @@
         <!-- App js -->
         <script src="assets/js/app.min.js"></script>
 
+        <%@ include file="includes/notification-js.jsp" %>
+
     </body>
     <script type="text/javascript">
-        function doUpdate(id){
-            if(confirm("Are you sure you want to blocked user " + id)){
-                window.location="adminCustomer?action=block&id=" +id;
-            }
-        }
+                                    function doUpdate(id) {
+                                        console.log("🔥 [DEBUG] doUpdate() được gọi với ID:", id);
+                                        if (confirm("Are you sure you want to blocked user " + id)) {
+                                            var url = "adminCustomer?action=block&id=" + id;
+                                            console.log("🔥 [DEBUG] Redirect đến URL:", url);
+                                            window.location = url;
+                                        } else {
+                                            console.log("🔥 [DEBUG] User hủy thao tác block");
+                                        }
+                                    }
+                                    
+                                    // Logout function
+                                    function logout() {
+                                        // Clear session storage and local storage
+                                        if (typeof(Storage) !== "undefined") {
+                                            sessionStorage.clear();
+                                            localStorage.clear();
+                                        }
+                                        
+                                        // Redirect to auth.jsp
+                                        window.location.href = '../auth.jsp';
+                                    }
     </script>
-<!-- Mirrored from coderthemes.com/hyper/saas/apps-ecommerce-customers.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Dec 2023 13:30:02 GMT -->
+    <!-- Mirrored from coderthemes.com/hyper/saas/apps-ecommerce-customers.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Dec 2023 13:30:02 GMT -->
 </html>

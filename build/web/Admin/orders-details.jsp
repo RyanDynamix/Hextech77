@@ -162,7 +162,7 @@
                                 </a> -->
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">
+                                <a href="javascript:void(0);" class="dropdown-item" onclick="logout()">
                                     <i class="mdi mdi-logout me-1"></i>
                                     <span>Logout</span>
                                 </a>
@@ -244,6 +244,12 @@
                                     <li>
                                         <a href="customers">Khách hàng</a>
                                     </li>
+                                    <li>
+                                        <a href="adminDiscount">Mã giảm giá</a>
+                                    </li>
+                                    <li>
+                                    <a href="notifications">Thông báo</a>
+                                </li>
                                 </ul>
                             </div>
                         </li>
@@ -934,11 +940,6 @@
                                         <input class="form-check-input" type="radio" name="data-sidenav-size" id="leftbar-size-full" value="full">
                                         <label class="form-check-label p-0 avatar-md w-100" for="leftbar-size-full">
                                             <span class="d-flex h-100">
-                                                <span class="flex-shrink-0">
-                                                    <span class="d-flex h-100 flex-column">
-                                                        <span class="d-block p-1 bg-dark-lighten mb-1"></span>
-                                                    </span>
-                                                </span>
                                                 <span class="flex-grow-1">
                                                     <span class="d-flex h-100 flex-column">
                                                         <span class="bg-light d-block p-1"></span>
@@ -993,6 +994,19 @@
         <!-- App js -->
         <script src="assets/js/app.min.js"></script>
 
+    <script>
+        // Logout function
+        function logout() {
+            // Clear session storage and local storage
+            if (typeof(Storage) !== "undefined") {
+                sessionStorage.clear();
+                localStorage.clear();
+            }
+            
+            // Redirect to auth.jsp
+            window.location.href = '../auth.jsp';
+        }
+    </script>
     </body>
 
     <!-- Mirrored from coderthemes.com/hyper/saas/apps-ecommerce-orders-details.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Dec 2023 13:30:02 GMT -->

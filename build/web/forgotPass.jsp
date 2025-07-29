@@ -1,8 +1,3 @@
-<%-- 
-    Document   : forgotPass
-    Created on : Jul 13, 2024, 4:32:03 PM
-    Author     : DELL
---%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
